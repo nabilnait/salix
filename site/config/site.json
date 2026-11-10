@@ -29,5 +29,5 @@
   "experimenten": {
     "adviseur_agent": false
   },
-  "api_actief": false
+  "api_actief": true
 }

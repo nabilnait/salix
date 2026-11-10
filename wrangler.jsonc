@@ -1,16 +1,41 @@
-// Salix-site op Cloudflare Workers (static assets), vanuit de root van de repo.
-// "wrangler deploy" draait eerst de build (build.command) en publiceert dan site/dist.
-// Cloudflare Workers Builds: root directory leeg, build command leeg, deploy command "npx wrangler deploy".
+// Salix op Cloudflare Workers: statische site (site/dist) + API-worker (/api/*).
+// Workers Builds: root directory leeg, build command leeg,
+// deploy command: npx wrangler d1 migrations apply DB --remote && npx wrangler deploy
+// Waarden met VUL-IN moeten ingevuld zijn vóór deze branch naar main gaat (zie docs/setup-api.md).
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "salix",
+  "main": "site/workers/api/src/index.ts",
   "compatibility_date": "2025-09-01",
   "build": {
     "command": "node site/build/build.mjs"
   },
   "assets": {
     "directory": "./site/dist",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
-  }
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "salix",
+      "database_id": "VUL-IN",
+      "migrations_dir": "site/workers/api/migrations"
+    }
+  ],
+  // Vereist: Email Routing aan op het domein, en MAIL_TO als geverifieerd bestemmingsadres.
+  "send_email": [
+    { "name": "MAILER", "destination_address": "VUL-IN" }
+  ],
+  "vars": {
+    "MAIL_FROM": "VUL-IN",
+    "MAIL_TO": "VUL-IN"
+  },
+  // Max. 5 formulieren per minuut per IP
+  "ratelimits": [
+    { "name": "RL", "namespace_id": "1002", "simple": { "limit": 5, "period": 60 } }
+  ],
+  "observability": { "enabled": true }
 }

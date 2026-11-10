@@ -464,3 +464,15 @@ img, svg { display: block; max-width: 100%; }
 .tekst a { text-underline-offset: 4px; }
 .concept { margin-bottom: 32px; padding: 14px 18px; border-radius: 14px; background: var(--ink); color: var(--on-ink); font-weight: 500; }
 mark.leeg { background: var(--paper-3); color: var(--ink); padding: 0 6px; border-radius: 6px; }
+
+/* ---------- Bedankt + formulierfout ---------- */
+.bedankt { padding: clamp(48px, 9vw, 128px) 0 var(--sectie); }
+.bedankt-in { display: grid; gap: 48px; }
+@media (min-width: 900px) { .bedankt-in { grid-template-columns: 6fr 5fr; gap: 64px; } }
+.bedankt h1 { font: 400 clamp(3rem, 6.4vw, 5.5rem)/.95 var(--serif); letter-spacing: -.025em; }
+.bedankt h2 { font: 600 1.25rem/1.3 var(--sans); margin-bottom: 20px; }
+.tijdlijn { margin: 0 0 32px; padding: 0; list-style: none; display: grid; gap: 8px; counter-reset: stap; }
+.tijdlijn li { counter-increment: stap; display: grid; grid-template-columns: 36px 1fr; gap: 12px; padding: 18px 20px; border-radius: 22px; background: var(--paper-2); }
+.tijdlijn li::before { content: counter(stap); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: var(--on-ink); font-weight: 600; font-size: .875rem; }
+.formulier-fout { padding: 14px 18px; border-radius: 14px; background: var(--ink); color: var(--on-ink); font-weight: 500; }
+.veld [aria-invalid="true"] { border-color: var(--ink); background: var(--paper); }

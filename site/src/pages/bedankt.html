@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+{{> head}}
+<title>{{t:meta.bedankt_titel}}</title>
+<meta name="robots" content="noindex">
+</head>
+<body>
+{{> sprite}}
+{{> nav}}
+<main id="inhoud" class="bedankt">
+  <div class="wrap bedankt-in">
+    <div>
+      <h1>{{t:bedankt.h1}}</h1>
+      <p class="hero-sub">{{t:bedankt.sub}}</p>
+    </div>
+    <section aria-labelledby="nu-titel">
+      <h2 id="nu-titel">{{t:bedankt.nu_h2}}</h2>
+      <ol class="tijdlijn">
+        <li>{{t:bedankt.n1}}</li>
+        <li>{{t:bedankt.n2}}</li>
+        <li>{{t:bedankt.n3}}</li>
+      </ol>
+      <a class="btn btn-secundair btn-groot" href="/">{{t:bedankt.terug}}</a>
+    </section>
+  </div>
+</main>
+{{> voet}}
+</body>
+</html>

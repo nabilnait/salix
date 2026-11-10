@@ -60,7 +60,8 @@
         <h2 id="offerte-titel">{{t:teams.f_h2}}</h2>
         <p class="sectie-sub">{{t:teams.f_sub}}</p>
       </header>
-      <form class="formulier" method="post" action="/api/teams" novalidate data-formulier>
+      <form class="formulier" method="post" action="/api/teams" data-formulier>
+        <p class="formulier-fout veld-breed" role="alert" data-fout hidden>{{t:formulier.fout}}</p>
         <div class="veld">
           <label for="f-naam">{{t:formulier.naam}}</label>
           <input id="f-naam" name="naam" type="text" autocomplete="name" required maxlength="120">

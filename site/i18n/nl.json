@@ -8,7 +8,8 @@
     "teams_titel": "Salix voor teams · Digitale visitekaartjes voor je hele team",
     "teams_beschrijving": "Een digitale visitekaart met NFC-kaart voor elke collega, in jullie huisstijl. {team_koop} kaarten, de {team_totaal}e gratis.",
     "privacy_titel": "Privacyverklaring · Salix",
-    "voorwaarden_titel": "Algemene voorwaarden · Salix"
+    "voorwaarden_titel": "Algemene voorwaarden · Salix",
+    "bedankt_titel": "Bedankt · Salix"
   },
   "nav": {
     "skip": "Naar de inhoud",
@@ -219,7 +220,8 @@
     "verstuur": "Verstuur aanvraag",
     "hp": "Laat dit veld leeg",
     "uit": "Versturen kan binnenkort: het formulier is nog niet gekoppeld.",
-    "verplicht": "verplicht"
+    "verplicht": "verplicht",
+    "fout": "Niet alles is goed ingevuld. Kijk de velden na en probeer opnieuw."
   },
   "juridisch": {
     "concept": "Concept: deze tekst is nog niet juridisch nagekeken.",
@@ -227,5 +229,14 @@
     "bijgewerkt": "Laatst bijgewerkt op {bijgewerkt}.",
     "privacy_h1": "Privacyverklaring",
     "voorwaarden_h1": "Algemene voorwaarden"
+  },
+  "bedankt": {
+    "h1": "Bedankt. Je aanvraag is binnen.",
+    "sub": "Ik bekijk ze persoonlijk en je hoort snel van me.",
+    "nu_h2": "Wat gebeurt er nu?",
+    "n1": "Ik bekijk je aanvraag en stel een voorstel op maat op.",
+    "n2": "Je krijgt binnen 2 werkdagen een mail met het voorstel en de prijs.",
+    "n3": "Akkoord? Dan maak ik voor elke collega een ontwerp, dat jullie eerst goedkeuren.",
+    "terug": "Terug naar de startpagina"
   }
 }

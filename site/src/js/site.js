@@ -44,3 +44,18 @@
   document.querySelectorAll("[data-src]").forEach((el) => { el.value = bron.src || bron.utm_source || ""; });
   document.querySelectorAll("[data-ref]").forEach((el) => { el.value = bron.ref || ""; });
 })();
+
+// Foutmelding tonen als de server het formulier terugstuurt (?fout=veld1,veld2).
+(() => {
+  const fout = new URLSearchParams(location.search).get("fout");
+  const el = document.querySelector("[data-fout]");
+  if (!fout || !el) return;
+  el.hidden = false;
+  const namen = fout.split(",").map((s) => s.replace(/[^a-z]/g, ""));
+  for (const n of namen) {
+    const veld = document.querySelector(`[name="${n}"]`);
+    if (veld) veld.setAttribute("aria-invalid", "true");
+  }
+  const eerste = document.querySelector(`[name="${namen[0]}"]`);
+  if (eerste) eerste.focus();
+})();
