@@ -22,3 +22,7 @@ scans/
 
 # OS
 .DS_Store
+
+# Lokale tooling
+.claude/
+.taste-skill/

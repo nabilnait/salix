@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "titel": "Salix · Eén tik en je contact staat in hun gsm",
+    "beschrijving": "Je visitekaartje als persoonlijke mini-site, met een NFC-kaart erbij. Eén tik op een gsm en je contact staat erin. Begin gratis met je Wallet-kaart."
+  },
+  "nav": {
+    "skip": "Naar de inhoud",
+    "hoofd": "Hoofdmenu",
+    "werkt": "Zo werkt het",
+    "prijzen": "Prijzen",
+    "teams": "Voor teams",
+    "faq": "FAQ",
+    "cta": "Gratis Wallet-kaart",
+    "taal": "Taal"
+  },
+  "hero": {
+    "bewijs": "60+ professionals gingen je voor",
+    "h1_a": "Eén tik.",
+    "h1_b": "Je contact staat in hun gsm.",
+    "sub": "Je visitekaartje als persoonlijke mini-site, met een NFC-kaart erbij. Jij stuurt een foto en drie zinnen, ik maak de rest.",
+    "cta": "Scan je visitekaartje, gratis",
+    "cta_micro": "In 1 minuut een Wallet-kaart voor je iPhone of Android.",
+    "cta2": "Direct bestellen",
+    "beeld_alt": "Echte Salix-kaart van Nabil Nait Oufakir, Naitvision, op een gsm",
+    "melding_titel": "Nabil Nait Oufakir",
+    "melding_tekst": "Contact opslaan",
+    "kaart_label": "NFC-kaart"
+  },
+  "prijzen": {
+    "eyebrow": "Prijzen",
+    "h2": "Eén keer betalen. Geen abonnement.",
+    "sub": "Kies wat je wil geven: een kaart, of alles om je contact te delen. De prijs die je ziet, is de prijs die je betaalt.",
+    "eenmalig": "eenmalig",
+    "kies": "Kies",
+    "niet": "Niet inbegrepen",
+    "optie": "optioneel",
+    "rij": {
+      "site_op_maat": "Contactsite op maat",
+      "wallet_pass": "Apple/Google Wallet-kaart",
+      "kaart": "NFC-kaart",
+      "pen": "NFC-pen",
+      "sleutelhanger": "Sleutelhanger met je logo",
+      "eigen_domein": "Eigen domein",
+      "updates": "{n} gratis aanpassingen"
+    },
+    "waarde": {
+      "metaal": "in metaal",
+      "pvc": "in PVC",
+      "premium": "premium",
+      "standaard": ""
+    },
+    "team_tekst": "Voor je team: 4 kaarten, de 5e gratis.",
+    "team_link": "Vraag een offerte",
+    "twijfel": "Twijfel je nog?",
+    "twijfel_link": "Scan eerst gratis je visitekaartje",
+    "btw": "Geen btw: bijzondere vrijstellingsregeling kleine ondernemingen."
+  },
+  "capaciteit": {
+    "basis": "Ik maak maar een beperkt aantal kaarten per week.",
+    "nog": "Nog {n} plaatsen deze week."
+  }
+}
