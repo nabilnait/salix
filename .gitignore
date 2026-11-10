@@ -1,0 +1,24 @@
+# Build-output
+site/dist/
+dist/
+node_modules/
+.wrangler/
+
+# Secrets: nooit in Git
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+*.p12
+*.pem
+*.key
+*.pkpass
+service-account*.json
+
+# Klantdata: hoort in D1/R2, niet in Git
+leads/
+orders/
+scans/
+
+# OS
+.DS_Store
