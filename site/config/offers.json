@@ -3,10 +3,12 @@
   "versie": 1,
   "valuta": "EUR",
   "btw": {
-    "$comment": "BEVESTIGEN: btw-status (btw-plichtig 21% of vrijstellingsregeling kleine ondernemingen) en of de prijzen incl. of excl. btw zijn.",
-    "status": null,
-    "prijzen_incl_btw": null,
-    "bevestigd": false
+    "$comment": "Vrijgesteld (bijzondere vrijstellingsregeling kleine ondernemingen, art. 56bis WBTW). Er wordt geen btw aangerekend: de getoonde prijs is de totaalprijs. Drempel: € 25.000 omzet per jaar. Wordt die overschreden, dan moeten alle prijzen herzien worden.",
+    "status": "vrijgesteld",
+    "btw_aanrekenen": false,
+    "vermelding": "Bijzondere vrijstellingsregeling kleine ondernemingen",
+    "jaaromzet_drempel": 2500000,
+    "bevestigd": true
   },
 
   "kenmerken": {

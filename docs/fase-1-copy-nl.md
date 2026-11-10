@@ -74,7 +74,7 @@ Hoe je dit leest:
 ### 8. Prijzen · *kans, droom*
 - Eyebrow: Prijzen
 - H2: **Eén keer betalen. Geen abonnement.**
-- Sub: Kies wat je wil geven: een kaart, of alles om je contact te delen.
+- Sub: Kies wat je wil geven: een kaart, of alles om je contact te delen. De prijs die je ziet, is de prijs die je betaalt.
 
 Drie kolommen, in deze volgorde (op gsm onder elkaar, Signature bovenaan):
 
@@ -168,7 +168,7 @@ Ja. Voor 4 kaarten krijg je de 5e gratis, en vanaf 5 stuks betaal je de helft nu
 - Privacy · Voorwaarden
 - NL · EN · FR
 - Instagram · LinkedIn [BEVESTIGEN: links]
-- {{bedrijfsnaam}} · {{adres}} · KBO {{kbo}} · {{btw-vermelding}} [BEVESTIGEN: wettelijk verplicht]
+- {{bedrijfsnaam}} · {{adres}} · Ondernemingsnummer {{kbo}} · Bijzondere vrijstellingsregeling kleine ondernemingen [BEVESTIGEN: naam, adres en nummer zijn wettelijk verplicht]
 
 ---
 
@@ -215,7 +215,8 @@ Opent vooringevuld met `?pakket=` en `?lead=`. Komt de bezoeker via een goedgeke
 ### Stap 3 · Overzicht
 - Pakket + gekozen extra's, elk met prijs
 - Doorverwijscode (vooringevuld als je via `?ref=` kwam): "Korting van {{prijs:referral.vriend}} via {{ref-naam}}"
-- **Totaal: {{totaal}}** {{btw-vermelding}}
+- **Totaal: {{totaal}}**
+- Klein, onder het totaal: Geen btw: bijzondere vrijstellingsregeling kleine ondernemingen.
 - Betalen met Bancontact, kaart, Apple Pay of Google Pay.
 - Knop: **Naar betalen**
 - Onder de knop: Je wordt doorgestuurd naar Stripe om veilig te betalen. Je kaart wordt op maat gemaakt: na betaling geldt het herroepingsrecht niet. [BEVESTIGEN: juridisch]
@@ -234,7 +235,7 @@ Verschijnt als iemand terugkomt van de Stripe-checkout zonder te betalen, of "te
 ## D. Open punten en voorstellen (lees dit eerst)
 
 ### Moet jij beslissen
-1. **Btw**: ben je btw-plichtig of val je onder de vrijstellingsregeling? Zijn de €75 en de andere prijzen incl. of excl. btw? Aan particulieren moet je prijzen incl. btw tonen.
+1. ~~**Btw**~~ **Beantwoord:** vrijgesteld (kleine ondernemingen). Er wordt geen btw aangerekend, de getoonde prijs is de totaalprijs. Let op: boven € 25.000 omzet per jaar vervalt de vrijstelling. Bij 60 kaarten à €75 zit je daar ver onder, maar met de nieuwe pakketten kan het sneller gaan.
 2. **Prijzen upsells**: voorstel metaal +€40, eigen domein +€25 (eenmalige koppeling op een domein van de klant), extra collega −20%. Klopt dat met je kostprijs?
 3. **Kostprijs per pakket** (metaalkaart, pen, premium pen, sleutelhanger, verzending). Die heb ik nodig om te checken of het Money Model klopt: haalt een klant in 30 dagen genoeg winst op om er twee nieuwe te werven? Ik zet ze als `kostprijs` in `offers.json` (komen nooit op de site).
 4. **Aantal gratis aanpassingen** per pakket, en voor welke periode.
@@ -251,5 +252,5 @@ Verschijnt als iemand terugkomt van de Stripe-checkout zonder te betalen, of "te
 13. **Rollover-upsell**: "upgrade naar metaal, je PVC-kaart gaat volledig af". Bedoel je een upgrade naar het metalen pakket (Signature), of alleen de kaart wisselen naar metaal? Ik heb nu Signature ingevuld.
 
 ### Kleuren en font (voor fase 2, maar beter nu beslissen)
-14. De bestaande `salix-site/` in `../Salix/` heeft de kleuren van je Framer-draft al uitgelezen: zwart (`#000`), neutrale grijzen `#09090a` tot `#e4e4e6`, witte knoppen met zwarte tekst. Dat is ook een donker thema. Is dat het palet dat je bedoelt? Dan hoef ik de draft niet meer te openen.
-15. **Font**: de prompt zegt Geist (zoals de klantkaarten), maar je Framer-draft en de bestaande site gebruiken Instrument Sans + Inter. Welke wil je?
+14. ~~**Kleuren**~~ **Beantwoord:** zwart en wit, met neutrale grijzen ertussen voor lijnen en secundaire tekst. Zie `docs/design-keuzes.md`.
+15. ~~**Font**~~ **Beantwoord:** zie `docs/design-keuzes.md`.
