@@ -1,7 +1,7 @@
 // Salix op Cloudflare Workers: statische site (site/dist) + API-worker (/api/*).
 // Workers Builds: root directory leeg, build command leeg,
 // deploy command: npx wrangler d1 migrations apply DB --remote && npx wrangler deploy
-// Waarden met VUL-IN moeten ingevuld zijn vóór deze branch naar main gaat (zie docs/setup-api.md).
+// database_id (VUL-IN) moet ingevuld zijn vóór deze branch naar main gaat (zie docs/setup-api.md).
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "salix",
@@ -25,14 +25,9 @@
       "migrations_dir": "site/workers/api/migrations"
     }
   ],
-  // Vereist: Email Routing aan op het domein, en MAIL_TO als geverifieerd bestemmingsadres.
-  "send_email": [
-    { "name": "MAILER", "destination_address": "VUL-IN" }
-  ],
-  "vars": {
-    "MAIL_FROM": "VUL-IN",
-    "MAIL_TO": "VUL-IN"
-  },
+  // Mailmeldingen staan uit tot er een eigen domein is. Dan komen hier terug:
+  // "send_email": [{ "name": "MAILER", "destination_address": "<inbox>" }],
+  // "vars": { "MAIL_FROM": "website@<domein>", "MAIL_TO": "<inbox>" },
   // Max. 5 formulieren per minuut per IP
   "ratelimits": [
     { "name": "RL", "namespace_id": "1002", "simple": { "limit": 5, "period": 60 } }
