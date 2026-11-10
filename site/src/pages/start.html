@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+{{> head}}
+<title>{{t:meta.start_titel}}</title>
+<meta name="description" content="{{t:meta.start_beschrijving}}">
+<meta name="robots" content="noindex">
+</head>
+<body class="pagina-start">
+{{> sprite}}
+{{> nav-start}}
+<main id="inhoud">
+  <section class="hero" aria-labelledby="hero-titel">
+    <div class="wrap hero-in">
+      <div class="hero-tekst">
+        <p class="bewijs"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>{{t:hero.bewijs}}</p>
+        <h1 id="hero-titel"><span class="h1-a">{{t:start.h1_a}}</span> <span class="h1-b">{{t:start.h1_b}}</span></h1>
+        <p class="hero-sub">{{t:start.sub}}</p>
+        <div class="hero-acties">
+          <a class="btn btn-primair btn-groot" href="/gratis/" data-cta="start-hero">{{t:start.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+{{> beeld}}
+    </div>
+  </section>
+
+  <section class="werkt werkt-kort" aria-labelledby="werkt-titel">
+    <div class="wrap">
+      <header class="sectie-kop"><h2 id="werkt-titel">{{t:start.werkt_h2}}</h2></header>
+      <ol class="stappen">
+        <li class="stap"><h3>{{t:start.w1}}</h3></li>
+        <li class="stap"><h3>{{t:start.w2}}</h3></li>
+        <li class="stap stap-zwart"><h3>{{t:start.w3}}</h3></li>
+      </ol>
+    </div>
+  </section>
+
+{{voorbeelden}}
+
+  <section class="prijzen prijzen-kort" aria-labelledby="prijzen-titel">
+    <div class="wrap">
+      <header class="sectie-kop">
+        <h2 id="prijzen-titel">{{t:start_prijzen.h2}}</h2>
+        <p class="sectie-sub">{{t:start_prijzen.sub}}</p>
+      </header>
+      <ul class="prijsrij">{{prijsrij}}</ul>
+      <p class="btw">{{t:prijzen.btw}}</p>
+    </div>
+  </section>
+
+{{> faq-kort}}
+
+  <section class="slot" aria-labelledby="slot-titel">
+    <div class="wrap slot-in">
+      <h2 id="slot-titel">{{t:start.slot_h2}}</h2>
+      <p class="slot-cap">{{capaciteit}}</p>
+      <div class="cta-rij">
+        <a class="btn btn-wit btn-groot" href="/gratis/" data-cta="start-slot">{{t:start.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+{{> voet}}
+</body>
+</html>

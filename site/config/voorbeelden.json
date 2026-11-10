@@ -1,0 +1,13 @@
+{
+  "$comment": "Echte klantkaarten voor de sectie Voorbeelden. Alleen met toestemming. Beeld = screenshot van de kaart op 390px, in src/img/.",
+  "items": [
+    {
+      "naam": "Nabil Nait Oufakir",
+      "functie": "Fotograaf & videograaf, Naitvision",
+      "url": "https://naitvision.pages.dev/",
+      "beeld": "/img/kaart-naitvision.webp",
+      "beeld_klein": "/img/kaart-naitvision-390.webp",
+      "toestemming": true
+    }
+  ]
+}

@@ -1,80 +1,26 @@
 <!doctype html>
 <html lang="{{lang}}">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{{> head}}
 <title>{{t:meta.titel}}</title>
 <meta name="description" content="{{t:meta.beschrijving}}">
-<meta name="theme-color" content="#ffffff">
-<link rel="preload" href="{{asset:/fonts/instrument-serif-latin-400-normal.woff2}}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{{asset:/fonts/geist-latin.woff2}}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{{asset:/css/site.css}}">
 </head>
 <body>
 {{> sprite}}
 {{> nav}}
-
 <main id="inhoud">
-
-  <!-- ===== Hero ===== -->
-  <section class="hero" aria-labelledby="hero-titel">
-    <div class="wrap hero-in">
-      <div class="hero-tekst">
-        <p class="bewijs"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>{{t:hero.bewijs}}</p>
-        <h1 id="hero-titel"><span class="h1-a">{{t:hero.h1_a}}</span> <span class="h1-b">{{t:hero.h1_b}}</span></h1>
-        <p class="hero-sub">{{t:hero.sub}}</p>
-        <div class="hero-acties">
-          <a class="btn btn-primair btn-groot" href="/gratis/" data-cta="hero">{{t:hero.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-secundair btn-groot" href="/bestel/" data-cta="hero-bestel">{{t:hero.cta2}}</a>
-        </div>
-        <p class="hero-micro">{{t:hero.cta_micro}}</p>
-      </div>
-
-      <div class="hero-beeld">
-        <div class="podium" aria-hidden="true"></div>
-        <figure class="gsm">
-          <div class="gsm-scherm">
-            <picture>
-              <source media="(max-width: 600px)" srcset="{{asset:/img/kaart-naitvision-390.webp}}">
-              <img src="{{asset:/img/kaart-naitvision.webp}}" width="390" height="844" alt="{{t:hero.beeld_alt}}" fetchpriority="high">
-            </picture>
-            <div class="melding" aria-hidden="true">
-              <span class="melding-icoon"><svg class="i"><use href="#i-user-plus"/></svg></span>
-              <span class="melding-tekst"><strong>{{t:hero.melding_titel}}</strong><span>{{t:hero.melding_tekst}}</span></span>
-            </div>
-          </div>
-        </figure>
-        <div class="nfc-kaart" aria-hidden="true">
-          <span class="nfc-merk">Salix</span>
-          <svg class="i nfc-icoon"><use href="#i-nfc"/></svg>
-          <span class="nfc-naam">Nabil Nait Oufakir</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Prijzen ===== -->
-  <section class="prijzen" id="prijzen" aria-labelledby="prijzen-titel">
-    <div class="wrap">
-      <header class="sectie-kop">
-        <p class="eyebrow">{{t:prijzen.eyebrow}}</p>
-        <h2 id="prijzen-titel">{{t:prijzen.h2}}</h2>
-        <p class="sectie-sub">{{t:prijzen.sub}}</p>
-      </header>
-
-      <div class="plannen">
-{{prijstabel}}
-      </div>
-
-      <div class="prijzen-voet">
-        <p class="team">{{t:prijzen.team_tekst}} <a href="/teams/" data-cta="prijzen-teams">{{t:prijzen.team_link}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
-        <p class="capaciteit">{{capaciteit}}</p>
-        <p class="twijfel">{{t:prijzen.twijfel}} <a href="/gratis/" data-cta="prijzen-gratis">{{t:prijzen.twijfel_link}}</a></p>
-        <p class="btw">{{t:prijzen.btw}}</p>
-      </div>
-    </div>
-  </section>
-
+{{> hero}}
+{{bewijsstrip}}
+{{> probleem}}
+{{> werkt}}
+{{voorbeelden}}
+{{> features}}
+{{> prijzen}}
+{{> garantie}}
+{{testimonials}}
+{{> faq}}
+{{> slot}}
 </main>
+{{> voet}}
 </body>
 </html>

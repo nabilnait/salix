@@ -1,12 +1,12 @@
 <a class="skip" href="#inhoud">{{t:nav.skip}}</a>
 <header class="kop">
   <div class="wrap kop-in">
-    <a class="woordmerk" href="/" aria-label="Salix, naar de startpagina">Salix</a>
+    <a class="woordmerk" href="/" aria-label="{{t:nav.home}}">Salix</a>
     <nav class="kop-nav" aria-label="{{t:nav.hoofd}}">
-      <a href="#werkt">{{t:nav.werkt}}</a>
-      <a href="#prijzen">{{t:nav.prijzen}}</a>
+      <a href="/#werkt">{{t:nav.werkt}}</a>
+      <a href="/#prijzen">{{t:nav.prijzen}}</a>
       <a href="/teams/">{{t:nav.teams}}</a>
-      <a href="#faq">{{t:nav.faq}}</a>
+      <a href="/#faq">{{t:nav.faq}}</a>
     </nav>
     <div class="kop-rechts">
       <nav class="taal" aria-label="{{t:nav.taal}}">
@@ -14,7 +14,24 @@
         <a href="/en/" hreflang="en" lang="en">EN</a>
         <a href="/fr/" hreflang="fr" lang="fr">FR</a>
       </nav>
-      <a class="btn btn-primair btn-klein" href="/gratis/" data-cta="nav">{{t:nav.cta}}</a>
+      <a class="btn btn-primair btn-klein kop-cta" href="/gratis/" data-cta="nav">{{t:nav.cta}}</a>
+      <details class="menu">
+        <summary class="menu-knop"><svg class="i" aria-hidden="true"><use href="#i-list"/></svg><span>{{t:nav.menu}}</span></summary>
+        <div class="menu-paneel">
+          <nav aria-label="{{t:nav.hoofd}}">
+            <a href="/#werkt">{{t:nav.werkt}}</a>
+            <a href="/#prijzen">{{t:nav.prijzen}}</a>
+            <a href="/teams/">{{t:nav.teams}}</a>
+            <a href="/#faq">{{t:nav.faq}}</a>
+          </nav>
+          <a class="btn btn-primair btn-groot" href="/gratis/" data-cta="menu">{{t:nav.cta}}</a>
+          <nav class="menu-taal" aria-label="{{t:nav.taal}}">
+            <a href="/" hreflang="nl" lang="nl" aria-current="true">NL</a>
+            <a href="/en/" hreflang="en" lang="en">EN</a>
+            <a href="/fr/" hreflang="fr" lang="fr">FR</a>
+          </nav>
+        </div>
+      </details>
     </div>
   </div>
 </header>

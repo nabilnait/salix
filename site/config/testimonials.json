@@ -1,0 +1,4 @@
+{
+  "$comment": "Alleen echte quotes met toestemming: { naam, functie, quote, foto, toestemming: true }. Leeg = de sectie verdwijnt. Een item zonder toestemming: true laat de build falen.",
+  "items": []
+}

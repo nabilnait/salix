@@ -10,6 +10,10 @@
 //   {{prijstabel}}      de drie pakketten uit offers.json
 //   {{capaciteit}}      melding uit config/capacity.json
 //   {{lang}}            taalcode
+//   {{bewijsstrip}} {{voorbeelden}} {{testimonials}}   secties uit config/; leeg = sectie weg
+//   {{voet}}            juridische gegevens + contact uit site.json (lege velden vallen weg)
+// In i18n-teksten: {levering} {dagen} {maanden} {updates_min} {updates_max} {prijs_domein}
+// pages/404.html wordt dist/404.html.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync, statSync, copyFileSync, existsSync } from "node:fs";
 import { join, dirname, relative, extname } from "node:path";
@@ -29,6 +33,9 @@ const json = (p) => JSON.parse(readFileSync(join(ROOT, p), "utf8"));
 const offers = json("config/offers.json");
 const capacity = json("config/capacity.json");
 const site = json("config/site.json");
+const proof = json("config/proof.json");
+const testimonials = json("config/testimonials.json");
+const voorbeelden = json("config/voorbeelden.json");
 
 // ---------- helpers ----------
 const walk = (dir) =>
@@ -117,6 +124,11 @@ function prijstabel(t) {
     .join("\n");
 }
 
+function prijsrij() {
+  return offers.pakketten.filter((p) => p.in_prijstabel).sort((a, b) => a.positie - b.positie)
+    .map((p) => `<li><span class="pr-naam">${esc(p.naam)}</span> <span class="pr-bedrag">${euro(p.prijs)}</span></li>`).join("");
+}
+
 function capaciteit(t) {
   const vrij = capacity.plaatsen_vrij;
   const week = capacity.week;
@@ -129,6 +141,93 @@ function isoWeek(d) {
   x.setUTCDate(x.getUTCDate() + 4 - day);
   const y = new Date(Date.UTC(x.getUTCFullYear(), 0, 1));
   return `${x.getUTCFullYear()}-W${String(Math.ceil(((x - y) / 864e5 + 1) / 7)).padStart(2, "0")}`;
+}
+
+// ---------- variabelen in teksten ----------
+const tabel = offers.pakketten.filter((p) => p.in_prijstabel);
+const upd = tabel.map((p) => p.inhoud.updates).filter((n) => n != null);
+const VARS = {
+  levering: offers.levering.werkdagen_min != null
+    ? (offers.levering.werkdagen_min === offers.levering.werkdagen_max
+        ? String(offers.levering.werkdagen_min)
+        : `${offers.levering.werkdagen_min} tot ${offers.levering.werkdagen_max}`)
+    : null,
+  dagen: offers.garantie?.na_levering_dagen != null ? String(offers.garantie.na_levering_dagen) : null,
+  maanden: offers.garantie?.defect_maanden != null ? String(offers.garantie.defect_maanden) : null,
+  updates_min: upd.length ? String(Math.min(...upd)) : null,
+  updates_max: upd.length ? String(Math.max(...upd)) : null,
+  prijs_domein: upsells.eigen_domein ? euro(upsells.eigen_domein.prijs) : null,
+};
+const vul = (tekst, waar) =>
+  tekst.replace(/\{(\w+)\}/g, (m, k) => {
+    if (!(k in VARS)) return m;
+    if (VARS[k] == null) { errors.push(`${waar}: {${k}} heeft geen waarde in config`); return m; }
+    return VARS[k];
+  });
+
+// ---------- secties uit config ----------
+function bewijsstrip(t) {
+  const items = (proof.items || []).filter((i) => i.toestemming === true);
+  if (!items.length) return "";
+  return `<section class="bewijsstrip" aria-labelledby="bewijs-titel"><div class="wrap">
+  <h2 id="bewijs-titel" class="bewijs-titel">${t("bewijs.titel")}</h2>
+  <ul class="bewijs-lijst">${items.map((i) => `<li>${i.logo ? `<img src="${esc(i.logo)}" alt="${esc(i.naam)}" height="32" loading="lazy">` : esc(i.naam)}</li>`).join("")}</ul>
+</div></section>`;
+}
+
+function voorbeeldenSectie(t) {
+  const items = (voorbeelden.items || []).filter((i) => i.toestemming === true);
+  if (!items.length) return "";
+  const kaarten = items.map((i) => `<li class="vb">
+    <a class="vb-link" href="${esc(i.url)}" rel="noopener" target="_blank">
+      <span class="gsm gsm-klein"><span class="gsm-scherm">
+        <img src="${esc(i.beeld_klein || i.beeld)}" width="390" height="844" loading="lazy" alt="${esc(t("voorbeelden.alt").replace("{naam}", i.naam))}">
+      </span></span>
+      <span class="vb-naam">${esc(i.naam)}</span>
+      <span class="vb-functie">${esc(i.functie)}</span>
+      <span class="vb-bekijk">${t("voorbeelden.bekijk")}<svg class="i" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span>
+    </a></li>`).join("");
+  return `<section class="voorbeelden" id="voorbeelden" aria-labelledby="vb-titel"><div class="wrap">
+  <header class="sectie-kop">
+    <p class="eyebrow">${t("voorbeelden.eyebrow")}</p>
+    <h2 id="vb-titel">${t("voorbeelden.h2")}</h2>
+    <p class="sectie-sub">${t("voorbeelden.sub")}</p>
+  </header>
+  <ul class="vb-lijst vb-aantal-${Math.min(items.length, 3)}">${kaarten}</ul>
+</div></section>`;
+}
+
+function testimonialsSectie(t) {
+  for (const i of testimonials.items || [])
+    if (i.toestemming !== true) errors.push(`testimonials.json: "${i.naam || "?"}" heeft geen toestemming: true`);
+  const items = (testimonials.items || []).filter((i) => i.toestemming === true);
+  if (!items.length) return "";
+  return `<section class="testimonials" aria-labelledby="test-titel"><div class="wrap">
+  <header class="sectie-kop"><p class="eyebrow">${t("testimonials.eyebrow")}</p><h2 id="test-titel">${t("testimonials.h2")}</h2></header>
+  <ul class="test-lijst">${items.map((i) => `<li><figure><blockquote><p>${esc(i.quote)}</p></blockquote>
+    <figcaption>${i.foto ? `<img src="${esc(i.foto)}" alt="" width="48" height="48" loading="lazy">` : ""}<span><strong>${esc(i.naam)}</strong> ${esc(i.functie || "")}</span></figcaption></figure></li>`).join("")}</ul>
+</div></section>`;
+}
+
+function voet(t) {
+  const j = site.juridisch || {};
+  const delen = [j.naam, j.adres, j.ondernemingsnummer && `Ondernemingsnummer ${j.ondernemingsnummer}`, j.btw_vermelding].filter(Boolean);
+  const c = site.contact || {};
+  const s = site.socials || {};
+  const contact = [
+    c.email && `<li><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>`,
+    c.whatsapp && `<li><a href="https://wa.me/${esc(c.whatsapp.replace(/\D/g, ""))}" rel="noopener">WhatsApp</a></li>`,
+  ].filter(Boolean).join("");
+  const socials = [
+    s.instagram && `<li><a href="${esc(s.instagram)}" rel="noopener">Instagram</a></li>`,
+    s.linkedin && `<li><a href="${esc(s.linkedin)}" rel="noopener">LinkedIn</a></li>`,
+  ].filter(Boolean).join("");
+  return `<div class="voet-kolommen">
+    ${contact ? `<div><h2 class="voet-kop">${t("voet.contact")}</h2><ul>${contact}</ul></div>` : ""}
+    <div><h2 class="voet-kop">${t("voet.juridisch")}</h2><ul><li><a href="/privacy/">${t("voet.privacy")}</a></li><li><a href="/voorwaarden/">${t("voet.voorwaarden")}</a></li></ul></div>
+    ${socials ? `<div><h2 class="voet-kop">${t("voet.volg")}</h2><ul>${socials}</ul></div>` : ""}
+  </div>
+  <p class="voet-juridisch">© ${new Date().getFullYear()} ${delen.map(esc).join(" · ")}</p>`;
 }
 
 // ---------- assets kopiëren ----------
@@ -157,19 +256,26 @@ const partial = (name) => {
 
 for (const lang of TALEN) {
   const dict = json(`i18n/${lang}.json`);
+  if (/€\s?\d/.test(JSON.stringify(dict))) errors.push(`i18n/${lang}.json: hardgecodeerde prijs, gebruik {prijs_…}`);
   const t = (k) => {
     const v = get(dict, k);
     if (typeof v !== "string") { errors.push(`[${lang}] ontbrekende vertaling: ${k}`); return `[[${k}]]`; }
-    return v;
+    return vul(v, `[${lang}] ${k}`);
   };
   for (const file of readdirSync(join(SRC, "pages")).filter((f) => f.endsWith(".html"))) {
     let html = readFileSync(join(SRC, "pages", file), "utf8");
     // Bronbestanden mogen geen bedragen bevatten: prijzen komen uit offers.json.
     if (/€\s?\d/.test(html)) errors.push(`${file}: hardgecodeerde prijs, gebruik {{prijs:…}}`);
-    html = html.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, n) => partial(n));
+    for (let i = 0; i < 5 && /\{\{>/.test(html); i++)
+      html = html.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, n) => partial(n));
     html = html
       .replace(/\{\{prijstabel\}\}/g, () => prijstabel(t))
       .replace(/\{\{capaciteit\}\}/g, () => capaciteit(t))
+      .replace(/\{\{prijsrij\}\}/g, () => prijsrij())
+      .replace(/\{\{bewijsstrip\}\}/g, () => bewijsstrip(t))
+      .replace(/\{\{voorbeelden\}\}/g, () => voorbeeldenSectie(t))
+      .replace(/\{\{testimonials\}\}/g, () => testimonialsSectie(t))
+      .replace(/\{\{voet\}\}/g, () => voet(t))
       .replace(/\{\{lang\}\}/g, lang)
       .replace(/\{\{t:([\w.]+)\}\}/g, (_, k) => t(k))
       .replace(/\{\{prijs:([\w.]+)\}\}/g, (_, k) => prijs(k))
@@ -192,7 +298,9 @@ for (const lang of TALEN) {
 
     const name = file.replace(/\.html$/, "");
     const base = lang === "nl" ? DIST : join(DIST, lang);
-    const out = name === "index" ? join(base, "index.html") : join(base, name, "index.html");
+    const out = name === "index" ? join(base, "index.html")
+      : name === "404" ? join(base, "404.html")
+      : join(base, name, "index.html");
     mkdirSync(dirname(out), { recursive: true });
     writeFileSync(out, html);
   }
