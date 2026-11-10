@@ -11,6 +11,11 @@
 //   {{capaciteit}}      melding uit config/capacity.json
 //   {{lang}}            taalcode
 //   {{bewijsstrip}} {{voorbeelden}} {{testimonials}}   secties uit config/; leeg = sectie weg
+//   {{>t naam}}         src/partials/naam.<taal>.html (lange teksten, zoals juridische pagina's)
+//   {{site:pad}}        waarde uit site.json; leeg = zichtbare placeholder (en --strict faalt al)
+//   {{formulier}}       " disabled" zolang site.json api_actief false is; {{formulier_melding}} legt dat uit
+//   {{concept}}         conceptbanner zolang juridisch.nagekeken false is
+//   {{prijs:team.<id>}} prijs van een teamset (koop x pakketprijs, gratis kaart inbegrepen)
 //   {{voet}}            juridische gegevens + contact uit site.json (lege velden vallen weg)
 // In i18n-teksten: {levering} {dagen} {maanden} {updates_min} {updates_max} {prijs_domein}
 // pages/404.html wordt dist/404.html.
@@ -63,6 +68,7 @@ function prijs(id) {
     if (u?.korting_pct != null) return `−${u.korting_pct}%`;
   }
   if (id === "referral.vriend") return euro(offers.referral.vriend_korting);
+  if (id.startsWith("team.") && pakketten[id.slice(5)]) return euro(pakketten[id.slice(5)].prijs * offers.teams.koop);
   errors.push(`Onbekende prijs: {{prijs:${id}}}`);
   return "";
 }
@@ -157,6 +163,10 @@ const VARS = {
   updates_min: upd.length ? String(Math.min(...upd)) : null,
   updates_max: upd.length ? String(Math.max(...upd)) : null,
   prijs_domein: upsells.eigen_domein ? euro(upsells.eigen_domein.prijs) : null,
+  team_koop: String(offers.teams.koop),
+  team_totaal: String(offers.teams.koop + offers.teams.gratis),
+  team_betaalplan: String(offers.teams.betaalplan.vanaf_aantal),
+  bijgewerkt: site.juridisch?.laatst_bijgewerkt ?? null,
 };
 const vul = (tekst, waar) =>
   tekst.replace(/\{(\w+)\}/g, (m, k) => {
@@ -230,6 +240,9 @@ function voet(t) {
   <p class="voet-juridisch">© ${new Date().getFullYear()} ${delen.map(esc).join(" · ")}</p>`;
 }
 
+if (site.juridisch?.nagekeken !== true) (STRICT ? errors : warnings).push("Juridische teksten nog niet nagekeken (site.json juridisch.nagekeken)");
+if (site.api_actief !== true) warnings.push("Formulieren staan uit (site.json api_actief)");
+
 // ---------- assets kopiëren ----------
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
@@ -267,7 +280,9 @@ for (const lang of TALEN) {
     // Bronbestanden mogen geen bedragen bevatten: prijzen komen uit offers.json.
     if (/€\s?\d/.test(html)) errors.push(`${file}: hardgecodeerde prijs, gebruik {{prijs:…}}`);
     for (let i = 0; i < 5 && /\{\{>/.test(html); i++)
-      html = html.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, n) => partial(n));
+      html = html
+        .replace(/\{\{>t\s+([\w-]+)\s*\}\}/g, (_, n) => vul(partial(`${n}.${lang}`), `${n}.${lang}.html`))
+        .replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, n) => partial(n));
     html = html
       .replace(/\{\{prijstabel\}\}/g, () => prijstabel(t))
       .replace(/\{\{capaciteit\}\}/g, () => capaciteit(t))
@@ -276,6 +291,13 @@ for (const lang of TALEN) {
       .replace(/\{\{voorbeelden\}\}/g, () => voorbeeldenSectie(t))
       .replace(/\{\{testimonials\}\}/g, () => testimonialsSectie(t))
       .replace(/\{\{voet\}\}/g, () => voet(t))
+      .replace(/\{\{formulier\}\}/g, () => (site.api_actief === true ? "" : " disabled"))
+      .replace(/\{\{formulier_melding\}\}/g, () => (site.api_actief === true ? "" : `<p class="melding-uit" role="status">${t("formulier.uit")}</p>`))
+      .replace(/\{\{concept\}\}/g, () => (site.juridisch?.nagekeken === true ? "" : `<p class="concept" role="note">${t("juridisch.concept")}</p>`))
+      .replace(/\{\{site:([\w.]+)\}\}/g, (_, k) => {
+        const v = get(site, k);
+        return v == null ? `<mark class="leeg">[${t("juridisch.leeg")}: ${k}]</mark>` : esc(v);
+      })
       .replace(/\{\{lang\}\}/g, lang)
       .replace(/\{\{t:([\w.]+)\}\}/g, (_, k) => t(k))
       .replace(/\{\{prijs:([\w.]+)\}\}/g, (_, k) => prijs(k))

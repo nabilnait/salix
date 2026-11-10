@@ -408,3 +408,59 @@ img, svg { display: block; max-width: 100%; }
   .reveal-aan [data-reveal] { opacity: 1; transform: none; transition: none; }
   .gsm-klein, .vraag summary .i { transition: none; }
 }
+
+/* ---------- /teams ---------- */
+.team-stapel { position: relative; height: clamp(280px, 40vw, 420px); overflow: clip; overflow-clip-margin: 24px; }
+@media (max-width: 599px) { .team-stapel { overflow: hidden; } .team-kaart { width: 62vw; } }
+.team-kaart { position: absolute; left: 50%; top: 50%; bottom: auto; width: min(70vw, 300px); margin: 0; animation: none; }
+.team-kaart.k1 { transform: translate(-58%, -78%) rotate(-10deg); background: var(--paper-2); color: var(--ink); }
+.team-kaart.k1 .nfc-icoon, .team-kaart.k1 .nfc-naam { color: var(--ink-2); }
+.team-kaart.k2 { transform: translate(-44%, -50%) rotate(-3deg); background: #3f3f46; }
+.team-kaart.k3 { transform: translate(-30%, -20%) rotate(5deg); }
+.reken-rij { margin-top: 0; }
+.rekenen { padding: 0 0 var(--sectie); background: var(--paper-2); }
+.werkt + .rekenen { padding-top: 0; }
+.rekenen .btw { margin-top: 20px; text-align: center; color: var(--ink-2); font-size: .875rem; }
+.reken-rij li { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+/* ---------- Formulier ---------- */
+.offerte { padding: var(--sectie) 0; }
+.offerte-in { display: grid; gap: 40px; }
+@media (min-width: 900px) { .offerte-in { grid-template-columns: 5fr 7fr; gap: 64px; } }
+.offerte .sectie-sub { margin: 20px 0 0; }
+.formulier { display: grid; gap: 18px; }
+@media (min-width: 640px) { .formulier { grid-template-columns: 1fr 1fr; } .veld-breed { grid-column: 1 / -1; } }
+.veld { display: grid; gap: 8px; }
+.veld label { font-weight: 500; font-size: .9375rem; }
+.opt { color: var(--ink-2); font-weight: 400; }
+.veld input, .veld select, .veld textarea {
+  width: 100%; min-height: 52px; padding: 12px 16px;
+  font: 400 1rem/1.4 var(--sans); color: var(--ink);
+  background: var(--paper-2); border: 2px solid transparent; border-radius: 14px;
+  transition: border-color .2s, background-color .2s;
+}
+.veld textarea { resize: vertical; min-height: 120px; }
+.veld input:hover, .veld select:hover, .veld textarea:hover { background: var(--paper-3); }
+.veld input:focus, .veld select:focus, .veld textarea:focus { outline: none; border-color: var(--ink); background: var(--paper); }
+.veld-check { grid-template-columns: auto 1fr; align-items: start; gap: 12px; }
+.veld-check input { width: 22px; height: 22px; min-height: 0; margin: 2px 0 0; accent-color: var(--ink); }
+.veld-check label { font-weight: 400; }
+.veld-check a { font-weight: 500; text-underline-offset: 4px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.btn:disabled { background: var(--paper-3); color: var(--ink-3); cursor: not-allowed; transform: none; }
+.btn:disabled .i { transform: none; }
+.melding-uit { margin-top: 12px; color: var(--ink-2); font-size: .9375rem; }
+
+/* ---------- Juridische pagina's ---------- */
+.juridisch { padding: clamp(40px, 8vw, 112px) 0 var(--sectie); }
+.tekst { max-width: 760px; }
+.tekst h1 { font: 400 clamp(2.75rem, 6vw, 4.5rem)/1 var(--serif); letter-spacing: -.02em; }
+.bijgewerkt { margin: 16px 0 40px; color: var(--ink-2); }
+.tekst h2 { font: 600 1.375rem/1.3 var(--sans); margin: 48px 0 12px; letter-spacing: -.01em; }
+.tekst h3 { font: 600 1.0625rem/1.4 var(--sans); margin: 28px 0 8px; }
+.tekst p, .tekst li { max-width: 68ch; }
+.tekst p + p { margin-top: 12px; }
+.tekst ul, .tekst ol { margin: 12px 0; padding-left: 1.25em; display: grid; gap: 8px; }
+.tekst a { text-underline-offset: 4px; }
+.concept { margin-bottom: 32px; padding: 14px 18px; border-radius: 14px; background: var(--ink); color: var(--on-ink); font-weight: 500; }
+mark.leeg { background: var(--paper-3); color: var(--ink); padding: 0 6px; border-radius: 6px; }

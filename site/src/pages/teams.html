@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+{{> head}}
+<title>{{t:meta.teams_titel}}</title>
+<meta name="description" content="{{t:meta.teams_beschrijving}}">
+</head>
+<body>
+{{> sprite}}
+{{> nav}}
+<main id="inhoud">
+
+  <section class="hero hero-teams" aria-labelledby="hero-titel">
+    <div class="wrap hero-in">
+      <div class="hero-tekst">
+        <p class="bewijs"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>{{t:hero.bewijs}}</p>
+        <h1 id="hero-titel"><span class="h1-a">{{t:teams.h1_a}}</span> <span class="h1-b">{{t:teams.h1_b}}</span></h1>
+        <p class="hero-sub">{{t:teams.sub}}</p>
+        <div class="hero-acties">
+          <a class="btn btn-primair btn-groot" href="#offerte" data-cta="teams-hero">{{t:teams.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="team-stapel" aria-hidden="true">
+        <div class="nfc-kaart team-kaart k1"><span class="nfc-merk">Salix</span><svg class="i nfc-icoon"><use href="#i-nfc"/></svg><span class="nfc-naam">Sales</span></div>
+        <div class="nfc-kaart team-kaart k2"><span class="nfc-merk">Salix</span><svg class="i nfc-icoon"><use href="#i-nfc"/></svg><span class="nfc-naam">Projectleider</span></div>
+        <div class="nfc-kaart team-kaart k3"><span class="nfc-merk">Salix</span><svg class="i nfc-icoon"><use href="#i-nfc"/></svg><span class="nfc-naam">Zaakvoerder</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="werkt" aria-labelledby="voordelen-titel">
+    <div class="wrap">
+      <header class="sectie-kop" data-reveal><h2 id="voordelen-titel">{{t:teams.v_h2}}</h2></header>
+      <ul class="stappen">
+        <li class="stap stap-zwart" data-reveal><h3>{{t:teams.v1_titel}}</h3><p>{{t:teams.v1_tekst}}</p></li>
+        <li class="stap" data-reveal><h3>{{t:teams.v2_titel}}</h3><p>{{t:teams.v2_tekst}}</p></li>
+        <li class="stap" data-reveal><h3>{{t:teams.v3_titel}}</h3><p>{{t:teams.v3_tekst}}</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="rekenen" aria-labelledby="rekenen-titel">
+    <div class="wrap">
+      <header class="sectie-kop" data-reveal>
+        <h2 id="rekenen-titel">{{t:teams.r_h2}}</h2>
+        <p class="sectie-sub">{{t:teams.r_sub}}</p>
+      </header>
+      <ul class="prijsrij reken-rij">
+        <li><span class="pr-naam">{{t:teams.r_kaarten}} Signature</span> <span class="pr-bedrag">{{prijs:team.signature}}</span></li>
+        <li><span class="pr-naam">{{t:teams.r_kaarten}} Complete set</span> <span class="pr-bedrag">{{prijs:team.complete}}</span></li>
+        <li><span class="pr-naam">{{t:teams.r_kaarten}} Essentials</span> <span class="pr-bedrag">{{prijs:team.essentials}}</span></li>
+      </ul>
+      <p class="btw">{{t:prijzen.btw}}</p>
+    </div>
+  </section>
+
+  <section class="offerte" id="offerte" aria-labelledby="offerte-titel">
+    <div class="wrap offerte-in">
+      <header class="faq-kop">
+        <h2 id="offerte-titel">{{t:teams.f_h2}}</h2>
+        <p class="sectie-sub">{{t:teams.f_sub}}</p>
+      </header>
+      <form class="formulier" method="post" action="/api/teams" novalidate data-formulier>
+        <div class="veld">
+          <label for="f-naam">{{t:formulier.naam}}</label>
+          <input id="f-naam" name="naam" type="text" autocomplete="name" required maxlength="120">
+        </div>
+        <div class="veld">
+          <label for="f-bedrijf">{{t:formulier.bedrijf}}</label>
+          <input id="f-bedrijf" name="bedrijf" type="text" autocomplete="organization" required maxlength="160">
+        </div>
+        <div class="veld">
+          <label for="f-email">{{t:formulier.email}}</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="200">
+        </div>
+        <div class="veld">
+          <label for="f-tel">{{t:formulier.telefoon}} <span class="opt">({{t:formulier.optioneel}})</span></label>
+          <input id="f-tel" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" maxlength="40">
+        </div>
+        <div class="veld">
+          <label for="f-aantal">{{t:formulier.aantal}}</label>
+          <input id="f-aantal" name="aantal" type="number" inputmode="numeric" min="2" max="500" required>
+        </div>
+        <div class="veld">
+          <label for="f-pakket">{{t:formulier.pakket}}</label>
+          <select id="f-pakket" name="pakket">
+            <option value="">{{t:formulier.pakket_weet_niet}}</option>
+            <option value="signature">Signature</option>
+            <option value="complete">Complete set</option>
+            <option value="essentials">Essentials</option>
+          </select>
+        </div>
+        <div class="veld veld-breed">
+          <label for="f-bericht">{{t:formulier.bericht}} <span class="opt">({{t:formulier.optioneel}})</span></label>
+          <textarea id="f-bericht" name="bericht" rows="4" maxlength="2000"></textarea>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">{{t:formulier.hp}}</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="src" value="" data-src>
+        <input type="hidden" name="ref" value="" data-ref>
+        <div class="veld veld-breed veld-check">
+          <input id="f-ok" name="toestemming" type="checkbox" value="ja" required>
+          <label for="f-ok">{{t:formulier.toestemming}} <a href="/privacy/">{{t:formulier.privacy_link}}</a></label>
+        </div>
+        <div class="veld-breed">
+          <button class="btn btn-primair btn-groot" type="submit"{{formulier}}>{{t:formulier.verstuur}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          {{formulier_melding}}
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+{{> voet}}
+</body>
+</html>

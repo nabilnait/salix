@@ -30,3 +30,17 @@
     });
   }
 })();
+
+// Herkomst (src, utm, ref) onthouden voor deze sessie en meegeven in formulieren. Geen cookies.
+(() => {
+  let bron = {};
+  try { bron = JSON.parse(sessionStorage.getItem("salix-bron") || "{}"); } catch {}
+  const q = new URLSearchParams(location.search);
+  for (const k of ["src", "ref", "c", "utm_source", "utm_medium", "utm_campaign", "utm_content"]) {
+    const v = q.get(k);
+    if (v) bron[k] = v.slice(0, 80);
+  }
+  try { sessionStorage.setItem("salix-bron", JSON.stringify(bron)); } catch {}
+  document.querySelectorAll("[data-src]").forEach((el) => { el.value = bron.src || bron.utm_source || ""; });
+  document.querySelectorAll("[data-ref]").forEach((el) => { el.value = bron.ref || ""; });
+})();

@@ -307,9 +307,10 @@
     "voorbeeld_eerst": "Je ziet je ontwerp altijd vóór je kaart gemaakt wordt. Via het gratis voorbeeld betaal je pas na goedkeuring. Bestel je direct, dan krijg je na betaling eerst je ontwerp te zien en pas ik het aan tot het klopt.",
     "na_levering": "Klopt er iets niet binnen 30 dagen na levering? Ik pas het kosteloos aan.",
     "na_levering_dagen": 30,
-    "defecte_kaart": "Werkt de NFC-chip niet binnen 12 maanden na levering, dan vervang ik de kaart gratis.",
-    "defect_maanden": 12,
+    "defecte_kaart": "Werkt de NFC-chip niet binnen 24 maanden na levering, dan vervang ik de kaart gratis.",
+    "defect_maanden": 24,
     "voorlopig": true,
-    "bevestigd": false
+    "bevestigd": false,
+    "$comment": "Wettelijke garantie voor consumenten in België: 2 jaar op goederen (conformiteit). Een commerciële garantie mag daar niet onder gaan, dus minstens 24 maanden."
   }
 }

@@ -3,7 +3,11 @@
   "merk": "Salix",
   "domein": null,
   "basispagina_pad": "/p/",
-  "talen": ["nl", "en", "fr"],
+  "talen": [
+    "nl",
+    "en",
+    "fr"
+  ],
   "standaardtaal": "nl",
   "contact": {
     "email": null,
@@ -14,13 +18,16 @@
     "linkedin": null
   },
   "juridisch": {
-    "$comment": "Wettelijk verplicht op een Belgische bedrijfssite (WER boek XII).",
+    "$comment": "Wettelijk verplicht op een Belgische bedrijfssite (WER boek XII). 'nagekeken: false' toont een conceptbanner op privacy en voorwaarden; --strict faalt erop.",
     "naam": null,
     "adres": null,
     "ondernemingsnummer": null,
-    "btw_vermelding": "Bijzondere vrijstellingsregeling kleine ondernemingen"
+    "btw_vermelding": "Bijzondere vrijstellingsregeling kleine ondernemingen",
+    "nagekeken": false,
+    "laatst_bijgewerkt": "11 november 2026"
   },
   "experimenten": {
     "adviseur_agent": false
-  }
+  },
+  "api_actief": false
 }

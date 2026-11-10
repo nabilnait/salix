@@ -4,7 +4,11 @@
     "beschrijving": "Je visitekaartje als persoonlijke mini-site, met een NFC-kaart erbij. Eén tik op een gsm en je contact staat erin. Begin gratis met je Wallet-kaart.",
     "start_titel": "Salix · Je visitekaartje gratis in je Wallet",
     "start_beschrijving": "Scan je papieren visitekaartje en krijg gratis een digitale versie in je Apple of Google Wallet. In 1 minuut, zonder app.",
-    "404_titel": "Pagina niet gevonden · Salix"
+    "404_titel": "Pagina niet gevonden · Salix",
+    "teams_titel": "Salix voor teams · Digitale visitekaartjes voor je hele team",
+    "teams_beschrijving": "Een digitale visitekaart met NFC-kaart voor elke collega, in jullie huisstijl. {team_koop} kaarten, de {team_totaal}e gratis.",
+    "privacy_titel": "Privacyverklaring · Salix",
+    "voorwaarden_titel": "Algemene voorwaarden · Salix"
   },
   "nav": {
     "skip": "Naar de inhoud",
@@ -121,7 +125,7 @@
     "g1_tekst": "Je ziet je ontwerp altijd vóór je kaart gemaakt wordt. Via het gratis voorbeeld betaal je pas als je het goedkeurt.",
     "g2_titel": "{dagen} dagen om te tikken",
     "g2_tekst": "Klopt er iets niet binnen {dagen} dagen na levering? Ik pas het kosteloos aan.",
-    "g3_titel": "{maanden} maanden op je chip",
+    "g3_titel": "2 jaar op je chip",
     "g3_tekst": "Werkt je NFC-kaart niet binnen {maanden} maanden, dan krijg je gratis een nieuwe."
   },
   "testimonials": {
@@ -181,5 +185,47 @@
     "h1": "Deze pagina bestaat niet.",
     "tekst": "Misschien is de link verouderd. Je contact opslaan kan wel nog altijd in één tik.",
     "terug": "Naar de startpagina"
+  },
+  "teams": {
+    "h1_a": "Eén huisstijl.",
+    "h1_b": "Het hele team in hun gsm.",
+    "sub": "Een kaart op maat voor elke collega, in jullie kleuren en met jullie logo. Ik regel alles, jij hebt één aanspreekpunt.",
+    "cta": "Vraag een offerte",
+    "v_h2": "Waarom teams voor Salix kiezen.",
+    "v1_titel": "{team_totaal} kaarten voor de prijs van {team_koop}",
+    "v1_tekst": "Bestel je {team_koop} kaarten, dan krijg je de {team_totaal}e gratis.",
+    "v2_titel": "In twee keer betalen",
+    "v2_tekst": "Vanaf {team_betaalplan} kaarten betaal je de helft nu en de helft bij levering.",
+    "v3_titel": "Eén aanspreekpunt",
+    "v3_tekst": "Nieuwe collega of nieuw nummer? Eén bericht is genoeg, ik pas het aan.",
+    "r_h2": "Zo reken je het uit.",
+    "r_sub": "Voorbeeld voor een team van {team_totaal}: je betaalt er {team_koop}.",
+    "r_kaarten": "{team_totaal} kaarten",
+    "f_h2": "Vraag een offerte",
+    "f_sub": "Vertel me kort wie jullie zijn. Je krijgt binnen 2 werkdagen een voorstel op maat."
+  },
+  "formulier": {
+    "naam": "Je naam",
+    "bedrijf": "Bedrijf",
+    "email": "E-mail",
+    "telefoon": "Telefoon",
+    "optioneel": "optioneel",
+    "aantal": "Aantal personen",
+    "pakket": "Pakket",
+    "pakket_weet_niet": "Weet ik nog niet",
+    "bericht": "Wil je nog iets kwijt?",
+    "toestemming": "Je mag mijn gegevens gebruiken om deze aanvraag te beantwoorden.",
+    "privacy_link": "Privacyverklaring",
+    "verstuur": "Verstuur aanvraag",
+    "hp": "Laat dit veld leeg",
+    "uit": "Versturen kan binnenkort: het formulier is nog niet gekoppeld.",
+    "verplicht": "verplicht"
+  },
+  "juridisch": {
+    "concept": "Concept: deze tekst is nog niet juridisch nagekeken.",
+    "leeg": "nog in te vullen",
+    "bijgewerkt": "Laatst bijgewerkt op {bijgewerkt}.",
+    "privacy_h1": "Privacyverklaring",
+    "voorwaarden_h1": "Algemene voorwaarden"
   }
 }
