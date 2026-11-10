@@ -1,0 +1,7 @@
+{
+  "$comment": "Met de hand bijwerken. Bron van de melding 'Nog {N} plaatsen deze week'. Staat 'plaatsen_vrij' op null of is 'week' verlopen, dan toont de site geen aantal (nooit een verzonnen getal).",
+  "week": null,
+  "plaatsen_per_week": null,
+  "plaatsen_vrij": null,
+  "bijgewerkt_op": null
+}
