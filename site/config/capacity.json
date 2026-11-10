@@ -1,7 +1,8 @@
 {
-  "$comment": "Met de hand bijwerken. Bron van de melding 'Nog {N} plaatsen deze week'. Staat 'plaatsen_vrij' op null of is 'week' verlopen, dan toont de site geen aantal (nooit een verzonnen getal).",
+  "$comment": "Met de hand bijwerken. 'plaatsen_vrij' toont de site als 'Nog N plaatsen deze week'. Zolang het null is of 'week' verlopen is, toont de site alleen 'Ik maak maar een beperkt aantal kaarten per week' en geen getal: een verzonnen aantal mag nooit op de site.",
   "week": null,
-  "plaatsen_per_week": null,
+  "plaatsen_per_week": 10,
   "plaatsen_vrij": null,
-  "bijgewerkt_op": null
+  "bijgewerkt_op": null,
+  "voorlopig": true
 }

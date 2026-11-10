@@ -89,7 +89,7 @@ Alles, in metaal. Voor wie wil opvallen.
 - ✓ {{updates:signature}} gratis aanpassingen
 - Knop: **Kies Signature**
 
-**Complete set · {{prijs:complete}}** · badge *Meest gekozen*
+**Complete set · {{prijs:complete}}** · badge *Aanrader*
 Je kaart, pen en sleutelhanger. Je contact altijd bij de hand.
 - ✓ Contactsite op maat
 - ✓ Wallet-kaart
@@ -103,7 +103,7 @@ Je kaart, pen en sleutelhanger. Je contact altijd bij de hand.
 **Essentials · {{prijs:essentials}}**
 Je contactsite en een tik-kaart.
 - ✓ Contactsite op maat
-- ✗ Wallet-kaart
+- ✓ Wallet-kaart
 - ✓ NFC-kaart in PVC
 - ✗ NFC-pen
 - ✗ Sleutelhanger
@@ -116,13 +116,14 @@ Onder de tabel:
 - Capaciteit: Ik maak maar een beperkt aantal kaarten per week. Nog {{plaatsen}} plaatsen deze week.
 - Twijfel je nog? **Scan eerst gratis je visitekaartje** (link naar `/gratis`).
 
-> "Meest gekozen" bij de Complete set: dit pakket bestaat nog niet, dus die claim is vandaag niet waar. Voorstel: badge **"Aanrader"** tot de Complete set effectief het meest verkocht is. [BEVESTIGEN]
+> Badge "Aanrader" in plaats van "Meest gekozen": dat laatste is pas waar als de Complete set effectief het meest verkocht is. Dan mag het.
 
 ### 9. Garantie · *kans*
 - H2: **Je loopt geen risico.**
-- **Eerst zien, dan betalen.** Je krijgt een gratis voorbeeld van je kaart. Je betaalt pas als je het goedkeurt.
-- **Klopt er iets niet na levering? Ik pas het aan.**
-- [BEVESTIGEN: exacte belofte. Vragen: hoe lang na levering geldt "ik pas het aan"? Geldt het ook voor wie via "Direct bestellen" kwam, zonder voorbeeld? Wat als een NFC-kaart defect is: vervangen?]
+- **Eerst zien, dan maken.** Je ziet je ontwerp altijd vóór je kaart gemaakt wordt. Via het gratis voorbeeld betaal je pas als je het goedkeurt. Bestel je direct, dan pas ik je ontwerp aan tot het klopt, en pas dan maak ik je kaart.
+- **30 dagen om te tikken.** Klopt er iets niet binnen 30 dagen na levering? Ik pas het kosteloos aan.
+- **Een jaar op je chip.** Werkt je NFC-kaart niet binnen 12 maanden, dan krijg je gratis een nieuwe.
+- (Voorlopig, uit `offers.json` → `garantie`.)
 
 ### 10. Testimonials · *kans*
 - Eyebrow: Klanten
@@ -232,25 +233,37 @@ Verschijnt als iemand terugkomt van de Stripe-checkout zonder te betalen, of "te
 
 ---
 
-## D. Open punten en voorstellen (lees dit eerst)
+## D. Wat voorlopig is ingevuld (alles achteraf aan te passen in `site/config/`)
 
-### Moet jij beslissen
-1. ~~**Btw**~~ **Beantwoord:** vrijgesteld (kleine ondernemingen). Er wordt geen btw aangerekend, de getoonde prijs is de totaalprijs. Let op: boven € 25.000 omzet per jaar vervalt de vrijstelling. Bij 60 kaarten à €75 zit je daar ver onder, maar met de nieuwe pakketten kan het sneller gaan.
-2. **Prijzen upsells**: voorstel metaal +€40, eigen domein +€25 (eenmalige koppeling op een domein van de klant), extra collega −20%. Klopt dat met je kostprijs?
-3. **Kostprijs per pakket** (metaalkaart, pen, premium pen, sleutelhanger, verzending). Die heb ik nodig om te checken of het Money Model klopt: haalt een klant in 30 dagen genoeg winst op om er twee nieuwe te werven? Ik zet ze als `kostprijs` in `offers.json` (komen nooit op de site).
-4. **Aantal gratis aanpassingen** per pakket, en voor welke periode.
-5. **Levertijd** na goedkeuring (werkdagen).
-6. **Plaatsen per week** voor de capaciteitsmelding.
-7. **Garantie**: exacte formulering (zie §9).
-8. **Referral**: akkoord met €10 korting voor de vriend en €10 terug of een gratis sleutelhanger voor de doorverwijzer?
-9. **Domeinnaam** van Salix (voor `{{domein}}/p/<slug>` en de ref-links).
+| Punt | Status | Waarde |
+|---|---|---|
+| Btw | ✅ bevestigd | Vrijgesteld, geen btw. Let op de drempel van € 25.000 omzet per jaar. |
+| Kleuren en font | ✅ bevestigd | Zwart-wit, Geist + Instrument Serif (`docs/design-keuzes.md`) |
+| Upsells | ✅ bevestigd | Metaal +€40, eigen domein +€25, extra collega −20% |
+| Wallet-kaart | voorlopig | In **alle** pakketten, ook Essentials |
+| Badge | voorlopig | "Aanrader" bij de Complete set |
+| Gratis aanpassingen | voorlopig | Essentials 2, Complete 3, Signature 5, Digitaal 2, in de eerste 12 maanden. Extra: €15 per aanpassing |
+| Levertijd | voorlopig | 5–7 werkdagen na goedkeuring |
+| Garantie | voorlopig | Zie §9: eerst zien, 30 dagen aanpassingen, 12 maanden op de chip |
+| Referral | voorlopig | Vriend €10 korting, doorverwijzer €10 terug of een gratis sleutelhanger |
+| Rollover | voorlopig | Binnen 30 dagen naar Signature, de betaalde prijs gaat er volledig af |
+| Eigen domein | voorlopig | De klant bezit het domein, jij koppelt het één keer (geen jaarlijkse kost voor jou) |
+| Kostprijzen | **schatting** | Intern, nooit op de site. Vervang ze door je echte inkoopprijzen. |
+| Plaatsen per week | voorlopig | 10. Het aantal **vrije** plaatsen blijft leeg tot jij het invult: de site toont nooit een verzonnen getal. |
 
-### Waar ik iets zag dat niet klopt
-10. **Wallet-kaart in Essentials.** Volgens §3.5 wordt de gratis pass bij *elke* aankoop bijgewerkt naar de volledige site. Wie gratis begint en Essentials koopt, heeft dus wél een Wallet-kaart. Dan klopt het kruisje in de tabel niet. Voorstel: de Wallet-kaart in **alle** pakketten (kost je geen werk, het is automatisch) en het verschil tussen de pakketten maken met de pen, de sleutelhanger, metaal en het domein.
-11. **"Meest gekozen"** is vandaag niet waar (zie §8). Voorstel: "Aanrader".
-12. **Eigen domein zonder abonnement**: een domein moet elk jaar verlengd worden. Daarom stel ik voor dat de klant het domein zelf bezit en jij het eenmalig koppelt. Anders heb je toch een jaarlijkse kost per klant.
-13. **Rollover-upsell**: "upgrade naar metaal, je PVC-kaart gaat volledig af". Bedoel je een upgrade naar het metalen pakket (Signature), of alleen de kaart wisselen naar metaal? Ik heb nu Signature ingevuld.
+### Money Model-check met de geschatte kostprijzen
 
-### Kleuren en font (voor fase 2, maar beter nu beslissen)
-14. ~~**Kleuren**~~ **Beantwoord:** zwart en wit, met neutrale grijzen ertussen voor lijnen en secundaire tekst. Zie `docs/design-keuzes.md`.
-15. ~~**Font**~~ **Beantwoord:** zie `docs/design-keuzes.md`.
+| Pakket | Prijs | Geschatte kost | Brutowinst |
+|---|---|---|---|
+| Signature | €199 | €49 | €150 |
+| Complete set | €125 | €22 | €103 |
+| Essentials | €75 | €7,50 | €67,50 |
+| Digitaal op maat | €39 | €0 | €39 |
+
+Je tijd zit hier niet in. Reken op ± 1–2 uur per kaart op maat: dat is je echte kost, en de reden dat de capaciteit beperkt is.
+
+### Nog nodig voor livegang (niet te verzinnen)
+- **Domeinnaam** van Salix (`site.json` → `domein`)
+- **Juridische gegevens**: naam, adres en ondernemingsnummer (wettelijk verplicht)
+- **Contact**: e-mail, WhatsApp, links naar Instagram en LinkedIn
+- **Klanten die toestemming geven** voor de voorbeelden, de bewijsstrip en de testimonials

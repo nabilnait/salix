@@ -1,5 +1,5 @@
 {
-  "$comment": "Enige bron voor alle prijzen en pakketten. Site, checkout (worker) en later de agent lezen dit bestand. Bedragen in eurocent. Zolang een aanbod 'bevestigd: false' heeft, geeft de build een waarschuwing.",
+  "$comment": "Enige bron voor alle prijzen en pakketten. Site, checkout (worker) en later de agent lezen dit bestand. Bedragen in eurocent. Zolang een aanbod 'bevestigd: false' heeft, geeft de build een waarschuwing. 'voorlopig: true' = tijdelijk ingevuld door Claude, nog te bevestigen.",
   "versie": 1,
   "valuta": "EUR",
   "btw": {
@@ -10,20 +10,37 @@
     "jaaromzet_drempel": 2500000,
     "bevestigd": true
   },
-
   "kenmerken": {
     "$comment": "Rijen van de vergelijkingstabel (vinkjes/kruisjes). Volgorde = volgorde in de tabel.",
-    "site_op_maat":     { "label": "Contactsite op maat (jouw stijl, foto, diensten, formulier)" },
-    "wallet_pass":      { "label": "Apple/Google Wallet-kaart die naar je site linkt" },
-    "kaart_pvc":        { "label": "NFC-kaart in PVC (wit)" },
-    "kaart_metaal":     { "label": "NFC-kaart in metaal" },
-    "pen":              { "label": "NFC-pen" },
-    "pen_premium":      { "label": "Premium NFC-pen" },
-    "sleutelhanger":    { "label": "NFC-sleutelhanger met je logo" },
-    "eigen_domein":     { "label": "Je kaart op je eigen domein" },
-    "updates":          { "label": "Gratis aanpassingen", "type": "aantal" }
+    "site_op_maat": {
+      "label": "Contactsite op maat (jouw stijl, foto, diensten, formulier)"
+    },
+    "wallet_pass": {
+      "label": "Apple/Google Wallet-kaart die naar je site linkt"
+    },
+    "kaart_pvc": {
+      "label": "NFC-kaart in PVC (wit)"
+    },
+    "kaart_metaal": {
+      "label": "NFC-kaart in metaal"
+    },
+    "pen": {
+      "label": "NFC-pen"
+    },
+    "pen_premium": {
+      "label": "Premium NFC-pen"
+    },
+    "sleutelhanger": {
+      "label": "NFC-sleutelhanger met je logo"
+    },
+    "eigen_domein": {
+      "label": "Je kaart op je eigen domein"
+    },
+    "updates": {
+      "label": "Gratis aanpassingen",
+      "type": "aantal"
+    }
   },
-
   "pakketten": [
     {
       "id": "signature",
@@ -43,10 +60,20 @@
         "pen_premium": true,
         "sleutelhanger": true,
         "eigen_domein": true,
-        "updates": null
+        "updates": 5
       },
-      "kostprijs": null,
-      "bevestigd": false
+      "kostprijs": {
+        "$comment": "SCHATTING, vervang door je echte inkoopprijzen",
+        "posten": {
+          "kaart_metaal": 1800,
+          "pen_premium": 2000,
+          "sleutelhanger": 500,
+          "verzending": 600
+        },
+        "totaal": 4900
+      },
+      "bevestigd": false,
+      "voorlopig": true
     },
     {
       "id": "complete",
@@ -56,7 +83,7 @@
       "prijs": 12500,
       "positie": 2,
       "in_prijstabel": true,
-      "badge": "Meest gekozen",
+      "badge": "Aanrader",
       "inhoud": {
         "site_op_maat": true,
         "wallet_pass": true,
@@ -66,10 +93,20 @@
         "pen_premium": false,
         "sleutelhanger": true,
         "eigen_domein": false,
-        "updates": null
+        "updates": 3
       },
-      "kostprijs": null,
-      "bevestigd": false
+      "kostprijs": {
+        "$comment": "SCHATTING, vervang door je echte inkoopprijzen",
+        "posten": {
+          "kaart_pvc": 300,
+          "pen": 800,
+          "sleutelhanger": 500,
+          "verzending": 600
+        },
+        "totaal": 2200
+      },
+      "bevestigd": false,
+      "voorlopig": true
     },
     {
       "id": "essentials",
@@ -82,17 +119,25 @@
       "badge": null,
       "inhoud": {
         "site_op_maat": true,
-        "wallet_pass": false,
+        "wallet_pass": true,
         "kaart_pvc": true,
         "kaart_metaal": false,
         "pen": false,
         "pen_premium": false,
         "sleutelhanger": false,
         "eigen_domein": false,
-        "updates": null
+        "updates": 2
       },
-      "kostprijs": null,
-      "bevestigd": false
+      "kostprijs": {
+        "$comment": "SCHATTING, vervang door je echte inkoopprijzen",
+        "posten": {
+          "kaart_pvc": 300,
+          "verzending": 450
+        },
+        "totaal": 750
+      },
+      "bevestigd": false,
+      "voorlopig": true
     },
     {
       "id": "digitaal",
@@ -102,7 +147,10 @@
       "prijs": 3900,
       "positie": null,
       "in_prijstabel": false,
-      "toon_bij": ["checkout_exit", "formulier_te_duur"],
+      "toon_bij": [
+        "checkout_exit",
+        "formulier_te_duur"
+      ],
       "max_keer_tonen": 1,
       "badge": null,
       "inhoud": {
@@ -114,18 +162,25 @@
         "pen_premium": false,
         "sleutelhanger": false,
         "eigen_domein": false,
-        "updates": null
+        "updates": 2
       },
-      "kostprijs": null,
-      "bevestigd": false
+      "kostprijs": {
+        "$comment": "SCHATTING, vervang door je echte inkoopprijzen",
+        "posten": {},
+        "totaal": 0
+      },
+      "bevestigd": false,
+      "voorlopig": true
     }
   ],
-
   "gratis": {
     "wallet_basis": {
       "naam": "Gratis Salix Wallet-kaart",
       "prijs": 0,
-      "inhoud": ["wallet_pass", "basispagina"],
+      "inhoud": [
+        "wallet_pass",
+        "basispagina"
+      ],
       "beperkingen": [
         "één standaardontwerp",
         "geen portretfoto",
@@ -145,24 +200,30 @@
       "bevestigd": false
     }
   },
-
   "upsells_checkout": [
     {
       "id": "metaal",
       "label": "Metalen kaart in plaats van PVC",
       "prijs": 4000,
-      "geldt_voor": ["essentials", "complete"],
+      "geldt_voor": [
+        "essentials",
+        "complete"
+      ],
       "vooraf_aangevinkt": false,
-      "bevestigd": false
+      "bevestigd": true
     },
     {
       "id": "eigen_domein",
       "label": "Je kaart op je eigen domein (bv. naam.jouwbedrijf.be)",
       "prijs": 2500,
-      "geldt_voor": ["essentials", "complete", "digitaal"],
+      "geldt_voor": [
+        "essentials",
+        "complete",
+        "digitaal"
+      ],
       "vooraf_aangevinkt": false,
       "$comment": "Eenmalige koppeling op een domein dat de klant zelf bezit. Wij kopen en verlengen geen domeinen (dat zou een abonnement zijn).",
-      "bevestigd": false
+      "bevestigd": true
     },
     {
       "id": "extra_collega",
@@ -170,13 +231,16 @@
       "korting_pct": 20,
       "basis": "zelfde_pakket",
       "max_aantal": 3,
-      "geldt_voor": ["essentials", "complete", "signature"],
+      "geldt_voor": [
+        "essentials",
+        "complete",
+        "signature"
+      ],
       "vooraf_aangevinkt": false,
       "$comment": "Vanaf 4 extra stuks geldt de teamregel, niet deze korting.",
-      "bevestigd": false
+      "bevestigd": true
     }
   ],
-
   "rollover": {
     "id": "upgrade_metaal",
     "label": "Upgrade binnen 30 dagen naar metaal",
@@ -184,44 +248,68 @@
     "regel": "De volledige prijs van je PVC-kaart gaat af van de prijs van het metalen pakket.",
     "doel_pakket": "signature",
     "aftrek": "betaalde_prijs",
-    "bevestigd": false
+    "bevestigd": false,
+    "voorlopig": true
   },
-
   "teams": {
     "regel": "4 kaarten = de 5e gratis",
     "koop": 4,
     "gratis": 1,
-    "geldt_voor": ["essentials", "complete", "signature"],
+    "geldt_voor": [
+      "essentials",
+      "complete",
+      "signature"
+    ],
     "betaalplan": {
       "vanaf_aantal": 5,
       "label": "De helft nu, de helft bij levering",
-      "delen": [50, 50]
+      "delen": [
+        50,
+        50
+      ]
     },
-    "bevestigd": false
+    "bevestigd": false,
+    "voorlopig": true
   },
-
   "referral": {
     "vriend_korting": 1000,
-    "doorverwijzer_beloning": { "type": "keuze", "opties": ["terugbetaling_1000", "gratis_sleutelhanger"] },
+    "doorverwijzer_beloning": {
+      "type": "keuze",
+      "opties": [
+        "terugbetaling_1000",
+        "gratis_sleutelhanger"
+      ]
+    },
     "uitbetaling": "handmatig",
-    "bevestigd": false
+    "bevestigd": false,
+    "voorlopig": true
   },
-
   "updates_inbegrepen": {
-    "$comment": "BEVESTIGEN: hoeveel gratis aanpassingen per pakket, en per welke periode.",
-    "essentials": null,
-    "complete": null,
-    "signature": null,
-    "digitaal": null,
+    "$comment": "Voorlopig. Aantal gratis aanpassingen in de eerste 12 maanden na levering. Daarna of daarboven: prijs per aanpassing.",
+    "periode_maanden": 12,
+    "essentials": 2,
+    "complete": 3,
+    "signature": 5,
+    "digitaal": 2,
+    "extra_aanpassing_prijs": 1500,
+    "voorlopig": true,
     "bevestigd": false
   },
-
   "levering": {
-    "$comment": "BEVESTIGEN: werkdagen van goedkeuring ontwerp tot kaart bij de klant.",
-    "werkdagen_min": null,
-    "werkdagen_max": null,
+    "$comment": "Voorlopig. Werkdagen van goedkeuring ontwerp tot kaart in de bus (bpost).",
+    "werkdagen_min": 5,
+    "werkdagen_max": 7,
+    "voorlopig": true,
     "bevestigd": false
   },
-
-  "continuity": null
+  "continuity": null,
+  "garantie": {
+    "voorbeeld_eerst": "Je ziet je ontwerp altijd vóór je kaart gemaakt wordt. Via het gratis voorbeeld betaal je pas na goedkeuring. Bestel je direct, dan krijg je na betaling eerst je ontwerp te zien en pas ik het aan tot het klopt.",
+    "na_levering": "Klopt er iets niet binnen 30 dagen na levering? Ik pas het kosteloos aan.",
+    "na_levering_dagen": 30,
+    "defecte_kaart": "Werkt de NFC-chip niet binnen 12 maanden na levering, dan vervang ik de kaart gratis.",
+    "defect_maanden": 12,
+    "voorlopig": true,
+    "bevestigd": false
+  }
 }

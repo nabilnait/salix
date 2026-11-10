@@ -1,0 +1,26 @@
+{
+  "$comment": "Algemene site-instellingen. Velden met null moeten ingevuld zijn voor productie: de strikte build faalt erop. Ze worden niet verzonnen, omdat ze wettelijk verplicht of extern zijn.",
+  "merk": "Salix",
+  "domein": null,
+  "basispagina_pad": "/p/",
+  "talen": ["nl", "en", "fr"],
+  "standaardtaal": "nl",
+  "contact": {
+    "email": null,
+    "whatsapp": null
+  },
+  "socials": {
+    "instagram": null,
+    "linkedin": null
+  },
+  "juridisch": {
+    "$comment": "Wettelijk verplicht op een Belgische bedrijfssite (WER boek XII).",
+    "naam": null,
+    "adres": null,
+    "ondernemingsnummer": null,
+    "btw_vermelding": "Bijzondere vrijstellingsregeling kleine ondernemingen"
+  },
+  "experimenten": {
+    "adviseur_agent": false
+  }
+}
