@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "titel": "Salix · Un geste, et votre contact est dans leur GSM",
+    "beschrijving": "Votre carte de visite en mini-site personnelle, avec une carte NFC en prime. Un geste sur un GSM et votre contact est enregistré. Commencez gratuitement avec votre carte Wallet.",
+    "start_titel": "Salix · Votre carte de visite gratuite dans votre Wallet",
+    "start_beschrijving": "Scannez votre carte de visite papier et recevez gratuitement une version numérique dans Apple ou Google Wallet. En 1 minute, sans application.",
+    "404_titel": "Page introuvable · Salix",
+    "teams_titel": "Salix pour les équipes · Cartes de visite numériques pour toute votre équipe",
+    "teams_beschrijving": "Une carte de visite numérique avec carte NFC pour chaque collègue, à vos couleurs. {team_koop} cartes, la {team_totaal}e offerte.",
+    "privacy_titel": "Politique de confidentialité · Salix",
+    "voorwaarden_titel": "Conditions générales · Salix",
+    "bedankt_titel": "Merci · Salix",
+    "voorbeeld_titel": "Aperçu gratuit de votre carte sur mesure · Salix",
+    "voorbeeld_beschrijving": "Découvrez votre carte de visite numérique dans votre propre style. En 48 heures, gratuitement. Vous ne payez qu'après validation.",
+    "bedankt_voorbeeld_titel": "Merci · Votre aperçu est en route · Salix"
+  },
+  "nav": {
+    "skip": "Aller au contenu",
+    "hoofd": "Menu principal",
+    "menu": "Menu",
+    "home": "Salix, retour à l'accueil",
+    "werkt": "Comment ça marche",
+    "prijzen": "Tarifs",
+    "teams": "Pour les équipes",
+    "faq": "FAQ",
+    "cta": "Carte Wallet gratuite",
+    "taal": "Langue"
+  },
+  "hero": {
+    "bewijs": "Déjà plus de 60 professionnels conquis",
+    "h1_a": "Un geste.",
+    "h1_b": "Votre contact est dans leur GSM.",
+    "sub": "Votre carte de visite en mini-site personnelle, avec une carte NFC en prime. Vous m'envoyez une photo et trois phrases, je m'occupe du reste.",
+    "cta": "Scannez votre carte, c'est gratuit",
+    "cta_micro": "Une carte Wallet pour votre iPhone ou Android en 1 minute.",
+    "cta2": "Commander",
+    "beeld_alt": "Vraie carte Salix de Nabil Nait Oufakir, Naitvision, sur un GSM",
+    "melding_titel": "Nabil Nait Oufakir",
+    "melding_tekst": "Enregistrer le contact"
+  },
+  "bewijs": {
+    "titel": "Ils utilisent déjà Salix"
+  },
+  "probleem": {
+    "eyebrow": "Le problème",
+    "h2": "Votre carte papier finit dans un tiroir.",
+    "nu": "Aujourd'hui",
+    "salix": "Avec Salix",
+    "rij1_nu": "Votre carte disparaît dans une poche ou à la poubelle.",
+    "rij1_salix": "Votre contact est tout de suite dans leur GSM, photo comprise.",
+    "rij2_nu": "Votre numéro est mal recopié, ou pas du tout.",
+    "rij2_salix": "Personne ne recopie rien. Un geste sur Enregistrer le contact.",
+    "rij3_nu": "Nouveau numéro ou nouvelle fonction ? Il faut réimprimer.",
+    "rij3_salix": "Je mets votre carte à jour. Votre carte et votre lien restent valables."
+  },
+  "werkt": {
+    "eyebrow": "Comment ça marche",
+    "h2": "Trois étapes. Vous n'en faites qu'une.",
+    "s1_titel": "Scannez votre carte papier",
+    "s1_tekst": "Prenez une photo. Vos coordonnées sont lues, vous les vérifiez, et vous recevez tout de suite une carte Wallet gratuite.",
+    "s1_tijd": "1 minute",
+    "s2_titel": "Découvrez votre aperçu sur mesure",
+    "s2_tekst": "En 48 heures, je crée votre carte dans votre propre style. Vous ne payez qu'après validation.",
+    "s2_tijd": "48 heures",
+    "s3_titel": "Recevez votre carte NFC et utilisez-la",
+    "s3_tekst": "Dans votre boîte aux lettres en {levering} jours ouvrables. Un geste sur un GSM et votre contact est enregistré.",
+    "s3_tijd": "{levering} jours ouvrables",
+    "stap": "Étape",
+    "s2_link": "Demandez votre aperçu"
+  },
+  "voorbeelden": {
+    "eyebrow": "Exemples",
+    "h2": "De vraies cartes de vrais clients.",
+    "sub": "Touchez une carte pour la voir en ligne.",
+    "bekijk": "Voir la carte",
+    "alt": "Carte Salix de {naam}"
+  },
+  "features": {
+    "eyebrow": "Sur votre carte",
+    "h2": "Tout ce qu'il faut après un premier échange.",
+    "f1_titel": "Contact enregistré, avec photo",
+    "f1_tekst": "Votre nom, numéro, fonction et photo arrivent d'un coup dans leurs contacts.",
+    "f2_titel": "WhatsApp en un geste",
+    "f2_tekst": "On vous écrit tout de suite, sans devoir enregistrer votre numéro d'abord.",
+    "f3_titel": "Partage par QR",
+    "f3_tekst": "Pas de NFC sous la main ? Il suffit de scanner votre code.",
+    "f4_titel": "Dans votre Wallet",
+    "f4_tekst": "Votre carte à côté de votre carte bancaire. Toujours sous la main, même hors ligne.",
+    "f5_titel": "Modifications incluses",
+    "f5_tekst": "Nouveau numéro ou nouvelle fonction ? Envoyez-le-moi, je fais la mise à jour.",
+    "f6_titel": "Aucune application",
+    "f6_tekst": "Fonctionne sur tout iPhone et Android. Votre interlocuteur n'installe rien."
+  },
+  "prijzen": {
+    "eyebrow": "Tarifs",
+    "h2": "Un seul paiement. Pas d'abonnement.",
+    "sub": "Choisissez ce que vous voulez offrir : une carte, ou tout pour partager votre contact. Le prix affiché est le prix que vous payez.",
+    "eenmalig": "unique",
+    "kies": "Choisir {naam}",
+    "niet": "Non inclus",
+    "optie": "en option",
+    "rij": {
+      "site_op_maat": "Site de contact sur mesure",
+      "wallet_pass": "Carte Apple/Google Wallet",
+      "kaart": "Carte NFC",
+      "pen": "Stylo NFC",
+      "sleutelhanger": "Porte-clés avec votre logo",
+      "eigen_domein": "Votre propre domaine",
+      "updates": "{n} modifications gratuites"
+    },
+    "waarde": {
+      "metaal": "en métal",
+      "pvc": "en PVC",
+      "premium": "premium",
+      "standaard": ""
+    },
+    "team_tekst": "Pour votre équipe : {team_koop} cartes, la {team_totaal}e offerte.",
+    "team_link": "Demander un devis",
+    "twijfel": "Vous hésitez encore ?",
+    "twijfel_link": "Scannez d'abord votre carte, gratuitement",
+    "btw": "Pas de TVA : régime particulier de franchise des petites entreprises."
+  },
+  "start_prijzen": {
+    "h2": "Envie de plus que la carte gratuite ?",
+    "sub": "Après votre carte Wallet gratuite, vous pouvez passer à une carte sur mesure, avec une carte NFC en prime."
+  },
+  "garantie": {
+    "h2": "Aucun risque pour vous.",
+    "g1_titel": "D'abord voir, ensuite créer",
+    "g1_tekst": "Vous voyez toujours votre design avant que votre carte soit fabriquée. Avec l'aperçu gratuit, vous ne payez qu'après validation.",
+    "g2_titel": "{dagen} jours pour l'essayer",
+    "g2_tekst": "Quelque chose ne va pas dans les {dagen} jours suivant la livraison ? Je corrige gratuitement.",
+    "g3_titel": "2 ans sur votre puce",
+    "g3_tekst": "Si votre carte NFC ne fonctionne plus dans les {maanden} mois, vous en recevez une nouvelle gratuitement."
+  },
+  "testimonials": {
+    "eyebrow": "Clients",
+    "h2": "Ce qu'en disent les clients."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "h2": "Questions fréquentes",
+    "q1": "Est-ce que ça fonctionne sur iPhone ?",
+    "a1": "Oui. Approchez votre carte du haut d'un iPhone XS ou plus récent et une notification apparaît. Les iPhone plus anciens scannent simplement le code QR.",
+    "q2": "Faut-il une application, pour moi ou pour l'autre ?",
+    "a2": "Non. Votre carte s'ouvre dans le navigateur de tout iPhone ou Android.",
+    "q3": "Et si mes coordonnées changent ?",
+    "a3": "Envoyez-moi la modification. Je mets votre carte à jour, et votre carte, votre lien et votre code QR restent valables. Selon votre formule, {updates_min} à {updates_max} modifications sont incluses la première année.",
+    "q4": "Combien de temps ça prend ?",
+    "a4": "Vous recevez votre carte Wallet gratuite en une minute. Votre aperçu sur mesure en 48 heures. Après validation, votre carte NFC arrive en {levering} jours ouvrables.",
+    "q5": "Puis-je utiliser mon propre domaine ?",
+    "a5": "Oui, par exemple nom.votreentreprise.be. C'est inclus dans Signature et disponible avec les autres formules pour +{prijs_domein}. Le domaine reste à vous. Sans domaine propre, votre carte est hébergée sur une adresse Salix à votre nom.",
+    "q6": "Que deviennent mes données ?",
+    "a6": "La photo de votre carte papier est supprimée dès que vos coordonnées ont été lues. Il n'y a ni cookies ni traceurs sur votre carte. Vous pouvez toujours supprimer vous-même votre carte gratuite et vos données via le lien dans votre e-mail.",
+    "q7": "Puis-je annuler ma commande ?",
+    "a7": "Votre carte est fabriquée sur mesure pour vous. Le droit de rétractation de 14 jours ne s'applique donc pas. C'est pour cela que vous voyez toujours votre design avant que votre carte soit fabriquée.",
+    "q8": "Puis-je commander pour mon équipe ?",
+    "a8": "Oui. Pour {team_koop} cartes, la {team_totaal}e est offerte, et à partir de {team_betaalplan} cartes vous payez la moitié maintenant et la moitié à la livraison.",
+    "a8_link": "Demander un devis équipe",
+    "privacy_link": "Lire la politique de confidentialité"
+  },
+  "slot": {
+    "h2": "Votre prochain contact n'aura plus à recopier votre numéro.",
+    "sub": "Commencez gratuitement avec votre carte Wallet. Prêt pour plus ? Commandez tout de suite votre carte sur mesure."
+  },
+  "start": {
+    "h1_a": "Un geste.",
+    "h1_b": "Votre contact est dans leur GSM.",
+    "sub": "Scannez votre carte de visite papier et recevez gratuitement une version numérique dans votre Wallet. En 1 minute, sans application.",
+    "cta": "Scannez votre carte, c'est gratuit",
+    "werkt_h2": "Comment ça marche",
+    "w1": "Prenez une photo de votre carte",
+    "w2": "Vérifiez vos coordonnées",
+    "w3": "Votre carte Wallet est sur votre GSM",
+    "slot_h2": "Essayez gratuitement. Ça prend 1 minute."
+  },
+  "voet": {
+    "tagline": "Cartes de visite numériques avec carte NFC.",
+    "contact": "Contact",
+    "juridisch": "Mentions légales",
+    "privacy": "Confidentialité",
+    "voorwaarden": "Conditions",
+    "volg": "Suivre Salix",
+    "ondernemingsnummer": "Numéro d'entreprise",
+    "btw": "Régime particulier de franchise des petites entreprises"
+  },
+  "capaciteit": {
+    "basis": "Je ne fabrique qu'un nombre limité de cartes par semaine.",
+    "nog": "Encore {n} places cette semaine."
+  },
+  "nietgevonden": {
+    "h1": "Cette page n'existe pas.",
+    "tekst": "Le lien est peut-être obsolète. Enregistrer votre contact ne prend toujours qu'un geste.",
+    "terug": "Retour à l'accueil"
+  },
+  "teams": {
+    "h1_a": "Un seul style.",
+    "h1_b": "Toute l'équipe dans leur GSM.",
+    "sub": "Une carte sur mesure pour chaque collègue, à vos couleurs et avec votre logo. Je m'occupe de tout, vous avez un seul interlocuteur.",
+    "cta": "Demander un devis",
+    "v_h2": "Pourquoi les équipes choisissent Salix.",
+    "v1_titel": "{team_totaal} cartes pour le prix de {team_koop}",
+    "v1_tekst": "Commandez {team_koop} cartes, la {team_totaal}e est offerte.",
+    "v2_titel": "Payer en deux fois",
+    "v2_tekst": "À partir de {team_betaalplan} cartes, vous payez la moitié maintenant et la moitié à la livraison.",
+    "v3_titel": "Un seul interlocuteur",
+    "v3_tekst": "Nouveau collègue ou nouveau numéro ? Un message suffit, je fais la mise à jour.",
+    "r_h2": "Le calcul est simple.",
+    "r_sub": "Exemple pour une équipe de {team_totaal} : vous en payez {team_koop}.",
+    "r_kaarten": "{team_totaal} cartes",
+    "f_h2": "Demander un devis",
+    "f_sub": "Dites-moi brièvement qui vous êtes. Vous recevez une proposition sur mesure dans les 2 jours ouvrables."
+  },
+  "formulier": {
+    "naam": "Votre nom",
+    "bedrijf": "Entreprise",
+    "email": "E-mail",
+    "telefoon": "Téléphone",
+    "optioneel": "facultatif",
+    "aantal": "Nombre de personnes",
+    "pakket": "Formule",
+    "pakket_weet_niet": "Je ne sais pas encore",
+    "bericht": "Autre chose à ajouter ?",
+    "toestemming": "Vous pouvez utiliser mes données pour répondre à cette demande.",
+    "privacy_link": "Politique de confidentialité",
+    "verstuur": "Envoyer la demande",
+    "hp": "Laissez ce champ vide",
+    "uit": "L'envoi sera bientôt possible : le formulaire n'est pas encore connecté.",
+    "verplicht": "obligatoire",
+    "fout": "Tout n'est pas correctement rempli. Vérifiez les champs et réessayez.",
+    "fout_server": "Un problème est survenu lors de l'envoi. Réessayez plus tard."
+  },
+  "juridisch": {
+    "concept": "Projet : ce texte n'a pas encore été vérifié par un juriste.",
+    "leeg": "à compléter",
+    "bijgewerkt": "Dernière mise à jour le {bijgewerkt}.",
+    "privacy_h1": "Politique de confidentialité",
+    "voorwaarden_h1": "Conditions générales"
+  },
+  "bedankt": {
+    "h1": "Merci. Votre demande est bien arrivée.",
+    "sub": "Je l'examine personnellement et vous aurez vite de mes nouvelles.",
+    "nu_h2": "Et maintenant ?",
+    "n1": "J'examine votre demande et je prépare une proposition sur mesure.",
+    "n2": "Dans les 2 jours ouvrables, vous recevez un e-mail avec la proposition et le prix.",
+    "n3": "D'accord ? Je crée alors un design pour chaque collègue, que vous validez d'abord.",
+    "terug": "Retour à l'accueil"
+  },
+  "voorbeeld": {
+    "h1_a": "Voyez votre carte",
+    "h1_b": "avant de payer.",
+    "sub": "Envoyez une photo et quelques phrases. En 48 heures, je crée un aperçu de votre carte dans votre propre style. Gratuit, et vous ne payez qu'après validation.",
+    "p1": "Gratuit et sans engagement",
+    "p2": "Dans votre boîte mail en 48 heures",
+    "p3": "Vous ne payez qu'après validation",
+    "f_h2": "Demandez votre aperçu",
+    "f_sub": "C'est tout ce qu'il me faut. Les détails viendront plus tard.",
+    "functie": "Que faites-vous ?",
+    "functie_hint": "Par ex. Photographe, Architecte d'intérieur, Gérant",
+    "bedrijf": "Entreprise",
+    "foto": "Photo portrait",
+    "foto_hint": "Une photo nette de vous. JPG, PNG, HEIC ou WebP, 8 Mo max.",
+    "website": "Site web ou LinkedIn",
+    "voorkeur": "Comment voulez-vous recevoir l'aperçu ?",
+    "voorkeur_email": "Par e-mail",
+    "voorkeur_whatsapp": "Via WhatsApp",
+    "telefoon_hint": "Nécessaire si vous choisissez WhatsApp.",
+    "wensen": "Votre style ou vos souhaits",
+    "wensen_hint": "Couleurs, votre logo, un site que vous aimez.",
+    "verstuur": "Demander mon aperçu gratuit",
+    "fout_foto_groot": "Votre photo dépasse 8 Mo. Choisissez une photo plus légère.",
+    "fout_foto_type": "Ce fichier n'est pas une photo utilisable. Choisissez un JPG, PNG, HEIC ou WebP."
+  },
+  "bedankt_voorbeeld": {
+    "h1": "Parfait. Votre aperçu est en route.",
+    "sub": "Je me mets tout de suite au travail avec votre photo et vos coordonnées.",
+    "n1": "Je crée votre carte dans votre propre style.",
+    "n2": "Dans les 48 heures, vous recevez un lien pour voir votre aperçu sur votre GSM.",
+    "n3": "Satisfait ? Vous choisissez votre formule et vous payez. Pas satisfait ? Je l'adapte, ou vous en restez là."
+  },
+  "zonder_wallet": {
+    "nav.cta": "Aperçu gratuit",
+    "hero.cta": "Demandez votre aperçu gratuit",
+    "hero.cta_micro": "En 48 heures, et vous ne payez qu'après validation.",
+    "werkt.s1_titel": "Demandez votre aperçu gratuit",
+    "werkt.s1_tekst": "Envoyez une photo et quelques phrases sur ce que vous faites. C'est tout ce qu'il me faut.",
+    "werkt.s1_tijd": "2 minutes",
+    "werkt.s2_titel": "Découvrez votre carte et validez-la",
+    "werkt.s2_tekst": "En 48 heures, vous voyez votre carte dans votre propre style. Vous ne payez qu'après validation.",
+    "werkt.s2_link": "Demandez votre aperçu",
+    "prijzen.twijfel_link": "Demandez d'abord un aperçu gratuit",
+    "faq.a4": "Vous recevez votre aperçu sur mesure en 48 heures. Après validation, votre carte NFC arrive en {levering} jours ouvrables.",
+    "faq.a6": "Il n'y a ni cookies ni traceurs sur votre carte. J'utilise vos coordonnées et votre photo uniquement pour créer votre carte, et vous pouvez toujours les faire supprimer.",
+    "slot.sub": "Commencez par un aperçu gratuit. Prêt pour plus ? Commandez tout de suite votre carte sur mesure.",
+    "meta.start_titel": "Salix · Découvrez gratuitement votre carte de visite numérique",
+    "meta.start_beschrijving": "Envoyez une photo et quelques phrases et découvrez en 48 heures votre carte de visite numérique dans votre propre style. Gratuit, vous ne payez qu'après validation.",
+    "start.sub": "Envoyez une photo et quelques phrases, et découvrez votre carte en 48 heures. Gratuit, vous ne payez qu'après validation.",
+    "start.cta": "Demandez votre aperçu gratuit",
+    "start.w1": "Envoyez une photo et quelques phrases",
+    "start.w2": "Découvrez votre carte en 48 heures",
+    "start.w3": "Validez et utilisez votre carte NFC",
+    "start.slot_h2": "Essayez gratuitement. Vous ne payez que si ça vous plaît.",
+    "start_prijzen.sub": "Après votre aperçu gratuit, vous choisissez votre formule, avec une carte NFC en prime."
+  },
+  "fmt": {
+    "bereik": "{min} à {max}"
+  },
+  "pakketten": {
+    "signature": {
+      "naam": "Signature",
+      "kort": "Tout, en métal. Pour ceux qui veulent se démarquer."
+    },
+    "complete": {
+      "naam": "Set complet",
+      "kort": "Votre carte, votre stylo et votre porte-clés. Votre contact toujours sous la main.",
+      "badge": "Recommandé"
+    },
+    "essentials": {
+      "naam": "Essentials",
+      "kort": "Votre site de contact et une carte NFC. Le produit que plus de 60 clients ont déjà."
+    },
+    "digitaal": {
+      "naam": "Numérique sur mesure",
+      "kort": "Votre site de contact sur mesure et votre carte Wallet, sans carte physique."
+    }
+  }
+}

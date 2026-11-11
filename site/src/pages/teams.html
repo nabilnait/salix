@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{lang}}">
+<html lang="{{html_lang}}">
 <head>
 {{> head}}
 <title>{{t:meta.teams_titel}}</title>
@@ -46,9 +46,9 @@
         <p class="sectie-sub">{{t:teams.r_sub}}</p>
       </header>
       <ul class="prijsrij reken-rij">
-        <li><span class="pr-naam">{{t:teams.r_kaarten}} Signature</span> <span class="pr-bedrag">{{prijs:team.signature}}</span></li>
-        <li><span class="pr-naam">{{t:teams.r_kaarten}} Complete set</span> <span class="pr-bedrag">{{prijs:team.complete}}</span></li>
-        <li><span class="pr-naam">{{t:teams.r_kaarten}} Essentials</span> <span class="pr-bedrag">{{prijs:team.essentials}}</span></li>
+        <li><span class="pr-naam">{{t:teams.r_kaarten}} {{t:pakketten.signature.naam}}</span> <span class="pr-bedrag">{{prijs:team.signature}}</span></li>
+        <li><span class="pr-naam">{{t:teams.r_kaarten}} {{t:pakketten.complete.naam}}</span> <span class="pr-bedrag">{{prijs:team.complete}}</span></li>
+        <li><span class="pr-naam">{{t:teams.r_kaarten}} {{t:pakketten.essentials.naam}}</span> <span class="pr-bedrag">{{prijs:team.essentials}}</span></li>
       </ul>
       <p class="btw">{{t:prijzen.btw}}</p>
     </div>
@@ -60,7 +60,7 @@
         <h2 id="offerte-titel">{{t:teams.f_h2}}</h2>
         <p class="sectie-sub">{{t:teams.f_sub}}</p>
       </header>
-      <form class="formulier" method="post" action="/api/teams" data-formulier>
+      <form class="formulier" method="post" action="/api/teams?lang={{lang}}" data-formulier>
         <p class="formulier-fout veld-breed" role="alert" data-fout data-fout-server="{{t:formulier.fout_server}}" hidden>{{t:formulier.fout}}</p>
         <div class="veld">
           <label for="f-naam">{{t:formulier.naam}}</label>
@@ -86,9 +86,9 @@
           <label for="f-pakket">{{t:formulier.pakket}}</label>
           <select id="f-pakket" name="pakket">
             <option value="">{{t:formulier.pakket_weet_niet}}</option>
-            <option value="signature">Signature</option>
-            <option value="complete">Complete set</option>
-            <option value="essentials">Essentials</option>
+            <option value="signature">{{t:pakketten.signature.naam}}</option>
+            <option value="complete">{{t:pakketten.complete.naam}}</option>
+            <option value="essentials">{{t:pakketten.essentials.naam}}</option>
           </select>
         </div>
         <div class="veld veld-breed">

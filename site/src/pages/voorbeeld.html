@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{lang}}">
+<html lang="{{html_lang}}">
 <head>
 {{> head}}
 <title>{{t:meta.voorbeeld_titel}}</title>
@@ -34,7 +34,7 @@
         <h2 id="form-titel">{{t:voorbeeld.f_h2}}</h2>
         <p class="sectie-sub">{{t:voorbeeld.f_sub}}</p>
       </header>
-      <form class="formulier" method="post" action="/api/voorbeeld" enctype="multipart/form-data" data-formulier>
+      <form class="formulier" method="post" action="/api/voorbeeld?lang={{lang}}" enctype="multipart/form-data" data-formulier>
         <p class="formulier-fout veld-breed" role="alert" data-fout hidden
            data-fout-server="{{t:formulier.fout_server}}"
            data-fout-foto_groot="{{t:voorbeeld.fout_foto_groot}}"

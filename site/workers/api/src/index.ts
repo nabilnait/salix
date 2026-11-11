@@ -22,6 +22,11 @@ interface D1Database {
 interface Ctx { waitUntil(p: Promise<unknown>): void }
 
 const MAX_BODY = 20_000;
+const TALEN = new Set(["nl", "en", "fr"]);
+/** Taal uit ?lang=, standaard nl. */
+const taalVan = (url: URL) => { const l = url.searchParams.get("lang") || "nl"; return TALEN.has(l) ? l : "nl"; };
+/** Padprefix: NL staat in de root, EN/FR onder /en/ en /fr/. */
+const pre = (lang: string) => (lang === "nl" ? "" : `/${lang}`);
 
 export default {
   async fetch(req: Request, env: Env, ctx: Ctx): Promise<Response> {
@@ -41,6 +46,7 @@ export default {
 
 async function teams(req: Request, env: Env, ctx: Ctx, url: URL): Promise<Response> {
   const wilJson = (req.headers.get("Accept") || "").includes("application/json");
+  const lang = taalVan(url);
 
   // Alleen formulieren van de eigen site.
   const origin = req.headers.get("Origin");
@@ -57,17 +63,16 @@ async function teams(req: Request, env: Env, ctx: Ctx, url: URL): Promise<Respon
   if (!velden) return antwoord(wilJson, 400, "ongeldig");
 
   // Bot: doe alsof het gelukt is, sla niets op.
-  if (isBot(velden)) return gelukt(wilJson);
+  if (isBot(velden)) return gelukt(wilJson, lang);
 
   const r = valideerTeams(velden);
   if (!r.ok) {
     if (wilJson) return json({ ok: false, fout: "velden", velden: r.fouten }, 422);
-    return Response.redirect(new URL(`/teams/?fout=${r.fouten.join(",")}#offerte`, url).toString(), 303);
+    return Response.redirect(new URL(`${pre(lang)}/teams/?fout=${r.fouten.join(",")}#offerte`, url).toString(), 303);
   }
 
   const id = crypto.randomUUID();
   const d = r.data;
-  const lang = url.searchParams.get("lang") === "en" || url.searchParams.get("lang") === "fr" ? url.searchParams.get("lang") : "nl";
   try {
     await env.DB.prepare(
       `INSERT INTO leads (id, type, naam, bedrijf, email, telefoon, aantal, pakket, bericht, src, ref, lang)
@@ -77,20 +82,22 @@ async function teams(req: Request, env: Env, ctx: Ctx, url: URL): Promise<Respon
     // Bv. de migratie is niet toegepast. Niet crashen: de bezoeker krijgt een duidelijke melding.
     console.error("Opslaan in D1 mislukt", e);
     if (wilJson) return json({ ok: false, fout: "server" }, 503);
-    return Response.redirect(new URL("/teams/?fout=server#offerte", url).toString(), 303);
+    return Response.redirect(new URL(`${pre(lang)}/teams/?fout=server#offerte`, url).toString(), 303);
   }
 
   // Mail naar Nabil. Mislukt de mail, dan blijft de aanvraag toch bewaard in D1.
   ctx.waitUntil(meld(env, url.host, id, d).catch((e) => console.error("Mail mislukt", e)));
 
-  return gelukt(wilJson);
+  return gelukt(wilJson, lang);
 }
 
 async function voorbeeld(req: Request, env: Env, url: URL): Promise<Response> {
   const wilJson = (req.headers.get("Accept") || "").includes("application/json");
+  const lang = taalVan(url);
+  const bedankt = `${pre(lang)}/bedankt-voorbeeld/`;
   const terug = (fout: string) =>
     wilJson ? json({ ok: false, fout }, fout === "server" ? 503 : 422)
-            : Response.redirect(new URL(`/voorbeeld/?fout=${fout}#formulier`, url).toString(), 303);
+            : Response.redirect(new URL(`${pre(lang)}/voorbeeld/?fout=${fout}#formulier`, url).toString(), 303);
 
   const origin = req.headers.get("Origin");
   if (origin && new URL(origin).host !== url.host) return antwoord(wilJson, 403, "herkomst");
@@ -108,7 +115,7 @@ async function voorbeeld(req: Request, env: Env, url: URL): Promise<Response> {
   try { form = await req.formData(); } catch { return antwoord(wilJson, 400, "ongeldig"); }
   const velden: Velden = {};
   for (const [k, w] of form.entries()) if (typeof w === "string") velden[k] = w;
-  if (isBot(velden)) return wilJson ? json({ ok: true }, 200) : new Response(null, { status: 303, headers: { Location: "/bedankt-voorbeeld/" } });
+  if (isBot(velden)) return wilJson ? json({ ok: true }, 200) : new Response(null, { status: 303, headers: { Location: bedankt } });
 
   const r = valideerVoorbeeld(velden);
   const bestand = form.get("foto");
@@ -125,14 +132,14 @@ async function voorbeeld(req: Request, env: Env, url: URL): Promise<Response> {
     await env.FOTOS.put(key, fotoBuf!, { httpMetadata: { contentType: MIME[f.data] } });
     await env.DB.prepare(
       `INSERT INTO leads (id, type, naam, functie, bedrijf, email, telefoon, contact_voorkeur, website, wensen, foto_key, src, ref, lang)
-       VALUES (?, 'voorbeeld', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'nl')`
-    ).bind(id, d.naam, d.functie, d.bedrijf, d.email, d.telefoon, d.contact_voorkeur, d.website, d.wensen, key, d.src, d.ref).run();
+       VALUES (?, 'voorbeeld', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    ).bind(id, d.naam, d.functie, d.bedrijf, d.email, d.telefoon, d.contact_voorkeur, d.website, d.wensen, key, d.src, d.ref, lang).run();
   } catch (e) {
     console.error("Voorbeeld opslaan mislukt", e);
     await env.FOTOS.delete(key).catch(() => {});
     return terug("server");
   }
-  return wilJson ? json({ ok: true }, 200) : new Response(null, { status: 303, headers: { Location: "/bedankt-voorbeeld/" } });
+  return wilJson ? json({ ok: true }, 200) : new Response(null, { status: 303, headers: { Location: bedankt } });
 }
 
 async function meld(env: Env, host: string, id: string, d: TeamAanvraag): Promise<void> {
@@ -186,9 +193,9 @@ async function leesVelden(req: Request): Promise<Velden | null> {
   return null;
 }
 
-function gelukt(wilJson: boolean): Response {
+function gelukt(wilJson: boolean, lang: string): Response {
   if (wilJson) return json({ ok: true }, 200);
-  return new Response(null, { status: 303, headers: { Location: "/bedankt/?type=teams" } });
+  return new Response(null, { status: 303, headers: { Location: `${pre(lang)}/bedankt/?type=teams` } });
 }
 
 function antwoord(wilJson: boolean, status: number, fout: string): Response {

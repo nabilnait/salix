@@ -96,7 +96,7 @@
     "h2": "Eén keer betalen. Geen abonnement.",
     "sub": "Kies wat je wil geven: een kaart, of alles om je contact te delen. De prijs die je ziet, is de prijs die je betaalt.",
     "eenmalig": "eenmalig",
-    "kies": "Kies",
+    "kies": "Kies {naam}",
     "niet": "Niet inbegrepen",
     "optie": "optioneel",
     "rij": {
@@ -114,7 +114,7 @@
       "premium": "premium",
       "standaard": ""
     },
-    "team_tekst": "Voor je team: 4 kaarten, de 5e gratis.",
+    "team_tekst": "Voor je team: {team_koop} kaarten, de {team_totaal}e gratis.",
     "team_link": "Vraag een offerte",
     "twijfel": "Twijfel je nog?",
     "twijfel_link": "Scan eerst gratis je visitekaartje",
@@ -155,7 +155,7 @@
     "q7": "Kan ik mijn bestelling herroepen?",
     "a7": "Je kaart wordt op maat voor jou gemaakt. Daarom geldt het herroepingsrecht van 14 dagen niet. Daarom zie je ook altijd eerst je ontwerp, voor je kaart gemaakt wordt.",
     "q8": "Kan ik bestellen voor mijn team?",
-    "a8": "Ja. Voor 4 kaarten krijg je de 5e gratis, en vanaf 5 stuks betaal je de helft nu en de helft bij levering.",
+    "a8": "Ja. Voor {team_koop} kaarten krijg je de {team_totaal}e gratis, en vanaf {team_betaalplan} stuks betaal je de helft nu en de helft bij levering.",
     "a8_link": "Vraag een teamofferte",
     "privacy_link": "Lees de privacyverklaring"
   },
@@ -180,7 +180,9 @@
     "juridisch": "Juridisch",
     "privacy": "Privacy",
     "voorwaarden": "Voorwaarden",
-    "volg": "Volg Salix"
+    "volg": "Volg Salix",
+    "ondernemingsnummer": "Ondernemingsnummer",
+    "btw": "Bijzondere vrijstellingsregeling kleine ondernemingen"
   },
   "capaciteit": {
     "basis": "Ik maak maar een beperkt aantal kaarten per week.",
@@ -299,5 +301,27 @@
     "start.w3": "Keur goed en tik met je NFC-kaart",
     "start.slot_h2": "Probeer het gratis. Je betaalt pas als het klopt.",
     "start_prijzen.sub": "Na je gratis voorbeeld kies je je pakket, met een NFC-kaart erbij."
+  },
+  "fmt": {
+    "bereik": "{min} tot {max}"
+  },
+  "pakketten": {
+    "signature": {
+      "naam": "Signature",
+      "kort": "Alles, in metaal. Voor wie wil opvallen."
+    },
+    "complete": {
+      "naam": "Complete set",
+      "kort": "Je kaart, pen en sleutelhanger. Je contact altijd bij de hand.",
+      "badge": "Aanrader"
+    },
+    "essentials": {
+      "naam": "Essentials",
+      "kort": "Je contactsite en een tik-kaart. Het product dat 60+ klanten al hebben."
+    },
+    "digitaal": {
+      "naam": "Digitaal op maat",
+      "kort": "Je contactsite op maat en je Wallet-kaart, zonder fysieke kaart."
+    }
   }
 }

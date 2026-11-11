@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "titel": "Salix · One tap and your contact is in their phone",
+    "beschrijving": "Your business card as a personal mini-site, with an NFC card to go with it. One tap on a phone and your contact is saved. Start free with your Wallet card.",
+    "start_titel": "Salix · Your business card in your Wallet, free",
+    "start_beschrijving": "Scan your paper business card and get a free digital version in Apple or Google Wallet. In 1 minute, no app needed.",
+    "404_titel": "Page not found · Salix",
+    "teams_titel": "Salix for teams · Digital business cards for your whole team",
+    "teams_beschrijving": "A digital business card with an NFC card for every colleague, in your brand style. {team_koop} cards, the {team_totaal}th one free.",
+    "privacy_titel": "Privacy policy · Salix",
+    "voorwaarden_titel": "Terms and conditions · Salix",
+    "bedankt_titel": "Thank you · Salix",
+    "voorbeeld_titel": "Free preview of your custom card · Salix",
+    "voorbeeld_beschrijving": "See what your digital business card looks like in your own style. Within 48 hours, free. You only pay once you approve it.",
+    "bedankt_voorbeeld_titel": "Thank you · Your preview is on its way · Salix"
+  },
+  "nav": {
+    "skip": "Skip to content",
+    "hoofd": "Main menu",
+    "menu": "Menu",
+    "home": "Salix, go to the home page",
+    "werkt": "How it works",
+    "prijzen": "Pricing",
+    "teams": "For teams",
+    "faq": "FAQ",
+    "cta": "Free Wallet card",
+    "taal": "Language"
+  },
+  "hero": {
+    "bewijs": "60+ professionals went before you",
+    "h1_a": "One tap.",
+    "h1_b": "Your contact is in their phone.",
+    "sub": "Your business card as a personal mini-site, with an NFC card to go with it. You send a photo and three sentences, I do the rest.",
+    "cta": "Scan your business card, free",
+    "cta_micro": "A Wallet card for your iPhone or Android in 1 minute.",
+    "cta2": "Order now",
+    "beeld_alt": "Real Salix card of Nabil Nait Oufakir, Naitvision, on a phone",
+    "melding_titel": "Nabil Nait Oufakir",
+    "melding_tekst": "Save contact"
+  },
+  "bewijs": {
+    "titel": "Already tapping with Salix"
+  },
+  "probleem": {
+    "eyebrow": "The problem",
+    "h2": "Your paper card ends up in a drawer.",
+    "nu": "How it goes now",
+    "salix": "With Salix",
+    "rij1_nu": "Your card disappears into a coat pocket or the bin.",
+    "rij1_salix": "Your contact is in their phone right away, photo included.",
+    "rij2_nu": "Your number gets typed in wrong, or not at all.",
+    "rij2_salix": "Nobody types anything. One tap on Save contact.",
+    "rij3_nu": "New number or new job title? Print again.",
+    "rij3_salix": "I update your card. Your card and your link keep working."
+  },
+  "werkt": {
+    "eyebrow": "How it works",
+    "h2": "Three steps. You only do one.",
+    "s1_titel": "Scan your paper card",
+    "s1_tekst": "Take a photo. Your details are read out, you check them, and you get a free Wallet card straight away.",
+    "s1_tijd": "1 minute",
+    "s2_titel": "See your custom preview",
+    "s2_tekst": "Within 48 hours I make your card in your own style. You only pay once you approve it.",
+    "s2_tijd": "48 hours",
+    "s3_titel": "Get your NFC card and tap",
+    "s3_tekst": "In your mailbox within {levering} working days. One tap on a phone and your contact is saved.",
+    "s3_tijd": "{levering} working days",
+    "stap": "Step",
+    "s2_link": "Request your preview"
+  },
+  "voorbeelden": {
+    "eyebrow": "Examples",
+    "h2": "Real cards of real clients.",
+    "sub": "Tap a card to see it live.",
+    "bekijk": "View the card",
+    "alt": "Salix card of {naam}"
+  },
+  "features": {
+    "eyebrow": "On your card",
+    "h2": "Everything someone needs after a first conversation.",
+    "f1_titel": "Save contact, with photo",
+    "f1_tekst": "Your name, number, job title and photo go into their contacts in one go.",
+    "f2_titel": "WhatsApp in one tap",
+    "f2_tekst": "They can message you right away, without saving your number first.",
+    "f3_titel": "Share by QR",
+    "f3_tekst": "No NFC at hand? They simply scan your code.",
+    "f4_titel": "In your Wallet",
+    "f4_tekst": "Your card sits next to your bank card. Always at hand, even offline.",
+    "f5_titel": "Updates included",
+    "f5_tekst": "New number or new job title? Send it over and I update it.",
+    "f6_titel": "No app needed",
+    "f6_tekst": "Works on every iPhone and Android. The other person doesn't install anything."
+  },
+  "prijzen": {
+    "eyebrow": "Pricing",
+    "h2": "Pay once. No subscription.",
+    "sub": "Choose what you want to hand out: a card, or everything to share your contact. The price you see is the price you pay.",
+    "eenmalig": "one-off",
+    "kies": "Choose {naam}",
+    "niet": "Not included",
+    "optie": "optional",
+    "rij": {
+      "site_op_maat": "Custom contact site",
+      "wallet_pass": "Apple/Google Wallet card",
+      "kaart": "NFC card",
+      "pen": "NFC pen",
+      "sleutelhanger": "Key ring with your logo",
+      "eigen_domein": "Your own domain",
+      "updates": "{n} free updates"
+    },
+    "waarde": {
+      "metaal": "in metal",
+      "pvc": "in PVC",
+      "premium": "premium",
+      "standaard": ""
+    },
+    "team_tekst": "For your team: {team_koop} cards, the {team_totaal}th one free.",
+    "team_link": "Request a quote",
+    "twijfel": "Not sure yet?",
+    "twijfel_link": "Scan your business card first, for free",
+    "btw": "No VAT: special exemption scheme for small businesses."
+  },
+  "start_prijzen": {
+    "h2": "Want more than the free card?",
+    "sub": "After your free Wallet card you can upgrade to a custom card, with an NFC card to go with it."
+  },
+  "garantie": {
+    "h2": "No risk for you.",
+    "g1_titel": "See first, then make",
+    "g1_tekst": "You always see your design before your card is made. With the free preview, you only pay once you approve it.",
+    "g2_titel": "{dagen} days to tap",
+    "g2_tekst": "Something not right within {dagen} days of delivery? I fix it free of charge.",
+    "g3_titel": "2 years on your chip",
+    "g3_tekst": "If your NFC card stops working within {maanden} months, you get a new one for free."
+  },
+  "testimonials": {
+    "eyebrow": "Clients",
+    "h2": "What clients say."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "h2": "Frequently asked questions",
+    "q1": "Does it work on an iPhone?",
+    "a1": "Yes. Hold your card against the top of an iPhone XS or newer and a notification pops up. Older iPhones simply scan the QR code.",
+    "q2": "Do I or the other person need an app?",
+    "a2": "No. Your card opens in the browser of any iPhone or Android.",
+    "q3": "What if my details change?",
+    "a3": "Send me the change. I update your card and your card, link and QR code keep working. Depending on your package, {updates_min} to {updates_max} updates are included in the first year.",
+    "q4": "How long does it take?",
+    "a4": "You get your free Wallet card within a minute. Your custom preview within 48 hours. After your approval, your NFC card arrives within {levering} working days.",
+    "q5": "Can I use my own domain?",
+    "a5": "Yes, for example name.yourcompany.com. It's included in Signature and available with the other packages for +{prijs_domein}. The domain stays yours. Without your own domain, your card lives at a Salix address with your name.",
+    "q6": "What happens to my data?",
+    "a6": "The photo of your paper card is deleted as soon as your details have been read. There are no cookies or trackers on your card. You can always delete your free card and your data yourself via the link in your email.",
+    "q7": "Can I cancel my order?",
+    "a7": "Your card is custom-made for you, so the 14-day right of withdrawal does not apply. That's why you always see your design first, before your card is made.",
+    "q8": "Can I order for my team?",
+    "a8": "Yes. Order {team_koop} cards and get the {team_totaal}th one free, and from {team_betaalplan} cards you pay half now and half on delivery.",
+    "a8_link": "Request a team quote",
+    "privacy_link": "Read the privacy policy"
+  },
+  "slot": {
+    "h2": "Your next contact won't have to type in your number.",
+    "sub": "Start free with your Wallet card. Ready for more? Order your custom card right away."
+  },
+  "start": {
+    "h1_a": "One tap.",
+    "h1_b": "Your contact is in their phone.",
+    "sub": "Scan your paper business card and get a free digital version in your Wallet. In 1 minute, no app needed.",
+    "cta": "Scan your business card, free",
+    "werkt_h2": "How it works",
+    "w1": "Take a photo of your card",
+    "w2": "Check your details",
+    "w3": "Your Wallet card is on your phone",
+    "slot_h2": "Try it for free. It takes 1 minute."
+  },
+  "voet": {
+    "tagline": "Digital business cards with an NFC card.",
+    "contact": "Contact",
+    "juridisch": "Legal",
+    "privacy": "Privacy",
+    "voorwaarden": "Terms",
+    "volg": "Follow Salix",
+    "ondernemingsnummer": "Company number",
+    "btw": "Special VAT exemption scheme for small businesses"
+  },
+  "capaciteit": {
+    "basis": "I only make a limited number of cards each week.",
+    "nog": "{n} spots left this week."
+  },
+  "nietgevonden": {
+    "h1": "This page doesn't exist.",
+    "tekst": "The link may be outdated. Saving your contact still takes just one tap.",
+    "terug": "Go to the home page"
+  },
+  "teams": {
+    "h1_a": "One brand style.",
+    "h1_b": "The whole team in their phones.",
+    "sub": "A custom card for every colleague, in your colours and with your logo. I handle everything, you have one point of contact.",
+    "cta": "Request a quote",
+    "v_h2": "Why teams choose Salix.",
+    "v1_titel": "{team_totaal} cards for the price of {team_koop}",
+    "v1_tekst": "Order {team_koop} cards and get the {team_totaal}th one free.",
+    "v2_titel": "Pay in two parts",
+    "v2_tekst": "From {team_betaalplan} cards you pay half now and half on delivery.",
+    "v3_titel": "One point of contact",
+    "v3_tekst": "New colleague or new number? One message is enough, I update it.",
+    "r_h2": "Here's how it adds up.",
+    "r_sub": "Example for a team of {team_totaal}: you pay for {team_koop}.",
+    "r_kaarten": "{team_totaal} cards",
+    "f_h2": "Request a quote",
+    "f_sub": "Tell me briefly who you are. You'll get a tailored proposal within 2 working days."
+  },
+  "formulier": {
+    "naam": "Your name",
+    "bedrijf": "Company",
+    "email": "Email",
+    "telefoon": "Phone",
+    "optioneel": "optional",
+    "aantal": "Number of people",
+    "pakket": "Package",
+    "pakket_weet_niet": "Not sure yet",
+    "bericht": "Anything else?",
+    "toestemming": "You may use my details to reply to this request.",
+    "privacy_link": "Privacy policy",
+    "verstuur": "Send request",
+    "hp": "Leave this field empty",
+    "uit": "Sending will be possible soon: the form isn't connected yet.",
+    "verplicht": "required",
+    "fout": "Not everything is filled in correctly. Check the fields and try again.",
+    "fout_server": "Something went wrong while sending. Please try again later."
+  },
+  "juridisch": {
+    "concept": "Draft: this text has not yet been reviewed by a lawyer.",
+    "leeg": "to be filled in",
+    "bijgewerkt": "Last updated on {bijgewerkt}.",
+    "privacy_h1": "Privacy policy",
+    "voorwaarden_h1": "Terms and conditions"
+  },
+  "bedankt": {
+    "h1": "Thank you. Your request is in.",
+    "sub": "I review it personally and you'll hear from me soon.",
+    "nu_h2": "What happens next?",
+    "n1": "I review your request and put together a tailored proposal.",
+    "n2": "Within 2 working days you get an email with the proposal and the price.",
+    "n3": "Agreed? Then I make a design for every colleague, which you approve first.",
+    "terug": "Back to the home page"
+  },
+  "voorbeeld": {
+    "h1_a": "See your card",
+    "h1_b": "before you pay.",
+    "sub": "Send a photo and a few sentences. Within 48 hours I make a preview of your card in your own style. Free, and you only pay once you approve it.",
+    "p1": "Free, no strings attached",
+    "p2": "In your inbox within 48 hours",
+    "p3": "You only pay after approval",
+    "f_h2": "Request your preview",
+    "f_sub": "That's all I need. Details come later.",
+    "functie": "What do you do?",
+    "functie_hint": "E.g. Photographer, Interior architect, Business owner",
+    "bedrijf": "Company",
+    "foto": "Portrait photo",
+    "foto_hint": "A clear photo of yourself. JPG, PNG, HEIC or WebP, max. 8 MB.",
+    "website": "Website or LinkedIn",
+    "voorkeur": "How should I send you the preview?",
+    "voorkeur_email": "By email",
+    "voorkeur_whatsapp": "Via WhatsApp",
+    "telefoon_hint": "Needed if you choose WhatsApp.",
+    "wensen": "Your style or wishes",
+    "wensen_hint": "Colours, your logo, a site you like.",
+    "verstuur": "Request my free preview",
+    "fout_foto_groot": "Your photo is larger than 8 MB. Please choose a smaller one.",
+    "fout_foto_type": "This file isn't a photo I can use. Please choose a JPG, PNG, HEIC or WebP."
+  },
+  "bedankt_voorbeeld": {
+    "h1": "Great. Your preview is on its way.",
+    "sub": "I'm getting started with your photo and your details.",
+    "n1": "I make your card in your own style.",
+    "n2": "Within 48 hours you get a link to view your preview on your phone.",
+    "n3": "Happy with it? Then you choose your package and pay. Not happy? I adjust it, or you simply leave it."
+  },
+  "zonder_wallet": {
+    "nav.cta": "Free preview",
+    "hero.cta": "Request your free preview",
+    "hero.cta_micro": "Within 48 hours, and you only pay once you approve it.",
+    "werkt.s1_titel": "Request your free preview",
+    "werkt.s1_tekst": "Send a photo and a few sentences about what you do. That's all I need.",
+    "werkt.s1_tijd": "2 minutes",
+    "werkt.s2_titel": "See your card and approve it",
+    "werkt.s2_tekst": "Within 48 hours you see your card in your own style. You only pay once you approve it.",
+    "werkt.s2_link": "Request your preview",
+    "prijzen.twijfel_link": "Request a free preview first",
+    "faq.a4": "You get your custom preview within 48 hours. After your approval, your NFC card arrives within {levering} working days.",
+    "faq.a6": "There are no cookies or trackers on your card. I only use your details and your photo to make your card, and you can always have them deleted.",
+    "slot.sub": "Start with a free preview. Ready for more? Order your custom card right away.",
+    "meta.start_titel": "Salix · See what your digital business card looks like, free",
+    "meta.start_beschrijving": "Send a photo and a few sentences and see your digital business card in your own style within 48 hours. Free, you only pay once you approve it.",
+    "start.sub": "Send a photo and a few sentences, and see what your card looks like within 48 hours. Free, you only pay once you approve it.",
+    "start.cta": "Request your free preview",
+    "start.w1": "Send a photo and a few sentences",
+    "start.w2": "See your card within 48 hours",
+    "start.w3": "Approve it and tap with your NFC card",
+    "start.slot_h2": "Try it for free. You only pay if it's right.",
+    "start_prijzen.sub": "After your free preview you choose your package, with an NFC card to go with it."
+  },
+  "fmt": {
+    "bereik": "{min} to {max}"
+  },
+  "pakketten": {
+    "signature": {
+      "naam": "Signature",
+      "kort": "Everything, in metal. For those who want to stand out."
+    },
+    "complete": {
+      "naam": "Complete set",
+      "kort": "Your card, pen and key ring. Your contact always at hand.",
+      "badge": "Recommended"
+    },
+    "essentials": {
+      "naam": "Essentials",
+      "kort": "Your contact site and a tap card. The product 60+ clients already have."
+    },
+    "digitaal": {
+      "naam": "Digital custom",
+      "kort": "Your custom contact site and your Wallet card, without a physical card."
+    }
+  }
+}

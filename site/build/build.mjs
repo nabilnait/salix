@@ -18,7 +18,10 @@
 //   {{prijs:team.<id>}} prijs van een teamset (koop x pakketprijs, gratis kaart inbegrepen)
 //   {{voet}}            juridische gegevens + contact uit site.json (lege velden vallen weg)
 // In i18n-teksten: {levering} {dagen} {maanden} {updates_min} {updates_max} {prijs_domein}
-// pages/404.html wordt dist/404.html.
+//   {{taalwissel}}      links naar dezelfde pagina in de andere talen
+//   {{alternates}}      canonical + hreflang (op basis van site.json basis_url)
+// pages/404.html wordt dist/404.html. NL staat in de root, EN/FR onder /en/ en /fr/.
+// Interne links (/teams/, /#prijzen …) krijgen in EN/FR automatisch het taalprefix.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync, statSync, copyFileSync, existsSync } from "node:fs";
 import { join, dirname, relative, extname } from "node:path";
@@ -29,7 +32,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = join(ROOT, "src");
 const DIST = join(ROOT, "dist");
 const STRICT = process.argv.includes("--strict");
-const TALEN = ["nl"]; // EN/FR komen na akkoord op het NL-design
+let TALEN = ["nl"];
+let LANG = "nl"; // taal die nu gebouwd wordt (voor prijs- en datumformaat)
 
 const errors = [];
 const warnings = [];
@@ -41,6 +45,9 @@ const site = json("config/site.json");
 const proof = json("config/proof.json");
 const testimonials = json("config/testimonials.json");
 const voorbeelden = json("config/voorbeelden.json");
+TALEN = site.talen?.length ? site.talen : TALEN;
+const BASIS = (site.basis_url || "").replace(/\/$/, "");
+const HTML_LANG = { nl: "nl-BE", en: "en", fr: "fr-BE" };
 
 // ---------- helpers ----------
 const walk = (dir) =>
@@ -50,7 +57,13 @@ const walk = (dir) =>
   });
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const hash = (p) => createHash("sha256").update(readFileSync(p)).digest("hex").slice(0, 10);
-const euro = (cent) => "€" + (cent % 100 === 0 ? String(cent / 100) : (cent / 100).toFixed(2).replace(".", ","));
+const euro = (cent) => {
+  const n = cent % 100 === 0 ? String(cent / 100) : (cent / 100).toFixed(2);
+  if (LANG === "fr") return `${n.replace(".", ",")}\u00a0€`;
+  if (LANG === "en") return `€${n}`;
+  return `€${n.replace(".", ",")}`;
+};
+const vertaald = (v) => (v && typeof v === "object" ? v[LANG] ?? v.nl : v);
 
 function get(obj, path) {
   return path.split(".").reduce((o, k) => (o == null ? undefined : o[k]), obj);
@@ -116,23 +129,24 @@ function prijstabel(t) {
           return `<li class="${nee ? "nee" : "ja"}"><svg class="i" aria-hidden="true"><use href="#i-${nee ? "plus" : "check"}"/></svg><span>${label}${extra}</span></li>`;
         })
         .join("");
-      const badge = p.badge ? `<p class="plan-badge">${esc(p.badge)}</p>` : "";
+      const naam = t(`pakketten.${p.id}.naam`);
+      const badge = p.badge ? `<p class="plan-badge">${t(`pakketten.${p.id}.badge`)}</p>` : "";
       return `<article class="plan plan-${p.rol}" aria-labelledby="plan-${p.id}">
   <div class="plan-kop">
-    <h3 id="plan-${p.id}">${esc(p.naam)}</h3>${badge}
+    <h3 id="plan-${p.id}">${naam}</h3>${badge}
   </div>
   <p class="plan-prijs"><span class="bedrag">${euro(p.prijs)}</span> <span class="eenmalig">${t("prijzen.eenmalig")}</span></p>
-  <p class="plan-kort">${esc(p.kort)}</p>
-  <a class="btn ${p.rol === "kern" ? "btn-primair" : "btn-secundair"}" href="/bestel/?pakket=${p.id}" data-cta="prijzen-${p.id}">${t("prijzen.kies")} ${esc(p.naam)}</a>
+  <p class="plan-kort">${t(`pakketten.${p.id}.kort`)}</p>
+  <a class="btn ${p.rol === "kern" ? "btn-primair" : "btn-secundair"}" href="/bestel/?pakket=${p.id}" data-cta="prijzen-${p.id}">${t("prijzen.kies").replace("{naam}", naam)}</a>
   <ul class="plan-lijst">${items}</ul>
 </article>`;
     })
     .join("\n");
 }
 
-function prijsrij() {
+function prijsrij(t) {
   return offers.pakketten.filter((p) => p.in_prijstabel).sort((a, b) => a.positie - b.positie)
-    .map((p) => `<li><span class="pr-naam">${esc(p.naam)}</span> <span class="pr-bedrag">${euro(p.prijs)}</span></li>`).join("");
+    .map((p) => `<li><span class="pr-naam">${t(`pakketten.${p.id}.naam`)}</span> <span class="pr-bedrag">${euro(p.prijs)}</span></li>`).join("");
 }
 
 function capaciteit(t) {
@@ -152,11 +166,12 @@ function isoWeek(d) {
 // ---------- variabelen in teksten ----------
 const tabel = offers.pakketten.filter((p) => p.in_prijstabel);
 const upd = tabel.map((p) => p.inhoud.updates).filter((n) => n != null);
-const VARS = {
+let VARS = {};
+const maakVars = (dict) => ({
   levering: offers.levering.werkdagen_min != null
     ? (offers.levering.werkdagen_min === offers.levering.werkdagen_max
         ? String(offers.levering.werkdagen_min)
-        : `${offers.levering.werkdagen_min} tot ${offers.levering.werkdagen_max}`)
+        : (get(dict, "fmt.bereik") || "{min}–{max}").replace("{min}", offers.levering.werkdagen_min).replace("{max}", offers.levering.werkdagen_max))
     : null,
   dagen: offers.garantie?.na_levering_dagen != null ? String(offers.garantie.na_levering_dagen) : null,
   maanden: offers.garantie?.defect_maanden != null ? String(offers.garantie.defect_maanden) : null,
@@ -166,8 +181,10 @@ const VARS = {
   team_koop: String(offers.teams.koop),
   team_totaal: String(offers.teams.koop + offers.teams.gratis),
   team_betaalplan: String(offers.teams.betaalplan.vanaf_aantal),
-  bijgewerkt: site.juridisch?.laatst_bijgewerkt ?? null,
-};
+  bijgewerkt: site.juridisch?.laatst_bijgewerkt
+    ? new Intl.DateTimeFormat(HTML_LANG[LANG] || LANG, { day: "numeric", month: "long", year: "numeric" }).format(new Date(site.juridisch.laatst_bijgewerkt))
+    : null,
+});
 const vul = (tekst, waar) =>
   tekst.replace(/\{(\w+)\}/g, (m, k) => {
     if (!(k in VARS)) return m;
@@ -194,7 +211,7 @@ function voorbeeldenSectie(t) {
         <img src="${esc(i.beeld_klein || i.beeld)}" width="390" height="844" loading="lazy" alt="${esc(t("voorbeelden.alt").replace("{naam}", i.naam))}">
       </span></span>
       <span class="vb-naam">${esc(i.naam)}</span>
-      <span class="vb-functie">${esc(i.functie)}</span>
+      <span class="vb-functie">${esc(vertaald(i.functie))}</span>
       <span class="vb-bekijk">${t("voorbeelden.bekijk")}<svg class="i" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span>
     </a></li>`).join("");
   return `<section class="voorbeelden" id="voorbeelden" aria-labelledby="vb-titel"><div class="wrap">
@@ -221,7 +238,7 @@ function testimonialsSectie(t) {
 
 function voet(t) {
   const j = site.juridisch || {};
-  const delen = [j.naam, j.adres, j.ondernemingsnummer && `Ondernemingsnummer ${j.ondernemingsnummer}`, j.btw_vermelding].filter(Boolean);
+  const delen = [j.naam, j.adres, j.ondernemingsnummer && `${t("voet.ondernemingsnummer")} ${j.ondernemingsnummer}`, t("voet.btw")].filter(Boolean);
   const c = site.contact || {};
   const s = site.socials || {};
   const contact = [
@@ -244,6 +261,32 @@ if (site.juridisch?.nagekeken !== true) (STRICT ? errors : warnings).push("Jurid
 if (site.api_actief !== true) warnings.push("Formulieren staan uit (site.json api_actief)");
 if (site.wallet_actief !== true) warnings.push("Gratis Wallet-flow staat uit: gratis-knoppen gaan naar /voorbeeld/ (site.json wallet_actief)");
 
+// ---------- talen: paden, taalwissel, hreflang ----------
+const pad = (name, lang) => {
+  const p = name === "index" || name === "404" ? "/" : `/${name}/`;
+  return lang === "nl" ? p : `/${lang}${p}`;
+};
+function taalwissel(name, lang) {
+  return TALEN.map((l) =>
+    `<a href="${pad(name, l)}" hreflang="${HTML_LANG[l] || l}" lang="${HTML_LANG[l] || l}"${l === lang ? ' aria-current="true"' : ""}>${l.toUpperCase()}</a>`
+  ).join("\n");
+}
+function alternates(name, lang) {
+  if (!BASIS || name === "404") return "";
+  return [
+    `<link rel="canonical" href="${BASIS}${pad(name, lang)}">`,
+    ...TALEN.map((l) => `<link rel="alternate" hreflang="${HTML_LANG[l] || l}" href="${BASIS}${pad(name, l)}">`),
+    `<link rel="alternate" hreflang="x-default" href="${BASIS}${pad(name, "nl")}">`,
+  ].join("\n");
+}
+/** Interne links in EN/FR naar de eigen taal laten wijzen. */
+function prefixLinks(html, lang) {
+  if (lang === "nl") return html;
+  return html.replace(/(href|action)="\/(?!(?:en|fr|css|js|img|fonts|api)\/|\/)([^"]*)"/g, (m, attr, rest) => `${attr}="/${lang}/${rest}"`);
+}
+const NIET_IN_SITEMAP = new Set(["404", "bedankt", "bedankt-voorbeeld", "start"]);
+const sitemap = [];
+
 // ---------- assets kopiëren ----------
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
@@ -260,6 +303,8 @@ for (const sub of ["css", "js", "fonts", "img"]) {
   }
 }
 for (const f of ["_headers", "robots.txt"]) if (existsSync(join(SRC, f))) copyFileSync(join(SRC, f), join(DIST, f));
+if (BASIS && existsSync(join(DIST, "robots.txt")))
+  writeFileSync(join(DIST, "robots.txt"), readFileSync(join(DIST, "robots.txt"), "utf8").trimEnd() + `\nSitemap: ${BASIS}/sitemap.xml\n`);
 
 // ---------- pagina's ----------
 const partial = (name) => {
@@ -269,7 +314,9 @@ const partial = (name) => {
 };
 
 for (const lang of TALEN) {
+  LANG = lang;
   const dict = json(`i18n/${lang}.json`);
+  VARS = maakVars(dict);
   if (/€\s?\d/.test(JSON.stringify(dict))) errors.push(`i18n/${lang}.json: hardgecodeerde prijs, gebruik {prijs_…}`);
   const zonderWallet = site.wallet_actief !== true ? dict.zonder_wallet || {} : {};
   const t = (k) => {
@@ -288,7 +335,7 @@ for (const lang of TALEN) {
     html = html
       .replace(/\{\{prijstabel\}\}/g, () => prijstabel(t))
       .replace(/\{\{capaciteit\}\}/g, () => capaciteit(t))
-      .replace(/\{\{prijsrij\}\}/g, () => prijsrij())
+      .replace(/\{\{prijsrij\}\}/g, () => prijsrij(t))
       .replace(/\{\{bewijsstrip\}\}/g, () => bewijsstrip(t))
       .replace(/\{\{voorbeelden\}\}/g, () => voorbeeldenSectie(t))
       .replace(/\{\{testimonials\}\}/g, () => testimonialsSectie(t))
@@ -301,6 +348,7 @@ for (const lang of TALEN) {
         return v == null ? `<mark class="leeg">[${t("juridisch.leeg")}: ${k}]</mark>` : esc(v);
       })
       .replace(/\{\{lang\}\}/g, lang)
+      .replace(/\{\{html_lang\}\}/g, HTML_LANG[lang] || lang)
       .replace(/\{\{t:([\w.]+)\}\}/g, (_, k) => t(k))
       .replace(/\{\{prijs:([\w.]+)\}\}/g, (_, k) => prijs(k))
       .replace(/\{\{asset:([^}]+)\}\}/g, (_, p) => {
@@ -315,6 +363,12 @@ for (const lang of TALEN) {
         .replace(/\s*<a class="stap-link"[^>]*>[^<]*<\/a>/g, "");
     }
 
+    const name = file.replace(/\.html$/, "");
+    html = prefixLinks(html, lang)
+      .replace(/\{\{taalwissel\}\}/g, () => taalwissel(name, lang))
+      .replace(/\{\{alternates\}\}/g, () => alternates(name, lang));
+    if (!NIET_IN_SITEMAP.has(name) && BASIS) sitemap.push({ name, lang });
+
     // ---------- controles ----------
     const left = html.match(/\{\{[^}]*\}\}/g);
     if (left) errors.push(`${file}: niet ingevulde placeholder(s): ${[...new Set(left)].join(", ")}`);
@@ -327,7 +381,6 @@ for (const lang of TALEN) {
       if (!existsSync(join(DIST, ref))) errors.push(`${file}: verwijst naar ontbrekend ${ref}`);
     }
 
-    const name = file.replace(/\.html$/, "");
     const base = lang === "nl" ? DIST : join(DIST, lang);
     const out = name === "index" ? join(base, "index.html")
       : name === "404" ? join(base, "404.html")
@@ -336,6 +389,20 @@ for (const lang of TALEN) {
     writeFileSync(out, html);
   }
 }
+
+// ---------- sitemap ----------
+if (BASIS) {
+  const namen = [...new Set(sitemap.map((s) => s.name))];
+  const urls = namen.map((n) => `  <url>
+    <loc>${BASIS}${pad(n, "nl")}</loc>
+${TALEN.map((l) => `    <xhtml:link rel="alternate" hreflang="${HTML_LANG[l] || l}" href="${BASIS}${pad(n, l)}"/>`).join("\n")}
+  </url>`).join("\n");
+  writeFileSync(join(DIST, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls}
+</urlset>
+`);
+} else warnings.push("site.json basis_url is leeg: geen canonical, hreflang of sitemap");
 
 // ---------- secret-scan (licht, gitleaks draait in CI) ----------
 for (const f of walk(ROOT).filter((p) => !p.includes("/dist/") && !p.includes("node_modules") && /\.(m?js|ts|json|html|css|md|toml|jsonc)$/.test(p))) {

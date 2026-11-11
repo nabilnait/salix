@@ -24,12 +24,14 @@
     "ondernemingsnummer": null,
     "btw_vermelding": "Bijzondere vrijstellingsregeling kleine ondernemingen",
     "nagekeken": false,
-    "laatst_bijgewerkt": "11 november 2026"
+    "laatst_bijgewerkt": "2026-11-11"
   },
   "experimenten": {
     "adviseur_agent": false
   },
   "api_actief": true,
   "wallet_actief": false,
-  "$comment_wallet": "wallet_actief: false = de gratis Wallet-flow (/gratis) bestaat nog niet. Alle links naar /gratis/ gaan dan naar /voorbeeld/ en teksten uit i18n 'zonder_wallet' vervangen de gewone."
+  "$comment_wallet": "wallet_actief: false = de gratis Wallet-flow (/gratis) bestaat nog niet. Alle links naar /gratis/ gaan dan naar /voorbeeld/ en teksten uit i18n 'zonder_wallet' vervangen de gewone.",
+  "basis_url": "https://salix.nabil-naits.workers.dev",
+  "$comment_basis_url": "Absolute basis voor canonical, hreflang en sitemap. Vervangen door het eigen domein zodra dat er is."
 }
