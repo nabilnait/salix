@@ -25,12 +25,21 @@ De tabel maak je niet zelf: de deploy past `site/workers/api/migrations/` automa
 - mergen naar `main`;
 - een testaanvraag sturen en checken dat ze in D1 staat.
 
+## Foto's voor het gratis voorbeeld (R2)
+
+- [ ] Dashboard → **R2 Object Storage** → R2 activeren (eenmalig, vraagt een betaalkaart; gratis tot 10 GB).
+- [ ] **Create bucket** → naam `salix-fotos` → locatie automatisch → Create. Laat hem **privé** (geen publieke toegang).
+- [ ] Laat me weten dat het gedaan is. Dan merge ik `feat/voorbeeld` naar `main`.
+
+Een foto bekijken: R2 → `salix-fotos` → de map `voorbeeld/`. De bestandsnaam staat in D1 in de kolom `foto_key`.
+
 ## Nieuwe aanvragen bekijken
 
 Tot de admin-pagina er is (fase 3): Cloudflare-dashboard → Storage & Databases → D1 → `salix` → Console, en voer uit:
 
 ```sql
-SELECT created_at, naam, bedrijf, email, telefoon, aantal, pakket, src, ref, bericht
+SELECT created_at, type, naam, functie, bedrijf, email, telefoon, contact_voorkeur,
+       aantal, pakket, website, wensen, foto_key, src, ref, bericht
 FROM leads WHERE status = 'nieuw' ORDER BY created_at DESC;
 ```
 

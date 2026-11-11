@@ -1,13 +1,14 @@
 // Salix API-worker. Serveert ook de statische site (site/dist) via ASSETS.
-// Routes: POST /api/teams. Alles onder /api/ komt hier eerst langs (run_worker_first).
+// Routes: POST /api/teams, POST /api/voorbeeld (met foto naar R2). Alles onder /api/ komt hier eerst langs (run_worker_first).
 
 import { EmailMessage } from "cloudflare:email";
-import { isBot, valideerTeams, type Velden, type TeamAanvraag } from "./validate.ts";
+import { isBot, valideerTeams, valideerVoorbeeld, valideerFoto, MIME, MAX_FOTO, type Velden, type TeamAanvraag } from "./validate.ts";
 import { bouwMime } from "./mail.ts";
 
 export interface Env {
   ASSETS: { fetch(req: Request): Promise<Response> };
   DB: D1Database;
+  FOTOS?: { put(key: string, v: ArrayBuffer, o?: { httpMetadata?: { contentType?: string } }): Promise<unknown>; delete(key: string): Promise<void> };
   MAILER?: { send(m: EmailMessage): Promise<void> };
   RL?: { limit(o: { key: string }): Promise<{ success: boolean }> };
   MAIL_FROM?: string;
@@ -28,6 +29,10 @@ export default {
     if (url.pathname === "/api/teams" || url.pathname === "/api/teams/") {
       if (req.method !== "POST") return new Response("Method Not Allowed", { status: 405, headers: { Allow: "POST" } });
       return teams(req, env, ctx, url);
+    }
+    if (url.pathname === "/api/voorbeeld" || url.pathname === "/api/voorbeeld/") {
+      if (req.method !== "POST") return new Response("Method Not Allowed", { status: 405, headers: { Allow: "POST" } });
+      return voorbeeld(req, env, url);
     }
     if (url.pathname.startsWith("/api/")) return json({ ok: false, fout: "niet_gevonden" }, 404);
     return env.ASSETS.fetch(req);
@@ -79,6 +84,55 @@ async function teams(req: Request, env: Env, ctx: Ctx, url: URL): Promise<Respon
   ctx.waitUntil(meld(env, url.host, id, d).catch((e) => console.error("Mail mislukt", e)));
 
   return gelukt(wilJson);
+}
+
+async function voorbeeld(req: Request, env: Env, url: URL): Promise<Response> {
+  const wilJson = (req.headers.get("Accept") || "").includes("application/json");
+  const terug = (fout: string) =>
+    wilJson ? json({ ok: false, fout }, fout === "server" ? 503 : 422)
+            : Response.redirect(new URL(`/voorbeeld/?fout=${fout}#formulier`, url).toString(), 303);
+
+  const origin = req.headers.get("Origin");
+  if (origin && new URL(origin).host !== url.host) return antwoord(wilJson, 403, "herkomst");
+
+  const ip = req.headers.get("CF-Connecting-IP") || "onbekend";
+  if (env.RL) {
+    const { success } = await env.RL.limit({ key: `voorbeeld:${ip}` });
+    if (!success) return antwoord(wilJson, 429, "te_veel");
+  }
+
+  if (Number(req.headers.get("Content-Length") || "0") > MAX_FOTO + 200_000) return terug("foto_groot");
+  if (!(req.headers.get("Content-Type") || "").includes("multipart/form-data")) return antwoord(wilJson, 400, "ongeldig");
+
+  let form: FormData;
+  try { form = await req.formData(); } catch { return antwoord(wilJson, 400, "ongeldig"); }
+  const velden: Velden = {};
+  for (const [k, w] of form.entries()) if (typeof w === "string") velden[k] = w;
+  if (isBot(velden)) return wilJson ? json({ ok: true }, 200) : new Response(null, { status: 303, headers: { Location: "/bedankt-voorbeeld/" } });
+
+  const r = valideerVoorbeeld(velden);
+  const bestand = form.get("foto");
+  const fotoBuf = bestand && typeof bestand !== "string" ? await (bestand as Blob).arrayBuffer() : null;
+  const f = valideerFoto(fotoBuf?.byteLength ?? 0, new Uint8Array(fotoBuf ?? new ArrayBuffer(0)).slice(0, 16));
+  const fouten = [...(r.ok ? [] : r.fouten), ...(f.ok ? [] : f.fouten)];
+  if (!r.ok || !f.ok) return terug(fouten.join(","));
+
+  if (!env.FOTOS) return terug("server");
+  const id = crypto.randomUUID();
+  const key = `voorbeeld/${id}.${f.data}`;
+  const d = r.data;
+  try {
+    await env.FOTOS.put(key, fotoBuf!, { httpMetadata: { contentType: MIME[f.data] } });
+    await env.DB.prepare(
+      `INSERT INTO leads (id, type, naam, functie, bedrijf, email, telefoon, contact_voorkeur, website, wensen, foto_key, src, ref, lang)
+       VALUES (?, 'voorbeeld', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'nl')`
+    ).bind(id, d.naam, d.functie, d.bedrijf, d.email, d.telefoon, d.contact_voorkeur, d.website, d.wensen, key, d.src, d.ref).run();
+  } catch (e) {
+    console.error("Voorbeeld opslaan mislukt", e);
+    await env.FOTOS.delete(key).catch(() => {});
+    return terug("server");
+  }
+  return wilJson ? json({ ok: true }, 200) : new Response(null, { status: 303, headers: { Location: "/bedankt-voorbeeld/" } });
 }
 
 async function meld(env: Env, host: string, id: string, d: TeamAanvraag): Promise<void> {

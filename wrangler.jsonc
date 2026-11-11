@@ -25,6 +25,10 @@
       "migrations_dir": "site/workers/api/migrations"
     }
   ],
+  // Foto's van het voorbeeldformulier. Bucket eenmalig aanmaken in het dashboard (R2 → Create bucket → salix-fotos).
+  "r2_buckets": [
+    { "binding": "FOTOS", "bucket_name": "salix-fotos" }
+  ],
   // Mailmeldingen staan uit tot er een eigen domein is. Dan komen hier terug:
   // "send_email": [{ "name": "MAILER", "destination_address": "<inbox>" }],
   // "vars": { "MAIL_FROM": "website@<domein>", "MAIL_TO": "<inbox>" },

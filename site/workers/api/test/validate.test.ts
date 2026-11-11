@@ -5,7 +5,7 @@ import { valideerTeams, isBot, code, schoon } from "../src/validate.ts";
 const goed = {
   naam: "  Sara   Peeters ", bedrijf: "Studio Test", email: "Sara@Voorbeeld.be", telefoon: "+32 470 12 34 56",
   aantal: "6", pakket: "complete", bericht: "Hallo\r\n\r\n\r\n\r\nGraag een offerte.", toestemming: "ja",
-  src: "Warm", ref: "jan<script>", website: "",
+  src: "Warm", ref: "jan<script>", hp_url: "",
 };
 
 test("geldige teamaanvraag wordt opgekuist", () => {
@@ -48,7 +48,7 @@ test("velden worden ingekort en stuurtekens verwijderd", () => {
 });
 
 test("honeypot herkent bots", () => {
-  assert.equal(isBot({ website: "http://spam" }), true);
-  assert.equal(isBot({ website: "  " }), false);
+  assert.equal(isBot({ hp_url: "http://spam" }), true);
+  assert.equal(isBot({ hp_url: "  " }), false);
   assert.equal(isBot({}), false);
 });

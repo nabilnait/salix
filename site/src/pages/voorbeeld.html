@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+{{> head}}
+<title>{{t:meta.voorbeeld_titel}}</title>
+<meta name="description" content="{{t:meta.voorbeeld_beschrijving}}">
+</head>
+<body>
+{{> sprite}}
+{{> nav}}
+<main id="inhoud">
+  <section class="hero hero-voorbeeld" aria-labelledby="hero-titel">
+    <div class="wrap hero-in">
+      <div class="hero-tekst">
+        <p class="bewijs"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>{{t:hero.bewijs}}</p>
+        <h1 id="hero-titel"><span class="h1-a">{{t:voorbeeld.h1_a}}</span> <span class="h1-b">{{t:voorbeeld.h1_b}}</span></h1>
+        <p class="hero-sub">{{t:voorbeeld.sub}}</p>
+        <ul class="punten">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>{{t:voorbeeld.p1}}</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>{{t:voorbeeld.p2}}</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>{{t:voorbeeld.p3}}</li>
+        </ul>
+        <div class="hero-acties">
+          <a class="btn btn-primair btn-groot" href="#formulier" data-cta="voorbeeld-hero">{{t:voorbeeld.f_h2}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+{{> beeld}}
+    </div>
+  </section>
+
+  <section class="offerte offerte-grijs" id="formulier" aria-labelledby="form-titel">
+    <div class="wrap offerte-in">
+      <header class="faq-kop">
+        <h2 id="form-titel">{{t:voorbeeld.f_h2}}</h2>
+        <p class="sectie-sub">{{t:voorbeeld.f_sub}}</p>
+      </header>
+      <form class="formulier" method="post" action="/api/voorbeeld" enctype="multipart/form-data" data-formulier>
+        <p class="formulier-fout veld-breed" role="alert" data-fout hidden
+           data-fout-server="{{t:formulier.fout_server}}"
+           data-fout-foto_groot="{{t:voorbeeld.fout_foto_groot}}"
+           data-fout-foto_type="{{t:voorbeeld.fout_foto_type}}">{{t:formulier.fout}}</p>
+        <div class="veld">
+          <label for="v-naam">{{t:formulier.naam}}</label>
+          <input id="v-naam" name="naam" type="text" autocomplete="name" required maxlength="120">
+        </div>
+        <div class="veld">
+          <label for="v-functie">{{t:voorbeeld.functie}}</label>
+          <input id="v-functie" name="functie" type="text" autocomplete="organization-title" required maxlength="120" aria-describedby="v-functie-hint">
+          <p class="hint" id="v-functie-hint">{{t:voorbeeld.functie_hint}}</p>
+        </div>
+        <div class="veld">
+          <label for="v-bedrijf">{{t:voorbeeld.bedrijf}} <span class="opt">({{t:formulier.optioneel}})</span></label>
+          <input id="v-bedrijf" name="bedrijf" type="text" autocomplete="organization" maxlength="160">
+        </div>
+        <div class="veld">
+          <label for="v-website">{{t:voorbeeld.website}} <span class="opt">({{t:formulier.optioneel}})</span></label>
+          <input id="v-website" name="website" type="text" inputmode="url" autocomplete="url" maxlength="300">
+        </div>
+        <div class="veld veld-breed veld-foto">
+          <label for="v-foto">{{t:voorbeeld.foto}}</label>
+          <input id="v-foto" name="foto" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif" required aria-describedby="v-foto-hint" data-foto>
+          <p class="hint" id="v-foto-hint">{{t:voorbeeld.foto_hint}}</p>
+          <p class="hint hint-fout" data-foto-fout hidden></p>
+        </div>
+        <div class="veld">
+          <label for="v-email">{{t:formulier.email}}</label>
+          <input id="v-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="200">
+        </div>
+        <div class="veld">
+          <label for="v-tel">{{t:formulier.telefoon}} <span class="opt">({{t:formulier.optioneel}})</span></label>
+          <input id="v-tel" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" aria-describedby="v-tel-hint">
+          <p class="hint" id="v-tel-hint">{{t:voorbeeld.telefoon_hint}}</p>
+        </div>
+        <fieldset class="veld veld-breed keuze">
+          <legend>{{t:voorbeeld.voorkeur}}</legend>
+          <label><input type="radio" name="contact_voorkeur" value="email" checked> {{t:voorbeeld.voorkeur_email}}</label>
+          <label><input type="radio" name="contact_voorkeur" value="whatsapp"> {{t:voorbeeld.voorkeur_whatsapp}}</label>
+        </fieldset>
+        <div class="veld veld-breed">
+          <label for="v-wensen">{{t:voorbeeld.wensen}} <span class="opt">({{t:formulier.optioneel}})</span></label>
+          <textarea id="v-wensen" name="wensen" rows="4" maxlength="2000" aria-describedby="v-wensen-hint"></textarea>
+          <p class="hint" id="v-wensen-hint">{{t:voorbeeld.wensen_hint}}</p>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="v-website2">{{t:formulier.hp}}</label>
+          <input id="v-website2" name="hp_url" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="src" value="" data-src>
+        <input type="hidden" name="ref" value="" data-ref>
+        <div class="veld veld-breed veld-check">
+          <input id="v-ok" name="toestemming" type="checkbox" value="ja" required>
+          <label for="v-ok">{{t:formulier.toestemming}} <a href="/privacy/">{{t:formulier.privacy_link}}</a></label>
+        </div>
+        <div class="veld-breed">
+          <button class="btn btn-primair btn-groot" type="submit"{{formulier}}>{{t:voorbeeld.verstuur}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          {{formulier_melding}}
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+{{> voet}}
+</body>
+</html>

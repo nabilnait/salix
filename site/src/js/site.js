@@ -51,12 +51,43 @@
   const el = document.querySelector("[data-fout]");
   if (!fout || !el) return;
   el.hidden = false;
-  if (fout === "server") { el.textContent = el.dataset.foutServer || el.textContent; return; }
-  const namen = fout.split(",").map((s) => s.replace(/[^a-z]/g, ""));
+  const namen = fout.split(",").map((s) => s.replace(/[^a-z_]/g, ""));
+  // Specifieke melding als die bestaat (bv. data-fout-server, data-fout-foto_groot).
+  const specifiek = namen.map((n) => el.getAttribute(`data-fout-${n}`)).find(Boolean);
+  if (specifiek) el.textContent = specifiek;
+  if (namen.includes("server")) return;
+  for (const n of namen.filter((x) => x.startsWith("foto"))) namen.push("foto");
   for (const n of namen) {
     const veld = document.querySelector(`[name="${n}"]`);
     if (veld) veld.setAttribute("aria-invalid", "true");
   }
   const eerste = document.querySelector(`[name="${namen[0]}"]`);
   if (eerste) eerste.focus();
+})();
+
+// Voorbeeldformulier: foto controleren voor het uploaden, en telefoon verplicht bij WhatsApp.
+(() => {
+  const foto = document.querySelector("[data-foto]");
+  if (foto) {
+    const melding = document.querySelector("[data-foto-fout]");
+    const fout = document.querySelector("[data-fout]");
+    const MAX = 8 * 1024 * 1024;
+    const OK = /\.(jpe?g|png|webp|heic|heif)$/i;
+    foto.addEventListener("change", () => {
+      const f = foto.files && foto.files[0];
+      let tekst = "";
+      if (f && f.size > MAX) tekst = fout?.getAttribute("data-fout-foto_groot") || "";
+      else if (f && !OK.test(f.name) && !/^image\/(jpeg|png|webp|heic|heif)$/.test(f.type)) tekst = fout?.getAttribute("data-fout-foto_type") || "";
+      foto.setCustomValidity(tekst);
+      foto.setAttribute("aria-invalid", tekst ? "true" : "false");
+      if (melding) { melding.textContent = tekst; melding.hidden = !tekst; }
+    });
+  }
+  const tel = document.querySelector('form [name="telefoon"]');
+  const keuzes = document.querySelectorAll('input[name="contact_voorkeur"]');
+  if (tel && keuzes.length) {
+    const zet = () => { tel.required = document.querySelector('input[name="contact_voorkeur"]:checked')?.value === "whatsapp"; };
+    keuzes.forEach((k) => k.addEventListener("change", zet));
+    zet();
+  }
 })();

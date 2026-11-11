@@ -9,7 +9,10 @@
     "teams_beschrijving": "Een digitale visitekaart met NFC-kaart voor elke collega, in jullie huisstijl. {team_koop} kaarten, de {team_totaal}e gratis.",
     "privacy_titel": "Privacyverklaring · Salix",
     "voorwaarden_titel": "Algemene voorwaarden · Salix",
-    "bedankt_titel": "Bedankt · Salix"
+    "bedankt_titel": "Bedankt · Salix",
+    "voorbeeld_titel": "Gratis voorbeeld van je kaart op maat · Salix",
+    "voorbeeld_beschrijving": "Zie hoe jouw digitale visitekaart eruitziet in je eigen stijl. Binnen 48 uur, gratis. Je betaalt pas als je het goedkeurt.",
+    "bedankt_voorbeeld_titel": "Bedankt · Je voorbeeld is onderweg · Salix"
   },
   "nav": {
     "skip": "Naar de inhoud",
@@ -62,7 +65,8 @@
     "s3_titel": "Ontvang je NFC-kaart en tik",
     "s3_tekst": "Binnen {levering} werkdagen in je bus. Eén tik op een gsm en je contact staat erin.",
     "s3_tijd": "{levering} werkdagen",
-    "stap": "Stap"
+    "stap": "Stap",
+    "s2_link": "Vraag je voorbeeld aan"
   },
   "voorbeelden": {
     "eyebrow": "Voorbeelden",
@@ -239,5 +243,37 @@
     "n2": "Je krijgt binnen 2 werkdagen een mail met het voorstel en de prijs.",
     "n3": "Akkoord? Dan maak ik voor elke collega een ontwerp, dat jullie eerst goedkeuren.",
     "terug": "Terug naar de startpagina"
+  },
+  "voorbeeld": {
+    "h1_a": "Zie je kaart",
+    "h1_b": "voor je betaalt.",
+    "sub": "Stuur een foto en een paar zinnen. Binnen 48 uur maak ik een voorbeeld van je kaart in je eigen stijl. Gratis, en je betaalt pas als je het goedkeurt.",
+    "p1": "Gratis en vrijblijvend",
+    "p2": "Binnen 48 uur in je mailbox",
+    "p3": "Je betaalt pas na goedkeuring",
+    "f_h2": "Vraag je voorbeeld aan",
+    "f_sub": "Meer heb ik niet nodig. Details vragen we later.",
+    "functie": "Wat doe je?",
+    "functie_hint": "Bv. Fotograaf, Interieurarchitect, Zaakvoerder",
+    "bedrijf": "Bedrijf",
+    "foto": "Portretfoto",
+    "foto_hint": "Een duidelijke foto van jezelf. JPG, PNG, HEIC of WebP, max. 8 MB.",
+    "website": "Website of LinkedIn",
+    "voorkeur": "Hoe mag ik je het voorbeeld sturen?",
+    "voorkeur_email": "Per e-mail",
+    "voorkeur_whatsapp": "Via WhatsApp",
+    "telefoon_hint": "Nodig als je WhatsApp kiest.",
+    "wensen": "Je stijl of wensen",
+    "wensen_hint": "Kleuren, je logo, een site die je mooi vindt.",
+    "verstuur": "Vraag mijn gratis voorbeeld aan",
+    "fout_foto_groot": "Je foto is groter dan 8 MB. Kies een kleinere foto.",
+    "fout_foto_type": "Dit bestand is geen foto die ik kan gebruiken. Kies een JPG, PNG, HEIC of WebP."
+  },
+  "bedankt_voorbeeld": {
+    "h1": "Top. Je voorbeeld is onderweg.",
+    "sub": "Ik ga meteen aan de slag met je foto en je gegevens.",
+    "n1": "Ik maak je kaart in je eigen stijl.",
+    "n2": "Binnen 48 uur krijg je een link om je voorbeeld op je gsm te bekijken.",
+    "n3": "Tevreden? Dan kies je je pakket en betaal je. Niet tevreden? Dan pas ik het aan, of je laat het gewoon."
   }
 }
