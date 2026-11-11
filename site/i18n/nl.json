@@ -275,5 +275,29 @@
     "n1": "Ik maak je kaart in je eigen stijl.",
     "n2": "Binnen 48 uur krijg je een link om je voorbeeld op je gsm te bekijken.",
     "n3": "Tevreden? Dan kies je je pakket en betaal je. Niet tevreden? Dan pas ik het aan, of je laat het gewoon."
+  },
+  "zonder_wallet": {
+    "nav.cta": "Gratis voorbeeld",
+    "hero.cta": "Vraag je gratis voorbeeld aan",
+    "hero.cta_micro": "Binnen 48 uur, en je betaalt pas als je het goedkeurt.",
+    "werkt.s1_titel": "Vraag je gratis voorbeeld aan",
+    "werkt.s1_tekst": "Stuur een foto en een paar zinnen over wat je doet. Meer heb ik niet nodig.",
+    "werkt.s1_tijd": "2 minuten",
+    "werkt.s2_titel": "Bekijk je kaart en keur ze goed",
+    "werkt.s2_tekst": "Binnen 48 uur zie je je kaart in je eigen stijl. Je betaalt pas als je het goedkeurt.",
+    "werkt.s2_link": "Vraag je voorbeeld aan",
+    "prijzen.twijfel_link": "Vraag eerst een gratis voorbeeld aan",
+    "faq.a4": "Je voorbeeld op maat heb je binnen 48 uur. Na je goedkeuring heb je je NFC-kaart binnen {levering} werkdagen.",
+    "faq.a6": "Er staan geen cookies of trackers op je kaart. Je gegevens en je foto gebruik ik alleen om je kaart te maken, en je kan ze altijd laten verwijderen.",
+    "slot.sub": "Begin met een gratis voorbeeld. Klaar voor meer? Bestel meteen je kaart op maat.",
+    "meta.start_titel": "Salix · Zie gratis hoe jouw digitale visitekaart eruitziet",
+    "meta.start_beschrijving": "Stuur een foto en een paar zinnen en zie binnen 48 uur je digitale visitekaart in je eigen stijl. Gratis, je betaalt pas als je het goedkeurt.",
+    "start.sub": "Stuur een foto en een paar zinnen, en zie binnen 48 uur hoe jouw kaart eruitziet. Gratis, je betaalt pas als je het goedkeurt.",
+    "start.cta": "Vraag je gratis voorbeeld aan",
+    "start.w1": "Stuur een foto en een paar zinnen",
+    "start.w2": "Bekijk je kaart binnen 48 uur",
+    "start.w3": "Keur goed en tik met je NFC-kaart",
+    "start.slot_h2": "Probeer het gratis. Je betaalt pas als het klopt.",
+    "start_prijzen.sub": "Na je gratis voorbeeld kies je je pakket, met een NFC-kaart erbij."
   }
 }

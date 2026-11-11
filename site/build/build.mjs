@@ -242,6 +242,7 @@ function voet(t) {
 
 if (site.juridisch?.nagekeken !== true) (STRICT ? errors : warnings).push("Juridische teksten nog niet nagekeken (site.json juridisch.nagekeken)");
 if (site.api_actief !== true) warnings.push("Formulieren staan uit (site.json api_actief)");
+if (site.wallet_actief !== true) warnings.push("Gratis Wallet-flow staat uit: gratis-knoppen gaan naar /voorbeeld/ (site.json wallet_actief)");
 
 // ---------- assets kopiëren ----------
 rmSync(DIST, { recursive: true, force: true });
@@ -270,8 +271,9 @@ const partial = (name) => {
 for (const lang of TALEN) {
   const dict = json(`i18n/${lang}.json`);
   if (/€\s?\d/.test(JSON.stringify(dict))) errors.push(`i18n/${lang}.json: hardgecodeerde prijs, gebruik {prijs_…}`);
+  const zonderWallet = site.wallet_actief !== true ? dict.zonder_wallet || {} : {};
   const t = (k) => {
-    const v = get(dict, k);
+    const v = typeof zonderWallet[k] === "string" ? zonderWallet[k] : get(dict, k);
     if (typeof v !== "string") { errors.push(`[${lang}] ontbrekende vertaling: ${k}`); return `[[${k}]]`; }
     return vul(v, `[${lang}] ${k}`);
   };
@@ -305,6 +307,13 @@ for (const lang of TALEN) {
         if (!assetHash[p]) { errors.push(`${file}: ontbrekend bestand ${p}`); return p; }
         return `${p}?v=${assetHash[p]}`;
       });
+
+    // Zolang de gratis Wallet-flow er niet is: gratis-knoppen naar het voorbeeldformulier.
+    if (site.wallet_actief !== true) {
+      html = html
+        .replace(/href="\/gratis\/"/g, 'href="/voorbeeld/"')
+        .replace(/\s*<a class="stap-link"[^>]*>[^<]*<\/a>/g, "");
+    }
 
     // ---------- controles ----------
     const left = html.match(/\{\{[^}]*\}\}/g);

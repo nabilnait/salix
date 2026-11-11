@@ -29,5 +29,7 @@
   "experimenten": {
     "adviseur_agent": false
   },
-  "api_actief": true
+  "api_actief": true,
+  "wallet_actief": false,
+  "$comment_wallet": "wallet_actief: false = de gratis Wallet-flow (/gratis) bestaat nog niet. Alle links naar /gratis/ gaan dan naar /voorbeeld/ en teksten uit i18n 'zonder_wallet' vervangen de gewone."
 }
