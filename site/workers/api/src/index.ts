@@ -63,10 +63,17 @@ async function teams(req: Request, env: Env, ctx: Ctx, url: URL): Promise<Respon
   const id = crypto.randomUUID();
   const d = r.data;
   const lang = url.searchParams.get("lang") === "en" || url.searchParams.get("lang") === "fr" ? url.searchParams.get("lang") : "nl";
-  await env.DB.prepare(
-    `INSERT INTO leads (id, type, naam, bedrijf, email, telefoon, aantal, pakket, bericht, src, ref, lang)
-     VALUES (?, 'teams', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-  ).bind(id, d.naam, d.bedrijf, d.email, d.telefoon, d.aantal, d.pakket, d.bericht, d.src, d.ref, lang).run();
+  try {
+    await env.DB.prepare(
+      `INSERT INTO leads (id, type, naam, bedrijf, email, telefoon, aantal, pakket, bericht, src, ref, lang)
+       VALUES (?, 'teams', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    ).bind(id, d.naam, d.bedrijf, d.email, d.telefoon, d.aantal, d.pakket, d.bericht, d.src, d.ref, lang).run();
+  } catch (e) {
+    // Bv. de migratie is niet toegepast. Niet crashen: de bezoeker krijgt een duidelijke melding.
+    console.error("Opslaan in D1 mislukt", e);
+    if (wilJson) return json({ ok: false, fout: "server" }, 503);
+    return Response.redirect(new URL("/teams/?fout=server#offerte", url).toString(), 303);
+  }
 
   // Mail naar Nabil. Mislukt de mail, dan blijft de aanvraag toch bewaard in D1.
   ctx.waitUntil(meld(env, url.host, id, d).catch((e) => console.error("Mail mislukt", e)));

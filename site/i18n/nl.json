@@ -221,7 +221,8 @@
     "hp": "Laat dit veld leeg",
     "uit": "Versturen kan binnenkort: het formulier is nog niet gekoppeld.",
     "verplicht": "verplicht",
-    "fout": "Niet alles is goed ingevuld. Kijk de velden na en probeer opnieuw."
+    "fout": "Niet alles is goed ingevuld. Kijk de velden na en probeer opnieuw.",
+    "fout_server": "Er ging iets mis bij het versturen. Probeer het later opnieuw."
   },
   "juridisch": {
     "concept": "Concept: deze tekst is nog niet juridisch nagekeken.",

@@ -51,6 +51,7 @@
   const el = document.querySelector("[data-fout]");
   if (!fout || !el) return;
   el.hidden = false;
+  if (fout === "server") { el.textContent = el.dataset.foutServer || el.textContent; return; }
   const namen = fout.split(",").map((s) => s.replace(/[^a-z]/g, ""));
   for (const n of namen) {
     const veld = document.querySelector(`[name="${n}"]`);
