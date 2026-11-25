@@ -10,7 +10,7 @@
   ],
   "standaardtaal": "nl",
   "contact": {
-    "email": null,
+    "email": "info@naitvision.be",
     "whatsapp": null
   },
   "socials": {
@@ -19,9 +19,9 @@
   },
   "juridisch": {
     "$comment": "Wettelijk verplicht op een Belgische bedrijfssite (WER boek XII). 'nagekeken: false' toont een conceptbanner op privacy en voorwaarden; --strict faalt erop.",
-    "naam": null,
-    "adres": null,
-    "ondernemingsnummer": null,
+    "naam": "Nabil Nait Oufakir",
+    "adres": "Kanaalstraat 6, 3590 Diepenbeek",
+    "ondernemingsnummer": "BE 0788.569.148",
     "btw_vermelding": "Bijzondere vrijstellingsregeling kleine ondernemingen",
     "nagekeken": false,
     "laatst_bijgewerkt": "2026-11-11"
