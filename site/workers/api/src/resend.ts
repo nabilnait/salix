@@ -44,5 +44,7 @@ export async function stuur(apiKey: string, m: Melding): Promise<void> {
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify(resendBody(m)),
   });
-  if (!res.ok) throw new Error(`Resend ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  const antwoord = (await res.text()).slice(0, 300);
+  if (!res.ok) throw new Error(`Resend ${res.status}: ${antwoord}`);
+  console.log(`Melding verstuurd via Resend: ${antwoord}`);
 }

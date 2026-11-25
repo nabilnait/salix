@@ -143,7 +143,11 @@ async function voorbeeld(req: Request, env: Env, ctx: Ctx, url: URL): Promise<Re
 }
 
 /** Meldingen staan uit zolang RESEND_API_KEY, MAIL_FROM of MAIL_TO ontbreekt. Een mislukte mail breekt de aanvraag nooit. */
-const meldingAan = (env: Env) => Boolean(env.RESEND_API_KEY && env.MAIL_FROM && env.MAIL_TO);
+const meldingAan = (env: Env) => {
+  const ontbreekt = [!env.RESEND_API_KEY && "RESEND_API_KEY", !env.MAIL_FROM && "MAIL_FROM", !env.MAIL_TO && "MAIL_TO"].filter(Boolean);
+  if (ontbreekt.length) console.warn(`Melding overgeslagen: ${ontbreekt.join(", ")} ontbreekt`);
+  return ontbreekt.length === 0;
+};
 
 async function meld(env: Env, host: string, id: string, d: TeamAanvraag): Promise<void> {
   if (!meldingAan(env)) return;
