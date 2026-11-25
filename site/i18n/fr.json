@@ -326,5 +326,8 @@
       "naam": "Numérique sur mesure",
       "kort": "Votre site de contact sur mesure et votre carte Wallet, sans carte physique."
     }
+  },
+  "demo": {
+    "tekst": "<strong>Démo</strong> : ce site est encore en construction. Les prix, l'offre et les textes sont provisoires et sans engagement."
   }
 }

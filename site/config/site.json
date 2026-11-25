@@ -33,5 +33,7 @@
   "wallet_actief": false,
   "$comment_wallet": "wallet_actief: false = de gratis Wallet-flow (/gratis) bestaat nog niet. Alle links naar /gratis/ gaan dan naar /voorbeeld/ en teksten uit i18n 'zonder_wallet' vervangen de gewone.",
   "basis_url": "https://salix.naitvision.be",
-  "$comment_basis_url": "Absolute basis voor canonical, hreflang en sitemap."
+  "$comment_basis_url": "Absolute basis voor canonical, hreflang en sitemap.",
+  "demo": true,
+  "$comment_demo": "demo: true = balk bovenaan elke pagina ('demo, concept, niet bindend') en noindex voor zoekmachines. Op false zetten zodra de site echt live gaat."
 }

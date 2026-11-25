@@ -260,6 +260,7 @@ function voet(t) {
 
 if (site.juridisch?.nagekeken !== true) (STRICT ? errors : warnings).push("Juridische teksten nog niet nagekeken (site.json juridisch.nagekeken)");
 if (site.api_actief !== true) warnings.push("Formulieren staan uit (site.json api_actief)");
+if (site.demo === true) warnings.push("Demo-modus: balk bovenaan + noindex (site.json demo)");
 if (site.wallet_actief !== true) warnings.push("Gratis Wallet-flow staat uit: gratis-knoppen gaan naar /voorbeeld/ (site.json wallet_actief)");
 
 // ---------- talen: paden, taalwissel, hreflang ----------
@@ -349,6 +350,8 @@ for (const lang of TALEN) {
         return v == null ? `<mark class="leeg">[${t("juridisch.leeg")}: ${k}]</mark>` : esc(v);
       })
       .replace(/\{\{merk\}\}/g, () => esc(site.merk || "SalixCards"))
+      .replace(/\{\{demo\}\}/g, () => (site.demo === true ? `<p class="demo-balk" role="note">${t("demo.tekst")}</p>` : ""))
+      .replace(/\{\{demo_robots\}\}/g, () => (site.demo === true ? '<meta name="robots" content="noindex">' : ""))
       .replace(/\{\{lang\}\}/g, lang)
       .replace(/\{\{html_lang\}\}/g, HTML_LANG[lang] || lang)
       .replace(/\{\{t:([\w.]+)\}\}/g, (_, k) => t(k))

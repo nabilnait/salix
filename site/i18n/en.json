@@ -326,5 +326,8 @@
       "naam": "Digital custom",
       "kort": "Your custom contact site and your Wallet card, without a physical card."
     }
+  },
+  "demo": {
+    "tekst": "<strong>Demo</strong>: this site is still under construction. Prices, offers and texts are a draft and not binding."
   }
 }

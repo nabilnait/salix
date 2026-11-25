@@ -509,3 +509,7 @@ mark.leeg { background: var(--paper-3); color: var(--ink); padding: 0 6px; borde
 .team-kaart.k3.kaart-achter { background: var(--paper-2); }
 .team-kaart:not(.kaart-achter) { place-items: start; padding: 18px 22px; }
 .team-kaart:not(.kaart-achter) .kaart-tekst { font-size: clamp(1.125rem, 3vw, 1.5rem); }
+
+/* ---------- Demo-balk (site.json demo) ---------- */
+.demo-balk { margin: 0; padding: 10px var(--gutter); background: var(--ink); color: var(--on-ink); font-size: .875rem; line-height: 1.45; text-align: center; text-wrap: balance; }
+.demo-balk strong { font-weight: 600; }

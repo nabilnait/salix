@@ -326,5 +326,8 @@
       "naam": "Digitaal op maat",
       "kort": "Je contactsite op maat en je Wallet-kaart, zonder fysieke kaart."
     }
+  },
+  "demo": {
+    "tekst": "<strong>Demo</strong>: deze site is nog in opbouw. Prijzen, aanbod en teksten zijn een concept en niet bindend."
   }
 }
