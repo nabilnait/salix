@@ -11,7 +11,7 @@
 ## In de generator (`../Salix/salix-cards`)
 
 - `salix.config.json` → `salixUrl`: het adres van de marketingsite. Leeg = geen linkje.
-  Nu: `https://salix.nabil-naits.workers.dev`. **Zodra er een eigen domein is: hier aanpassen en alle kaarten opnieuw bouwen en deployen.**
+  Nu: `https://salix.naitvision.be`. Verandert het domein ooit, pas het dan hier aan en bouw alle kaarten opnieuw.
 - Per klant uitzetten: `"madeWith": false` in `clients/<id>/client.json`.
 - De tekst volgt `lang` van de klant (nl/en/fr).
 - Stijl: klein (11 px), wat lichter, onder de copyrightregel. De CSS wordt bij het bouwen toegevoegd, omdat de template-CSS schrijfbeveiligd is.

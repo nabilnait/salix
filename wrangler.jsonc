@@ -36,5 +36,7 @@
   "ratelimits": [
     { "name": "RL", "namespace_id": "1002", "simple": { "limit": 5, "period": 60 } }
   ],
+  // Eigen domein (Custom Domain op de zone naitvision.be)
+  "routes": [{ "pattern": "salix.naitvision.be", "custom_domain": true }],
   "observability": { "enabled": true }
 }
