@@ -1,4 +1,4 @@
-// Salix API-worker. Serveert ook de statische site (site/dist) via ASSETS.
+// SalixCards API-worker. Serveert ook de statische site (site/dist) via ASSETS.
 // Routes: POST /api/teams, POST /api/voorbeeld (met foto naar R2). Alles onder /api/ komt hier eerst langs (run_worker_first).
 
 import { isBot, valideerTeams, valideerVoorbeeld, valideerFoto, MIME, MAX_FOTO, type Velden, type TeamAanvraag, type VoorbeeldAanvraag } from "./validate.ts";

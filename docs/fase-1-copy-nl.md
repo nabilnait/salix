@@ -1,4 +1,4 @@
-# Salix: NL-copy voor review (fase 1)
+# SalixCards: NL-copy voor review (fase 1)
 
 Status: **concept**, nog niets bevestigd.
 
@@ -13,7 +13,7 @@ Hoe je dit leest:
 ## A. Home (`/`)
 
 ### 1. Nav
-- Logo: Salix
+- Logo: SalixCards
 - Links: Zo werkt het · Prijzen · Voor teams · FAQ
 - Taal: NL · EN · FR
 - Knop: **Gratis Wallet-kaart**
@@ -27,18 +27,18 @@ Hoe je dit leest:
 - Primaire CTA: **Scan je visitekaartje, gratis in 1 minuut**
   - Microtekst onder de knop: Je krijgt meteen een Wallet-kaart voor je iPhone of Android.
 - Secundaire CTA: **Direct bestellen**
-- Visual: gsm met een echte Salix-kaart + een NFC-kaart die tegen de gsm tikt.
+- Visual: gsm met een echte SalixCards-kaart + een NFC-kaart die tegen de gsm tikt.
 
 ### 3. Bewijsstrip · *kans*
-- Kop (klein): Ze tikken al met Salix
+- Kop (klein): Ze tikken al met SalixCards
 - Inhoud: logo's/namen uit `config/proof.json`. **Leeg = sectie weg.** [BEVESTIGEN: welke klanten akkoord gaven om genoemd te worden]
 
 ### 4. Probleem → oplossing · *droom*
 - Eyebrow: Het probleem
 - H2: **Je papieren kaartje belandt in een la.**
-- Drie kaartjes, links "Zo gaat het nu", rechts "Met Salix":
+- Drie kaartjes, links "Zo gaat het nu", rechts "Met SalixCards":
 
-| Zo gaat het nu | Met Salix |
+| Zo gaat het nu | Met SalixCards |
 |---|---|
 | Je kaartje verdwijnt in een jaszak of de vuilbak. | Je contact staat meteen in hun gsm, met je foto erbij. |
 | Je nummer wordt verkeerd overgetypt, of helemaal niet. | Niemand typt iets over. Eén tik op "Contact opslaan". |
@@ -164,7 +164,7 @@ Ja. Voor 4 kaarten krijg je de 5e gratis, en vanaf 5 stuks betaal je de helft nu
 - CTA: **Scan je visitekaartje, gratis in 1 minuut** · Direct bestellen
 
 ### 13. Footer
-- Salix · Digitale visitekaartjes met een NFC-kaart
+- SalixCards · Digitale visitekaartjes met een NFC-kaart
 - Contact: {{email}} · WhatsApp
 - Privacy · Voorwaarden
 - NL · EN · FR
@@ -229,7 +229,7 @@ Verschijnt als iemand terugkomt van de Stripe-checkout zonder te betalen, of "te
 - Tekst: Met **Digitaal op maat** krijg je je contactsite in je eigen stijl, met foto, diensten en contactformulier, en je Wallet-kaart die ernaar linkt. Zonder fysieke kaart, voor {{prijs:digitaal}}. Een NFC-kaart kan je later altijd nog toevoegen.
 - Knoppen: **Kies Digitaal op maat** · Nee, bedankt
 
-> Wat het verschil met de gratis versie zichtbaar maakt: eigen stijl, portretfoto, diensten, formulier, geen Salix-branding bovenaan.
+> Wat het verschil met de gratis versie zichtbaar maakt: eigen stijl, portretfoto, diensten, formulier, geen SalixCards-branding bovenaan.
 
 ---
 
@@ -263,7 +263,7 @@ Verschijnt als iemand terugkomt van de Stripe-checkout zonder te betalen, of "te
 Je tijd zit hier niet in. Reken op ± 1–2 uur per kaart op maat: dat is je echte kost, en de reden dat de capaciteit beperkt is.
 
 ### Nog nodig voor livegang (niet te verzinnen)
-- **Domeinnaam** van Salix (`site.json` → `domein`)
+- **Domeinnaam** van SalixCards (`site.json` → `domein`)
 - **Juridische gegevens**: naam, adres en ondernemingsnummer (wettelijk verplicht)
 - **Contact**: e-mail, WhatsApp, links naar Instagram en LinkedIn
 - **Klanten die toestemming geven** voor de voorbeelden, de bewijsstrip en de testimonials

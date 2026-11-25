@@ -42,5 +42,5 @@ Deze stappen moet je zelf doen: ze vragen je identiteit, betaalgegevens of bedri
 
 - [ ] **Stripe-account** (fase 3): KBO-nummer, bankrekening, identiteitscontrole. Zet **Bancontact** aan bij Payment methods. Testmodus werkt meteen, livebetalingen pas na de verificatie.
 - [ ] **Anthropic API-sleutel** (voor de scan van het papieren kaartje): maak een account op console.anthropic.com en stel meteen een **maandelijkse uitgavelimiet** in. Hoeveel budget per maand wil je? [BEVESTIGEN]
-- [ ] **Domein op Cloudflare**: staat het Salix-domein al op Cloudflare (nameservers)? Zo niet, zet het erop, dan kan de site er later meteen op.
-- [ ] **GitHub**: in welke repo bouw ik? De map `Salix_app` is leeg en is geen git-repo, en `../Salix/` ook niet. Geef me de URL van de Salix-repo, of zeg dat ik er een nieuwe mag maken.
+- [ ] **Domein op Cloudflare**: staat het SalixCards-domein al op Cloudflare (nameservers)? Zo niet, zet het erop, dan kan de site er later meteen op.
+- [ ] **GitHub**: in welke repo bouw ik? De map `Salix_app` is leeg en is geen git-repo, en `../SalixCards/` ook niet. Geef me de URL van de SalixCards-repo, of zeg dat ik er een nieuwe mag maken.

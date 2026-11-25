@@ -1,24 +1,24 @@
 {
   "meta": {
-    "titel": "Salix · Un geste, et votre contact est dans leur GSM",
+    "titel": "{merk} · Un geste, et votre contact est dans leur GSM",
     "beschrijving": "Votre carte de visite en mini-site personnelle, avec une carte NFC en prime. Un geste sur un GSM et votre contact est enregistré. Commencez gratuitement avec votre carte Wallet.",
-    "start_titel": "Salix · Votre carte de visite gratuite dans votre Wallet",
+    "start_titel": "{merk} · Votre carte de visite gratuite dans votre Wallet",
     "start_beschrijving": "Scannez votre carte de visite papier et recevez gratuitement une version numérique dans Apple ou Google Wallet. En 1 minute, sans application.",
-    "404_titel": "Page introuvable · Salix",
-    "teams_titel": "Salix pour les équipes · Cartes de visite numériques pour toute votre équipe",
+    "404_titel": "Page introuvable · {merk}",
+    "teams_titel": "{merk} pour les équipes · Cartes de visite numériques pour toute votre équipe",
     "teams_beschrijving": "Une carte de visite numérique avec carte NFC pour chaque collègue, à vos couleurs. {team_koop} cartes, la {team_totaal}e offerte.",
-    "privacy_titel": "Politique de confidentialité · Salix",
-    "voorwaarden_titel": "Conditions générales · Salix",
-    "bedankt_titel": "Merci · Salix",
-    "voorbeeld_titel": "Aperçu gratuit de votre carte sur mesure · Salix",
+    "privacy_titel": "Politique de confidentialité · {merk}",
+    "voorwaarden_titel": "Conditions générales · {merk}",
+    "bedankt_titel": "Merci · {merk}",
+    "voorbeeld_titel": "Aperçu gratuit de votre carte sur mesure · {merk}",
     "voorbeeld_beschrijving": "Découvrez votre carte de visite numérique dans votre propre style. En 48 heures, gratuitement. Vous ne payez qu'après validation.",
-    "bedankt_voorbeeld_titel": "Merci · Votre aperçu est en route · Salix"
+    "bedankt_voorbeeld_titel": "Merci · Votre aperçu est en route · {merk}"
   },
   "nav": {
     "skip": "Aller au contenu",
     "hoofd": "Menu principal",
     "menu": "Menu",
-    "home": "Salix, retour à l'accueil",
+    "home": "{merk}, retour à l'accueil",
     "werkt": "Comment ça marche",
     "prijzen": "Tarifs",
     "teams": "Pour les équipes",
@@ -34,18 +34,18 @@
     "cta": "Scannez votre carte, c'est gratuit",
     "cta_micro": "Une carte Wallet pour votre iPhone ou Android en 1 minute.",
     "cta2": "Commander",
-    "beeld_alt": "Vraie carte Salix de Nabil Nait Oufakir, Naitvision, sur un GSM",
+    "beeld_alt": "Vraie carte {merk} de Nabil Nait Oufakir, Naitvision, sur un GSM",
     "melding_titel": "Nabil Nait Oufakir",
     "melding_tekst": "Enregistrer le contact"
   },
   "bewijs": {
-    "titel": "Ils utilisent déjà Salix"
+    "titel": "Ils utilisent déjà {merk}"
   },
   "probleem": {
     "eyebrow": "Le problème",
     "h2": "Votre carte papier finit dans un tiroir.",
     "nu": "Aujourd'hui",
-    "salix": "Avec Salix",
+    "salix": "Avec {merk}",
     "rij1_nu": "Votre carte disparaît dans une poche ou à la poubelle.",
     "rij1_salix": "Votre contact est tout de suite dans leur GSM, photo comprise.",
     "rij2_nu": "Votre numéro est mal recopié, ou pas du tout.",
@@ -73,7 +73,7 @@
     "h2": "De vraies cartes de vrais clients.",
     "sub": "Touchez une carte pour la voir en ligne.",
     "bekijk": "Voir la carte",
-    "alt": "Carte Salix de {naam}"
+    "alt": "Carte {merk} de {naam}"
   },
   "features": {
     "eyebrow": "Sur votre carte",
@@ -149,7 +149,7 @@
     "q4": "Combien de temps ça prend ?",
     "a4": "Vous recevez votre carte Wallet gratuite en une minute. Votre aperçu sur mesure en 48 heures. Après validation, votre carte NFC arrive en {levering} jours ouvrables.",
     "q5": "Puis-je utiliser mon propre domaine ?",
-    "a5": "Oui, par exemple nom.votreentreprise.be. C'est inclus dans Signature et disponible avec les autres formules pour +{prijs_domein}. Le domaine reste à vous. Sans domaine propre, votre carte est hébergée sur une adresse Salix à votre nom.",
+    "a5": "Oui, par exemple nom.votreentreprise.be. C'est inclus dans Signature et disponible avec les autres formules pour +{prijs_domein}. Le domaine reste à vous. Sans domaine propre, votre carte est hébergée sur une adresse {merk} à votre nom.",
     "q6": "Que deviennent mes données ?",
     "a6": "La photo de votre carte papier est supprimée dès que vos coordonnées ont été lues. Il n'y a ni cookies ni traceurs sur votre carte. Vous pouvez toujours supprimer vous-même votre carte gratuite et vos données via le lien dans votre e-mail.",
     "q7": "Puis-je annuler ma commande ?",
@@ -158,7 +158,7 @@
     "a8": "Oui. Pour {team_koop} cartes, la {team_totaal}e est offerte, et à partir de {team_betaalplan} cartes vous payez la moitié maintenant et la moitié à la livraison.",
     "a8_link": "Demander un devis équipe",
     "privacy_link": "Lire la politique de confidentialité",
-    "q9": "Le logo de Salix figure-t-il sur ma carte ?",
+    "q9": "Le logo de {merk} figure-t-il sur ma carte ?",
     "a9": "Non. Votre carte porte uniquement votre logo, avec votre code QR au dos. Votre site est lui aussi entièrement sur mesure, dans votre style."
   },
   "slot": {
@@ -182,7 +182,7 @@
     "juridisch": "Mentions légales",
     "privacy": "Confidentialité",
     "voorwaarden": "Conditions",
-    "volg": "Suivre Salix",
+    "volg": "Suivre {merk}",
     "ondernemingsnummer": "Numéro d'entreprise",
     "btw": "Régime particulier de franchise des petites entreprises"
   },
@@ -200,7 +200,7 @@
     "h1_b": "Toute l'équipe dans leur GSM.",
     "sub": "Une carte sur mesure pour chaque collègue, à vos couleurs et avec votre logo. Je m'occupe de tout, vous avez un seul interlocuteur.",
     "cta": "Demander un devis",
-    "v_h2": "Pourquoi les équipes choisissent Salix.",
+    "v_h2": "Pourquoi les équipes choisissent {merk}.",
     "v1_titel": "{team_totaal} cartes pour le prix de {team_koop}",
     "v1_tekst": "Commandez {team_koop} cartes, la {team_totaal}e est offerte.",
     "v2_titel": "Payer en deux fois",
@@ -295,7 +295,7 @@
     "faq.a4": "Vous recevez votre aperçu sur mesure en 48 heures. Après validation, votre carte NFC arrive en {levering} jours ouvrables.",
     "faq.a6": "Il n'y a ni cookies ni traceurs sur votre carte. J'utilise vos coordonnées et votre photo uniquement pour créer votre carte, et vous pouvez toujours les faire supprimer.",
     "slot.sub": "Commencez par un aperçu gratuit. Prêt pour plus ? Commandez tout de suite votre carte sur mesure.",
-    "meta.start_titel": "Salix · Découvrez gratuitement votre carte de visite numérique",
+    "meta.start_titel": "{merk} · Découvrez gratuitement votre carte de visite numérique",
     "meta.start_beschrijving": "Envoyez une photo et quelques phrases et découvrez en 48 heures votre carte de visite numérique dans votre propre style. Gratuit, vous ne payez qu'après validation.",
     "start.sub": "Envoyez une photo et quelques phrases, et découvrez votre carte en 48 heures. Gratuit, vous ne payez qu'après validation.",
     "start.cta": "Demandez votre aperçu gratuit",

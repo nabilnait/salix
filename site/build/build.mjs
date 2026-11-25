@@ -1,4 +1,4 @@
-// Salix-site build. Geen dependencies: alleen Node (>= 20).
+// SalixCards-site build. Geen dependencies: alleen Node (>= 20).
 //   node build/build.mjs            bouwt site/dist, waarschuwt bij onbevestigde aanbiedingen
 //   node build/build.mjs --strict   faalt ook op lege verplichte velden (voor productie)
 //
@@ -178,6 +178,7 @@ const maakVars = (dict) => ({
   updates_min: upd.length ? String(Math.min(...upd)) : null,
   updates_max: upd.length ? String(Math.max(...upd)) : null,
   prijs_domein: upsells.eigen_domein ? euro(upsells.eigen_domein.prijs) : null,
+  merk: site.merk || "SalixCards",
   team_koop: String(offers.teams.koop),
   team_totaal: String(offers.teams.koop + offers.teams.gratis),
   team_betaalplan: String(offers.teams.betaalplan.vanaf_aantal),
@@ -347,6 +348,7 @@ for (const lang of TALEN) {
         const v = get(site, k);
         return v == null ? `<mark class="leeg">[${t("juridisch.leeg")}: ${k}]</mark>` : esc(v);
       })
+      .replace(/\{\{merk\}\}/g, () => esc(site.merk || "SalixCards"))
       .replace(/\{\{lang\}\}/g, lang)
       .replace(/\{\{html_lang\}\}/g, HTML_LANG[lang] || lang)
       .replace(/\{\{t:([\w.]+)\}\}/g, (_, k) => t(k))

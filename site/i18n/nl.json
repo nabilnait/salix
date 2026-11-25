@@ -1,24 +1,24 @@
 {
   "meta": {
-    "titel": "Salix · Eén tik en je contact staat in hun gsm",
+    "titel": "{merk} · Eén tik en je contact staat in hun gsm",
     "beschrijving": "Je visitekaartje als persoonlijke mini-site, met een NFC-kaart erbij. Eén tik op een gsm en je contact staat erin. Begin gratis met je Wallet-kaart.",
-    "start_titel": "Salix · Je visitekaartje gratis in je Wallet",
+    "start_titel": "{merk} · Je visitekaartje gratis in je Wallet",
     "start_beschrijving": "Scan je papieren visitekaartje en krijg gratis een digitale versie in je Apple of Google Wallet. In 1 minuut, zonder app.",
-    "404_titel": "Pagina niet gevonden · Salix",
-    "teams_titel": "Salix voor teams · Digitale visitekaartjes voor je hele team",
+    "404_titel": "Pagina niet gevonden · {merk}",
+    "teams_titel": "{merk} voor teams · Digitale visitekaartjes voor je hele team",
     "teams_beschrijving": "Een digitale visitekaart met NFC-kaart voor elke collega, in jullie huisstijl. {team_koop} kaarten, de {team_totaal}e gratis.",
-    "privacy_titel": "Privacyverklaring · Salix",
-    "voorwaarden_titel": "Algemene voorwaarden · Salix",
-    "bedankt_titel": "Bedankt · Salix",
-    "voorbeeld_titel": "Gratis voorbeeld van je kaart op maat · Salix",
+    "privacy_titel": "Privacyverklaring · {merk}",
+    "voorwaarden_titel": "Algemene voorwaarden · {merk}",
+    "bedankt_titel": "Bedankt · {merk}",
+    "voorbeeld_titel": "Gratis voorbeeld van je kaart op maat · {merk}",
     "voorbeeld_beschrijving": "Zie hoe jouw digitale visitekaart eruitziet in je eigen stijl. Binnen 48 uur, gratis. Je betaalt pas als je het goedkeurt.",
-    "bedankt_voorbeeld_titel": "Bedankt · Je voorbeeld is onderweg · Salix"
+    "bedankt_voorbeeld_titel": "Bedankt · Je voorbeeld is onderweg · {merk}"
   },
   "nav": {
     "skip": "Naar de inhoud",
     "hoofd": "Hoofdmenu",
     "menu": "Menu",
-    "home": "Salix, naar de startpagina",
+    "home": "{merk}, naar de startpagina",
     "werkt": "Zo werkt het",
     "prijzen": "Prijzen",
     "teams": "Voor teams",
@@ -34,18 +34,18 @@
     "cta": "Scan je visitekaartje, gratis",
     "cta_micro": "In 1 minuut een Wallet-kaart voor je iPhone of Android.",
     "cta2": "Direct bestellen",
-    "beeld_alt": "Echte Salix-kaart van Nabil Nait Oufakir, Naitvision, op een gsm",
+    "beeld_alt": "Echte {merk}-kaart van Nabil Nait Oufakir, Naitvision, op een gsm",
     "melding_titel": "Nabil Nait Oufakir",
     "melding_tekst": "Contact opslaan"
   },
   "bewijs": {
-    "titel": "Ze tikken al met Salix"
+    "titel": "Ze tikken al met {merk}"
   },
   "probleem": {
     "eyebrow": "Het probleem",
     "h2": "Je papieren kaartje belandt in een la.",
     "nu": "Zo gaat het nu",
-    "salix": "Met Salix",
+    "salix": "Met {merk}",
     "rij1_nu": "Je kaartje verdwijnt in een jaszak of de vuilbak.",
     "rij1_salix": "Je contact staat meteen in hun gsm, met je foto erbij.",
     "rij2_nu": "Je nummer wordt verkeerd overgetypt, of helemaal niet.",
@@ -73,7 +73,7 @@
     "h2": "Echte kaarten van echte klanten.",
     "sub": "Tik op een kaart om hem live te bekijken.",
     "bekijk": "Bekijk de kaart",
-    "alt": "Salix-kaart van {naam}"
+    "alt": "{merk}-kaart van {naam}"
   },
   "features": {
     "eyebrow": "Op je kaart",
@@ -149,7 +149,7 @@
     "q4": "Hoe lang duurt het?",
     "a4": "Je gratis Wallet-kaart heb je binnen een minuut. Je voorbeeld op maat binnen 48 uur. Na je goedkeuring heb je je NFC-kaart binnen {levering} werkdagen.",
     "q5": "Kan ik mijn eigen domein gebruiken?",
-    "a5": "Ja, bijvoorbeeld naam.jouwbedrijf.be. Dat zit in Signature en kan bij de andere pakketten voor +{prijs_domein}. Het domein blijft van jou. Zonder eigen domein staat je kaart op een Salix-adres met jouw naam.",
+    "a5": "Ja, bijvoorbeeld naam.jouwbedrijf.be. Dat zit in Signature en kan bij de andere pakketten voor +{prijs_domein}. Het domein blijft van jou. Zonder eigen domein staat je kaart op een {merk}-adres met jouw naam.",
     "q6": "Wat gebeurt er met mijn gegevens?",
     "a6": "De foto van je papieren kaartje wordt verwijderd zodra je gegevens zijn uitgelezen. Er staan geen cookies of trackers op je kaart. Je kan je gratis kaart en je gegevens altijd zelf verwijderen via de link in je mail.",
     "q7": "Kan ik mijn bestelling herroepen?",
@@ -158,7 +158,7 @@
     "a8": "Ja. Voor {team_koop} kaarten krijg je de {team_totaal}e gratis, en vanaf {team_betaalplan} stuks betaal je de helft nu en de helft bij levering.",
     "a8_link": "Vraag een teamofferte",
     "privacy_link": "Lees de privacyverklaring",
-    "q9": "Staat het logo van Salix op mijn kaart?",
+    "q9": "Staat het logo van {merk} op mijn kaart?",
     "a9": "Nee. Op je kaart staat alleen jouw logo, met je QR-code op de achterkant. Ook je site wordt volledig op maat gemaakt, in jouw stijl."
   },
   "slot": {
@@ -182,7 +182,7 @@
     "juridisch": "Juridisch",
     "privacy": "Privacy",
     "voorwaarden": "Voorwaarden",
-    "volg": "Volg Salix",
+    "volg": "Volg {merk}",
     "ondernemingsnummer": "Ondernemingsnummer",
     "btw": "Bijzondere vrijstellingsregeling kleine ondernemingen"
   },
@@ -200,7 +200,7 @@
     "h1_b": "Het hele team in hun gsm.",
     "sub": "Een kaart op maat voor elke collega, in jullie kleuren en met jullie logo. Ik regel alles, jij hebt één aanspreekpunt.",
     "cta": "Vraag een offerte",
-    "v_h2": "Waarom teams voor Salix kiezen.",
+    "v_h2": "Waarom teams voor {merk} kiezen.",
     "v1_titel": "{team_totaal} kaarten voor de prijs van {team_koop}",
     "v1_tekst": "Bestel je {team_koop} kaarten, dan krijg je de {team_totaal}e gratis.",
     "v2_titel": "In twee keer betalen",
@@ -295,7 +295,7 @@
     "faq.a4": "Je voorbeeld op maat heb je binnen 48 uur. Na je goedkeuring heb je je NFC-kaart binnen {levering} werkdagen.",
     "faq.a6": "Er staan geen cookies of trackers op je kaart. Je gegevens en je foto gebruik ik alleen om je kaart te maken, en je kan ze altijd laten verwijderen.",
     "slot.sub": "Begin met een gratis voorbeeld. Klaar voor meer? Bestel meteen je kaart op maat.",
-    "meta.start_titel": "Salix · Zie gratis hoe jouw digitale visitekaart eruitziet",
+    "meta.start_titel": "{merk} · Zie gratis hoe jouw digitale visitekaart eruitziet",
     "meta.start_beschrijving": "Stuur een foto en een paar zinnen en zie binnen 48 uur je digitale visitekaart in je eigen stijl. Gratis, je betaalt pas als je het goedkeurt.",
     "start.sub": "Stuur een foto en een paar zinnen, en zie binnen 48 uur hoe jouw kaart eruitziet. Gratis, je betaalt pas als je het goedkeurt.",
     "start.cta": "Vraag je gratis voorbeeld aan",

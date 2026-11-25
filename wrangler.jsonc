@@ -1,4 +1,4 @@
-// Salix op Cloudflare Workers: statische site (site/dist) + API-worker (/api/*).
+// SalixCards op Cloudflare Workers: statische site (site/dist) + API-worker (/api/*).
 // Workers Builds: root directory leeg, build command leeg,
 // deploy command: npx wrangler d1 migrations apply DB --remote && npx wrangler deploy
 // Setup en hoe je aanvragen bekijkt: docs/setup-api.md
@@ -33,7 +33,7 @@
   // nooit in deze repo. Zonder sleutel worden er geen mails verstuurd; aanvragen worden altijd bewaard in D1.
   // MAIL_FROM moet op een domein staan dat in Resend geverifieerd is.
   "vars": {
-    "MAIL_FROM": "Salix website <salix@naitvision.be>",
+    "MAIL_FROM": "SalixCards website <salix@naitvision.be>",
     "MAIL_TO": "info@naitvision.be"
   },
   // Max. 5 formulieren per minuut per IP

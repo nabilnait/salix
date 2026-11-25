@@ -4,7 +4,7 @@
 export interface Bijlage { naam: string; inhoud: ArrayBuffer }
 
 export interface Melding {
-  van: string;            // bv. "Salix website <salix@naitvision.be>" (domein moet geverifieerd zijn in Resend)
+  van: string;            // bv. "SalixCards website <salix@naitvision.be>" (domein moet geverifieerd zijn in Resend)
   aan: string;
   antwoordAan?: string | null;
   onderwerp: string;

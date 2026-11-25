@@ -13,7 +13,7 @@ function maak(metSleutel = true) {
     ASSETS: { fetch: async () => new Response("asset") },
     DB: { prepare: () => ({ bind: () => ({ run: async () => ({}) }) }) },
     FOTOS: { put: async () => {}, delete: async () => {} },
-    MAIL_FROM: "Salix website <salix@naitvision.be>",
+    MAIL_FROM: "SalixCards website <salix@naitvision.be>",
     MAIL_TO: "info@naitvision.be",
     ...(metSleutel ? { RESEND_API_KEY: "test" } : {}),
   };

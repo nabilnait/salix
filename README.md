@@ -1,6 +1,6 @@
-# Salix
+# SalixCards
 
-Marketingwebsite en verkoopfunnel voor Salix: digitale visitekaartjes met een NFC-kaart erbij.
+Marketingwebsite en verkoopfunnel voor SalixCards: digitale visitekaartjes met een NFC-kaart erbij.
 
 ## Mappen
 

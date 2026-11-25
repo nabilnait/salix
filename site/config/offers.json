@@ -175,7 +175,7 @@
   ],
   "gratis": {
     "wallet_basis": {
-      "naam": "Gratis Salix Wallet-kaart",
+      "naam": "Gratis SalixCards Wallet-kaart",
       "prijs": 0,
       "inhoud": [
         "wallet_pass",
@@ -186,7 +186,7 @@
         "geen portretfoto",
         "geen diensten- of venturesecties",
         "geen contactformulier",
-        "Salix-branding verplicht",
+        "SalixCards-branding verplicht",
         "wijzigen alleen via een nieuwe scan"
       ],
       "vervalt": false,

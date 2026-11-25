@@ -1,4 +1,4 @@
-// Salix · kleine verbeteringen bovenop de statische pagina. Zonder JS werkt alles ook.
+// SalixCards · kleine verbeteringen bovenop de statische pagina. Zonder JS werkt alles ook.
 (() => {
   const root = document.documentElement;
   const stil = matchMedia("(prefers-reduced-motion: reduce)").matches;

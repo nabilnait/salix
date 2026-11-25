@@ -1,24 +1,24 @@
 {
   "meta": {
-    "titel": "Salix · One tap and your contact is in their phone",
+    "titel": "{merk} · One tap and your contact is in their phone",
     "beschrijving": "Your business card as a personal mini-site, with an NFC card to go with it. One tap on a phone and your contact is saved. Start free with your Wallet card.",
-    "start_titel": "Salix · Your business card in your Wallet, free",
+    "start_titel": "{merk} · Your business card in your Wallet, free",
     "start_beschrijving": "Scan your paper business card and get a free digital version in Apple or Google Wallet. In 1 minute, no app needed.",
-    "404_titel": "Page not found · Salix",
-    "teams_titel": "Salix for teams · Digital business cards for your whole team",
+    "404_titel": "Page not found · {merk}",
+    "teams_titel": "{merk} for teams · Digital business cards for your whole team",
     "teams_beschrijving": "A digital business card with an NFC card for every colleague, in your brand style. {team_koop} cards, the {team_totaal}th one free.",
-    "privacy_titel": "Privacy policy · Salix",
-    "voorwaarden_titel": "Terms and conditions · Salix",
-    "bedankt_titel": "Thank you · Salix",
-    "voorbeeld_titel": "Free preview of your custom card · Salix",
+    "privacy_titel": "Privacy policy · {merk}",
+    "voorwaarden_titel": "Terms and conditions · {merk}",
+    "bedankt_titel": "Thank you · {merk}",
+    "voorbeeld_titel": "Free preview of your custom card · {merk}",
     "voorbeeld_beschrijving": "See what your digital business card looks like in your own style. Within 48 hours, free. You only pay once you approve it.",
-    "bedankt_voorbeeld_titel": "Thank you · Your preview is on its way · Salix"
+    "bedankt_voorbeeld_titel": "Thank you · Your preview is on its way · {merk}"
   },
   "nav": {
     "skip": "Skip to content",
     "hoofd": "Main menu",
     "menu": "Menu",
-    "home": "Salix, go to the home page",
+    "home": "{merk}, go to the home page",
     "werkt": "How it works",
     "prijzen": "Pricing",
     "teams": "For teams",
@@ -34,18 +34,18 @@
     "cta": "Scan your business card, free",
     "cta_micro": "A Wallet card for your iPhone or Android in 1 minute.",
     "cta2": "Order now",
-    "beeld_alt": "Real Salix card of Nabil Nait Oufakir, Naitvision, on a phone",
+    "beeld_alt": "Real {merk} card of Nabil Nait Oufakir, Naitvision, on a phone",
     "melding_titel": "Nabil Nait Oufakir",
     "melding_tekst": "Save contact"
   },
   "bewijs": {
-    "titel": "Already tapping with Salix"
+    "titel": "Already tapping with {merk}"
   },
   "probleem": {
     "eyebrow": "The problem",
     "h2": "Your paper card ends up in a drawer.",
     "nu": "How it goes now",
-    "salix": "With Salix",
+    "salix": "With {merk}",
     "rij1_nu": "Your card disappears into a coat pocket or the bin.",
     "rij1_salix": "Your contact is in their phone right away, photo included.",
     "rij2_nu": "Your number gets typed in wrong, or not at all.",
@@ -73,7 +73,7 @@
     "h2": "Real cards of real clients.",
     "sub": "Tap a card to see it live.",
     "bekijk": "View the card",
-    "alt": "Salix card of {naam}"
+    "alt": "{merk} card of {naam}"
   },
   "features": {
     "eyebrow": "On your card",
@@ -149,7 +149,7 @@
     "q4": "How long does it take?",
     "a4": "You get your free Wallet card within a minute. Your custom preview within 48 hours. After your approval, your NFC card arrives within {levering} working days.",
     "q5": "Can I use my own domain?",
-    "a5": "Yes, for example name.yourcompany.com. It's included in Signature and available with the other packages for +{prijs_domein}. The domain stays yours. Without your own domain, your card lives at a Salix address with your name.",
+    "a5": "Yes, for example name.yourcompany.com. It's included in Signature and available with the other packages for +{prijs_domein}. The domain stays yours. Without your own domain, your card lives at a {merk} address with your name.",
     "q6": "What happens to my data?",
     "a6": "The photo of your paper card is deleted as soon as your details have been read. There are no cookies or trackers on your card. You can always delete your free card and your data yourself via the link in your email.",
     "q7": "Can I cancel my order?",
@@ -158,7 +158,7 @@
     "a8": "Yes. Order {team_koop} cards and get the {team_totaal}th one free, and from {team_betaalplan} cards you pay half now and half on delivery.",
     "a8_link": "Request a team quote",
     "privacy_link": "Read the privacy policy",
-    "q9": "Is the Salix logo on my card?",
+    "q9": "Is the {merk} logo on my card?",
     "a9": "No. Your card carries only your logo, with your QR code on the back. Your site is fully custom-made too, in your style."
   },
   "slot": {
@@ -182,7 +182,7 @@
     "juridisch": "Legal",
     "privacy": "Privacy",
     "voorwaarden": "Terms",
-    "volg": "Follow Salix",
+    "volg": "Follow {merk}",
     "ondernemingsnummer": "Company number",
     "btw": "Special VAT exemption scheme for small businesses"
   },
@@ -200,7 +200,7 @@
     "h1_b": "The whole team in their phones.",
     "sub": "A custom card for every colleague, in your colours and with your logo. I handle everything, you have one point of contact.",
     "cta": "Request a quote",
-    "v_h2": "Why teams choose Salix.",
+    "v_h2": "Why teams choose {merk}.",
     "v1_titel": "{team_totaal} cards for the price of {team_koop}",
     "v1_tekst": "Order {team_koop} cards and get the {team_totaal}th one free.",
     "v2_titel": "Pay in two parts",
@@ -295,7 +295,7 @@
     "faq.a4": "You get your custom preview within 48 hours. After your approval, your NFC card arrives within {levering} working days.",
     "faq.a6": "There are no cookies or trackers on your card. I only use your details and your photo to make your card, and you can always have them deleted.",
     "slot.sub": "Start with a free preview. Ready for more? Order your custom card right away.",
-    "meta.start_titel": "Salix · See what your digital business card looks like, free",
+    "meta.start_titel": "{merk} · See what your digital business card looks like, free",
     "meta.start_beschrijving": "Send a photo and a few sentences and see your digital business card in your own style within 48 hours. Free, you only pay once you approve it.",
     "start.sub": "Send a photo and a few sentences, and see what your card looks like within 48 hours. Free, you only pay once you approve it.",
     "start.cta": "Request your free preview",

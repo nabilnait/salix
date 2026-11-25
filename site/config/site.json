@@ -1,6 +1,6 @@
 {
   "$comment": "Algemene site-instellingen. Velden met null moeten ingevuld zijn voor productie: de strikte build faalt erop. Ze worden niet verzonnen, omdat ze wettelijk verplicht of extern zijn.",
-  "merk": "Salix",
+  "merk": "SalixCards",
   "domein": "salix.naitvision.be",
   "basispagina_pad": "/p/",
   "talen": [

@@ -2,11 +2,11 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { resendBody } from "../src/resend.ts";
 
-const basis = { van: "Salix website <salix@naitvision.be>", aan: "info@naitvision.be", onderwerp: "Teamaanvraag: Café Één", tekst: "Regel 1\nRegel 2" };
+const basis = { van: "SalixCards website <salix@naitvision.be>", aan: "info@naitvision.be", onderwerp: "Teamaanvraag: Café Één", tekst: "Regel 1\nRegel 2" };
 
 test("velden voor Resend", () => {
   const b = resendBody({ ...basis, antwoordAan: "klant@voorbeeld.be" });
-  assert.equal(b.from, "Salix website <salix@naitvision.be>");
+  assert.equal(b.from, "SalixCards website <salix@naitvision.be>");
   assert.deepEqual(b.to, ["info@naitvision.be"]);
   assert.equal(b.reply_to, "klant@voorbeeld.be");
   assert.equal(b.subject, "Teamaanvraag: Café Één");
