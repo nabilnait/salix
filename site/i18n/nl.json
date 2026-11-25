@@ -30,7 +30,7 @@
     "bewijs": "60+ professionals gingen je voor",
     "h1_a": "Eén tik.",
     "h1_b": "Je contact staat in hun gsm.",
-    "sub": "Je visitekaartje als persoonlijke mini-site, met een NFC-kaart erbij. Jij stuurt een foto en drie zinnen, ik maak de rest.",
+    "sub": "Je visitekaartje als persoonlijke mini-site, met een NFC-kaart met jouw logo. Jij stuurt een foto en drie zinnen, ik maak de rest.",
     "cta": "Scan je visitekaartje, gratis",
     "cta_micro": "In 1 minuut een Wallet-kaart voor je iPhone of Android.",
     "cta2": "Direct bestellen",
@@ -82,8 +82,8 @@
     "f1_tekst": "Je naam, nummer, functie en foto komen in één keer in hun contacten.",
     "f2_titel": "WhatsApp in één tik",
     "f2_tekst": "Ze sturen je meteen een bericht, zonder eerst je nummer op te slaan.",
-    "f3_titel": "Delen via QR",
-    "f3_tekst": "Geen NFC bij de hand? Ze scannen gewoon je code.",
+    "f3_titel": "Jouw logo, jouw QR",
+    "f3_tekst": "Op je kaart staat alleen jouw logo, met je QR-code op de achterkant. Geen NFC bij de hand? Ze scannen gewoon de code.",
     "f4_titel": "In je Wallet",
     "f4_tekst": "Je kaart staat naast je bankkaart. Altijd bij de hand, ook zonder internet.",
     "f5_titel": "Aanpassingen inbegrepen",
@@ -157,7 +157,9 @@
     "q8": "Kan ik bestellen voor mijn team?",
     "a8": "Ja. Voor {team_koop} kaarten krijg je de {team_totaal}e gratis, en vanaf {team_betaalplan} stuks betaal je de helft nu en de helft bij levering.",
     "a8_link": "Vraag een teamofferte",
-    "privacy_link": "Lees de privacyverklaring"
+    "privacy_link": "Lees de privacyverklaring",
+    "q9": "Staat het logo van Salix op mijn kaart?",
+    "a9": "Nee. Op je kaart staat alleen jouw logo, met je QR-code op de achterkant. Ook je site wordt volledig op maat gemaakt, in jouw stijl."
   },
   "slot": {
     "h2": "Je volgende contact hoeft je nummer niet over te typen.",
@@ -209,7 +211,8 @@
     "r_sub": "Voorbeeld voor een team van {team_totaal}: je betaalt er {team_koop}.",
     "r_kaarten": "{team_totaal} kaarten",
     "f_h2": "Vraag een offerte",
-    "f_sub": "Vertel me kort wie jullie zijn. Je krijgt binnen 2 werkdagen een voorstel op maat."
+    "f_sub": "Vertel me kort wie jullie zijn. Je krijgt binnen 2 werkdagen een voorstel op maat.",
+    "kaart_logo": "Jouw logo"
   },
   "formulier": {
     "naam": "Je naam",

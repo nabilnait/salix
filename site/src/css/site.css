@@ -497,3 +497,15 @@ mark.leeg { background: var(--paper-3); color: var(--ink); padding: 0 6px; borde
 .keuze label:has(input:checked) { background: var(--ink); color: var(--on-ink); }
 .keuze label:has(input:focus-visible) { outline: 2px solid var(--ink); outline-offset: 3px; }
 .stap-link { margin-top: 4px; font-weight: 500; text-underline-offset: 4px; display: inline-block; padding: 10px 0; }
+
+/* ---------- Kaart: alleen het logo van de klant (voorkant), QR-code (achterkant) ---------- */
+.nfc-kaart { display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; place-items: center; padding: 0; }
+.kaart-logo { width: 38%; height: auto; aspect-ratio: 154 / 94; fill: var(--on-ink); }
+.kaart-tekst { font: 400 clamp(1.5rem, 4vw, 2rem)/1 var(--serif); color: var(--on-ink); opacity: .9; }
+.kaart-achter { background: var(--paper-2); }
+.kaart-qr { width: 34%; aspect-ratio: 1; fill: var(--ink); }
+.team-kaart.k1 { background: #3f3f46; color: var(--on-ink); }
+.team-kaart.k2 { background: var(--ink); }
+.team-kaart.k3.kaart-achter { background: var(--paper-2); }
+.team-kaart:not(.kaart-achter) { place-items: start; padding: 18px 22px; }
+.team-kaart:not(.kaart-achter) .kaart-tekst { font-size: clamp(1.125rem, 3vw, 1.5rem); }

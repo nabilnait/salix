@@ -30,7 +30,7 @@
     "bewijs": "Déjà plus de 60 professionnels conquis",
     "h1_a": "Un geste.",
     "h1_b": "Votre contact est dans leur GSM.",
-    "sub": "Votre carte de visite en mini-site personnelle, avec une carte NFC en prime. Vous m'envoyez une photo et trois phrases, je m'occupe du reste.",
+    "sub": "Votre carte de visite en mini-site personnelle, avec une carte NFC à votre logo. Vous m'envoyez une photo et trois phrases, je m'occupe du reste.",
     "cta": "Scannez votre carte, c'est gratuit",
     "cta_micro": "Une carte Wallet pour votre iPhone ou Android en 1 minute.",
     "cta2": "Commander",
@@ -82,8 +82,8 @@
     "f1_tekst": "Votre nom, numéro, fonction et photo arrivent d'un coup dans leurs contacts.",
     "f2_titel": "WhatsApp en un geste",
     "f2_tekst": "On vous écrit tout de suite, sans devoir enregistrer votre numéro d'abord.",
-    "f3_titel": "Partage par QR",
-    "f3_tekst": "Pas de NFC sous la main ? Il suffit de scanner votre code.",
+    "f3_titel": "Votre logo, votre QR",
+    "f3_tekst": "Votre carte porte uniquement votre logo, avec votre code QR au dos. Pas de NFC sous la main ? Il suffit de scanner le code.",
     "f4_titel": "Dans votre Wallet",
     "f4_tekst": "Votre carte à côté de votre carte bancaire. Toujours sous la main, même hors ligne.",
     "f5_titel": "Modifications incluses",
@@ -157,7 +157,9 @@
     "q8": "Puis-je commander pour mon équipe ?",
     "a8": "Oui. Pour {team_koop} cartes, la {team_totaal}e est offerte, et à partir de {team_betaalplan} cartes vous payez la moitié maintenant et la moitié à la livraison.",
     "a8_link": "Demander un devis équipe",
-    "privacy_link": "Lire la politique de confidentialité"
+    "privacy_link": "Lire la politique de confidentialité",
+    "q9": "Le logo de Salix figure-t-il sur ma carte ?",
+    "a9": "Non. Votre carte porte uniquement votre logo, avec votre code QR au dos. Votre site est lui aussi entièrement sur mesure, dans votre style."
   },
   "slot": {
     "h2": "Votre prochain contact n'aura plus à recopier votre numéro.",
@@ -209,7 +211,8 @@
     "r_sub": "Exemple pour une équipe de {team_totaal} : vous en payez {team_koop}.",
     "r_kaarten": "{team_totaal} cartes",
     "f_h2": "Demander un devis",
-    "f_sub": "Dites-moi brièvement qui vous êtes. Vous recevez une proposition sur mesure dans les 2 jours ouvrables."
+    "f_sub": "Dites-moi brièvement qui vous êtes. Vous recevez une proposition sur mesure dans les 2 jours ouvrables.",
+    "kaart_logo": "Votre logo"
   },
   "formulier": {
     "naam": "Votre nom",

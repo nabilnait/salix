@@ -30,7 +30,7 @@
     "bewijs": "60+ professionals went before you",
     "h1_a": "One tap.",
     "h1_b": "Your contact is in their phone.",
-    "sub": "Your business card as a personal mini-site, with an NFC card to go with it. You send a photo and three sentences, I do the rest.",
+    "sub": "Your business card as a personal mini-site, with an NFC card carrying your logo. You send a photo and three sentences, I do the rest.",
     "cta": "Scan your business card, free",
     "cta_micro": "A Wallet card for your iPhone or Android in 1 minute.",
     "cta2": "Order now",
@@ -82,8 +82,8 @@
     "f1_tekst": "Your name, number, job title and photo go into their contacts in one go.",
     "f2_titel": "WhatsApp in one tap",
     "f2_tekst": "They can message you right away, without saving your number first.",
-    "f3_titel": "Share by QR",
-    "f3_tekst": "No NFC at hand? They simply scan your code.",
+    "f3_titel": "Your logo, your QR",
+    "f3_tekst": "Your card carries only your logo, with your QR code on the back. No NFC at hand? They simply scan the code.",
     "f4_titel": "In your Wallet",
     "f4_tekst": "Your card sits next to your bank card. Always at hand, even offline.",
     "f5_titel": "Updates included",
@@ -157,7 +157,9 @@
     "q8": "Can I order for my team?",
     "a8": "Yes. Order {team_koop} cards and get the {team_totaal}th one free, and from {team_betaalplan} cards you pay half now and half on delivery.",
     "a8_link": "Request a team quote",
-    "privacy_link": "Read the privacy policy"
+    "privacy_link": "Read the privacy policy",
+    "q9": "Is the Salix logo on my card?",
+    "a9": "No. Your card carries only your logo, with your QR code on the back. Your site is fully custom-made too, in your style."
   },
   "slot": {
     "h2": "Your next contact won't have to type in your number.",
@@ -209,7 +211,8 @@
     "r_sub": "Example for a team of {team_totaal}: you pay for {team_koop}.",
     "r_kaarten": "{team_totaal} cards",
     "f_h2": "Request a quote",
-    "f_sub": "Tell me briefly who you are. You'll get a tailored proposal within 2 working days."
+    "f_sub": "Tell me briefly who you are. You'll get a tailored proposal within 2 working days.",
+    "kaart_logo": "Your logo"
   },
   "formulier": {
     "naam": "Your name",
