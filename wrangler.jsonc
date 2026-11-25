@@ -29,9 +29,13 @@
   "r2_buckets": [
     { "binding": "FOTOS", "bucket_name": "salix-fotos" }
   ],
-  // Mailmeldingen staan uit tot er een eigen domein is. Dan komen hier terug:
-  // "send_email": [{ "name": "MAILER", "destination_address": "<inbox>" }],
-  // "vars": { "MAIL_FROM": "website@<domein>", "MAIL_TO": "<inbox>" },
+  // Meldingen via Resend. RESEND_API_KEY is een geheim (dashboard → salix → Settings → Variables and Secrets),
+  // nooit in deze repo. Zonder sleutel worden er geen mails verstuurd; aanvragen worden altijd bewaard in D1.
+  // MAIL_FROM moet op een domein staan dat in Resend geverifieerd is.
+  "vars": {
+    "MAIL_FROM": "Salix website <salix@naitvision.be>",
+    "MAIL_TO": "info@naitvision.be"
+  },
   // Max. 5 formulieren per minuut per IP
   "ratelimits": [
     { "name": "RL", "namespace_id": "1002", "simple": { "limit": 5, "period": 60 } }

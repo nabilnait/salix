@@ -1,15 +1,14 @@
 // Salix API-worker. Serveert ook de statische site (site/dist) via ASSETS.
 // Routes: POST /api/teams, POST /api/voorbeeld (met foto naar R2). Alles onder /api/ komt hier eerst langs (run_worker_first).
 
-import { EmailMessage } from "cloudflare:email";
-import { isBot, valideerTeams, valideerVoorbeeld, valideerFoto, MIME, MAX_FOTO, type Velden, type TeamAanvraag } from "./validate.ts";
-import { bouwMime } from "./mail.ts";
+import { isBot, valideerTeams, valideerVoorbeeld, valideerFoto, MIME, MAX_FOTO, type Velden, type TeamAanvraag, type VoorbeeldAanvraag } from "./validate.ts";
+import { stuur } from "./resend.ts";
 
 export interface Env {
   ASSETS: { fetch(req: Request): Promise<Response> };
   DB: D1Database;
   FOTOS?: { put(key: string, v: ArrayBuffer, o?: { httpMetadata?: { contentType?: string } }): Promise<unknown>; delete(key: string): Promise<void> };
-  MAILER?: { send(m: EmailMessage): Promise<void> };
+  RESEND_API_KEY?: string; // geheim (Cloudflare → Variables and Secrets), nooit in de repo
   RL?: { limit(o: { key: string }): Promise<{ success: boolean }> };
   MAIL_FROM?: string;
   MAIL_TO?: string;
@@ -37,7 +36,7 @@ export default {
     }
     if (url.pathname === "/api/voorbeeld" || url.pathname === "/api/voorbeeld/") {
       if (req.method !== "POST") return new Response("Method Not Allowed", { status: 405, headers: { Allow: "POST" } });
-      return voorbeeld(req, env, url);
+      return voorbeeld(req, env, ctx, url);
     }
     if (url.pathname.startsWith("/api/")) return json({ ok: false, fout: "niet_gevonden" }, 404);
     return env.ASSETS.fetch(req);
@@ -91,7 +90,7 @@ async function teams(req: Request, env: Env, ctx: Ctx, url: URL): Promise<Respon
   return gelukt(wilJson, lang);
 }
 
-async function voorbeeld(req: Request, env: Env, url: URL): Promise<Response> {
+async function voorbeeld(req: Request, env: Env, ctx: Ctx, url: URL): Promise<Response> {
   const wilJson = (req.headers.get("Accept") || "").includes("application/json");
   const lang = taalVan(url);
   const bedankt = `${pre(lang)}/bedankt-voorbeeld/`;
@@ -139,11 +138,15 @@ async function voorbeeld(req: Request, env: Env, url: URL): Promise<Response> {
     await env.FOTOS.delete(key).catch(() => {});
     return terug("server");
   }
+  ctx.waitUntil(meldVoorbeeld(env, url.host, id, d, lang, { naam: `foto-${d.naam}.${f.data}`, inhoud: fotoBuf! }).catch((e) => console.error("Melding mislukt", e)));
   return wilJson ? json({ ok: true }, 200) : new Response(null, { status: 303, headers: { Location: bedankt } });
 }
 
+/** Meldingen staan uit zolang RESEND_API_KEY, MAIL_FROM of MAIL_TO ontbreekt. Een mislukte mail breekt de aanvraag nooit. */
+const meldingAan = (env: Env) => Boolean(env.RESEND_API_KEY && env.MAIL_FROM && env.MAIL_TO);
+
 async function meld(env: Env, host: string, id: string, d: TeamAanvraag): Promise<void> {
-  if (!env.MAILER || !env.MAIL_FROM || !env.MAIL_TO) return;
+  if (!meldingAan(env)) return;
   const tekst = [
     `Nieuwe teamaanvraag via ${host}`,
     "",
@@ -160,16 +163,37 @@ async function meld(env: Env, host: string, id: string, d: TeamAanvraag): Promis
     `Lead-id: ${id}`,
     "Antwoorden op deze mail gaat rechtstreeks naar de aanvrager.",
   ].join("\n");
-  const raw = bouwMime({
-    van: env.MAIL_FROM,
-    vanNaam: "Salix website",
-    aan: env.MAIL_TO,
-    antwoordAan: d.email,
-    onderwerp: `Teamaanvraag: ${d.bedrijf} (${d.aantal} personen)`,
-    tekst,
-    domein: env.MAIL_FROM.split("@")[1] || host,
+  await stuur(env.RESEND_API_KEY!, {
+    van: env.MAIL_FROM!, aan: env.MAIL_TO!, antwoordAan: d.email,
+    onderwerp: `Teamaanvraag: ${d.bedrijf} (${d.aantal} personen)`, tekst,
   });
-  await env.MAILER.send(new EmailMessage(env.MAIL_FROM, env.MAIL_TO, raw));
+}
+
+async function meldVoorbeeld(env: Env, host: string, id: string, d: VoorbeeldAanvraag, lang: string, foto: { naam: string; inhoud: ArrayBuffer }): Promise<void> {
+  if (!meldingAan(env)) return;
+  const tekst = [
+    `Nieuwe aanvraag voor een gratis voorbeeld via ${host} (${lang.toUpperCase()})`,
+    "",
+    `Naam:      ${d.naam}`,
+    `Functie:   ${d.functie}`,
+    `Bedrijf:   ${d.bedrijf ?? "-"}`,
+    `E-mail:    ${d.email}`,
+    `Telefoon:  ${d.telefoon ?? "-"}`,
+    `Sturen via: ${d.contact_voorkeur === "whatsapp" ? "WhatsApp" : "e-mail"}`,
+    `Website:   ${d.website ?? "-"}`,
+    `Bron:      ${d.src ?? "-"}   Ref: ${d.ref ?? "-"}`,
+    "",
+    d.wensen ? `Stijl/wensen:\n${d.wensen}` : "Geen wensen opgegeven.",
+    "",
+    "De portretfoto zit als bijlage bij deze mail (en staat ook in R2).",
+    `Lead-id: ${id}`,
+    "Belofte: voorbeeld binnen 48 uur.",
+  ].join("\n");
+  await stuur(env.RESEND_API_KEY!, {
+    van: env.MAIL_FROM!, aan: env.MAIL_TO!, antwoordAan: d.email,
+    onderwerp: `Gratis voorbeeld: ${d.naam} (${d.functie})`, tekst,
+    bijlagen: [foto],
+  });
 }
 
 async function leesVelden(req: Request): Promise<Velden | null> {

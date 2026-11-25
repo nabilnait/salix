@@ -49,11 +49,20 @@ Een aanvraag als behandeld markeren:
 UPDATE leads SET status = 'preview_verstuurd' WHERE email = 'naam@voorbeeld.be';
 ```
 
-## Later: mailmeldingen (zodra er een domein is)
+## Mailmeldingen (Resend)
 
-- [ ] Domein op Cloudflare, **Email Routing** aan, je inbox toegevoegd en geverifieerd.
-- [ ] Stuur me het domein en het inboxadres. Ik zet `send_email` en `MAIL_FROM`/`MAIL_TO` terug in `wrangler.jsonc`;
-      de code voor de mail staat al klaar en is getest.
+Bij elke teamaanvraag en elk gratis voorbeeld krijg je een mail op `info@naitvision.be`, van `salix@naitvision.be`.
+Antwoorden gaat rechtstreeks naar de aanvrager. Bij een voorbeeld zit de portretfoto als bijlage.
+
+Eenmalig instellen:
+- [ ] In Resend: controleer dat **naitvision.be** bij Domains op *Verified* staat (dat is zo als je naitvision-site al via Resend mailt).
+- [ ] In Resend: API Keys → **Create API key** → naam `salix-worker`, permission **Sending access**, domein `naitvision.be`.
+- [ ] In Cloudflare: Workers & Pages → **salix** → Settings → **Variables and Secrets** → Add →
+      type **Secret**, naam `RESEND_API_KEY`, waarde = de sleutel → Deploy/Save.
+      Plak de sleutel **nergens anders** (niet in de chat, niet in de repo).
+
+Zonder sleutel verstuurt de worker niets; aanvragen worden altijd bewaard in D1.
+Lukt een mail niet, dan zie je dat in Cloudflare → salix → **Logs** ("Melding mislukt").
 
 ## Hoe het formulier beschermd is
 
